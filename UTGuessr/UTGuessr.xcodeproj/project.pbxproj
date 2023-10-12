@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		982F5C2A2AD762660082EDAF /* tower.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 982F5C292AD762660082EDAF /* tower.jpeg */; };
+		98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C592AD74BB600878939 /* FiraSans-Regular.ttf */; };
+		98BE8C6C2AD74BB800878939 /* FiraSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5A2AD74BB600878939 /* FiraSans-Light.ttf */; };
+		98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5B2AD74BB600878939 /* FiraSans-ExtraBold.ttf */; };
+		98BE8C6E2AD74BB800878939 /* FiraSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5C2AD74BB600878939 /* FiraSans-Italic.ttf */; };
+		98BE8C6F2AD74BB800878939 /* FiraSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5D2AD74BB600878939 /* FiraSans-Black.ttf */; };
+		98BE8C702AD74BB800878939 /* FiraSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5E2AD74BB600878939 /* FiraSans-ThinItalic.ttf */; };
+		98BE8C712AD74BB800878939 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C5F2AD74BB700878939 /* FiraSans-SemiBold.ttf */; };
+		98BE8C722AD74BB800878939 /* FiraSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C602AD74BB700878939 /* FiraSans-ExtraLight.ttf */; };
+		98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C612AD74BB700878939 /* FiraSans-MediumItalic.ttf */; };
+		98BE8C742AD74BB800878939 /* FiraSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C622AD74BB700878939 /* FiraSans-SemiBoldItalic.ttf */; };
+		98BE8C752AD74BB800878939 /* FiraSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C632AD74BB700878939 /* FiraSans-ExtraLightItalic.ttf */; };
+		98BE8C762AD74BB800878939 /* FiraSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C642AD74BB700878939 /* FiraSans-Bold.ttf */; };
+		98BE8C772AD74BB800878939 /* FiraSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C652AD74BB700878939 /* FiraSans-BlackItalic.ttf */; };
+		98BE8C782AD74BB800878939 /* FiraSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C662AD74BB700878939 /* FiraSans-LightItalic.ttf */; };
+		98BE8C792AD74BB800878939 /* FiraSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C672AD74BB700878939 /* FiraSans-ExtraBoldItalic.ttf */; };
+		98BE8C7A2AD74BB800878939 /* FiraSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C682AD74BB700878939 /* FiraSans-Medium.ttf */; };
+		98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */; };
+		98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */; };
+		98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8C7D2AD74EAD00878939 /* Game.swift */; };
 		FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */; };
 		FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */; };
 		FACD56832ACF6E23004E36E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56822ACF6E23004E36E6 /* ViewController.swift */; };
@@ -18,6 +38,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		982F5C292AD762660082EDAF /* tower.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tower.jpeg; sourceTree = "<group>"; };
+		98BE8C592AD74BB600878939 /* FiraSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.ttf"; sourceTree = "<group>"; };
+		98BE8C5A2AD74BB600878939 /* FiraSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.ttf"; sourceTree = "<group>"; };
+		98BE8C5B2AD74BB600878939 /* FiraSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		98BE8C5C2AD74BB600878939 /* FiraSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Italic.ttf"; sourceTree = "<group>"; };
+		98BE8C5D2AD74BB600878939 /* FiraSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Black.ttf"; sourceTree = "<group>"; };
+		98BE8C5E2AD74BB600878939 /* FiraSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C5F2AD74BB700878939 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		98BE8C602AD74BB700878939 /* FiraSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		98BE8C612AD74BB700878939 /* FiraSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C622AD74BB700878939 /* FiraSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C632AD74BB700878939 /* FiraSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C642AD74BB700878939 /* FiraSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Bold.ttf"; sourceTree = "<group>"; };
+		98BE8C652AD74BB700878939 /* FiraSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C662AD74BB700878939 /* FiraSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C672AD74BB700878939 /* FiraSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C682AD74BB700878939 /* FiraSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Medium.ttf"; sourceTree = "<group>"; };
+		98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Thin.ttf"; sourceTree = "<group>"; };
+		98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		98BE8C7D2AD74EAD00878939 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FACD567B2ACF6E23004E36E6 /* UTGuessr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTGuessr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +81,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98BE8C582AD74B8E00878939 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				98BE8C5D2AD74BB600878939 /* FiraSans-Black.ttf */,
+				98BE8C652AD74BB700878939 /* FiraSans-BlackItalic.ttf */,
+				98BE8C642AD74BB700878939 /* FiraSans-Bold.ttf */,
+				98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */,
+				98BE8C5B2AD74BB600878939 /* FiraSans-ExtraBold.ttf */,
+				98BE8C672AD74BB700878939 /* FiraSans-ExtraBoldItalic.ttf */,
+				98BE8C602AD74BB700878939 /* FiraSans-ExtraLight.ttf */,
+				98BE8C632AD74BB700878939 /* FiraSans-ExtraLightItalic.ttf */,
+				98BE8C5C2AD74BB600878939 /* FiraSans-Italic.ttf */,
+				98BE8C5A2AD74BB600878939 /* FiraSans-Light.ttf */,
+				98BE8C662AD74BB700878939 /* FiraSans-LightItalic.ttf */,
+				98BE8C682AD74BB700878939 /* FiraSans-Medium.ttf */,
+				98BE8C612AD74BB700878939 /* FiraSans-MediumItalic.ttf */,
+				98BE8C592AD74BB600878939 /* FiraSans-Regular.ttf */,
+				98BE8C5F2AD74BB700878939 /* FiraSans-SemiBold.ttf */,
+				98BE8C622AD74BB700878939 /* FiraSans-SemiBoldItalic.ttf */,
+				98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */,
+				98BE8C5E2AD74BB600878939 /* FiraSans-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FACD56722ACF6E23004E36E6 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +125,7 @@
 		FACD567D2ACF6E23004E36E6 /* UTGuessr */ = {
 			isa = PBXGroup;
 			children = (
+				98BE8C582AD74B8E00878939 /* Fonts */,
 				FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */,
 				FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */,
 				FACD56822ACF6E23004E36E6 /* ViewController.swift */,
@@ -67,6 +133,7 @@
 				FACD56892ACF6E25004E36E6 /* LaunchScreen.storyboard */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
+				982F5C292AD762660082EDAF /* tower.jpeg */,
 			);
 			path = UTGuessr;
 			sourceTree = "<group>";
@@ -77,6 +144,7 @@
 				FACD56952ACF7400004E36E6 /* GameViewController.swift */,
 				FACD56922ACF700C004E36E6 /* CountdownViewController.swift */,
 				FACD56842ACF6E23004E36E6 /* Main.storyboard */,
+				98BE8C7D2AD74EAD00878939 /* Game.swift */,
 			);
 			path = Gameplay;
 			sourceTree = "<group>";
@@ -140,8 +208,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				FACD568B2ACF6E25004E36E6 /* LaunchScreen.storyboard in Resources */,
+				98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */,
 				FACD56882ACF6E25004E36E6 /* Assets.xcassets in Resources */,
+				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
+				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
+				98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */,
+				98BE8C6E2AD74BB800878939 /* FiraSans-Italic.ttf in Resources */,
+				98BE8C6C2AD74BB800878939 /* FiraSans-Light.ttf in Resources */,
+				98BE8C7A2AD74BB800878939 /* FiraSans-Medium.ttf in Resources */,
+				98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */,
+				98BE8C752AD74BB800878939 /* FiraSans-ExtraLightItalic.ttf in Resources */,
 				FACD56862ACF6E23004E36E6 /* Main.storyboard in Resources */,
+				98BE8C762AD74BB800878939 /* FiraSans-Bold.ttf in Resources */,
+				98BE8C6F2AD74BB800878939 /* FiraSans-Black.ttf in Resources */,
+				98BE8C792AD74BB800878939 /* FiraSans-ExtraBoldItalic.ttf in Resources */,
+				98BE8C772AD74BB800878939 /* FiraSans-BlackItalic.ttf in Resources */,
+				98BE8C712AD74BB800878939 /* FiraSans-SemiBold.ttf in Resources */,
+				98BE8C722AD74BB800878939 /* FiraSans-ExtraLight.ttf in Resources */,
+				98BE8C782AD74BB800878939 /* FiraSans-LightItalic.ttf in Resources */,
+				982F5C2A2AD762660082EDAF /* tower.jpeg in Resources */,
+				98BE8C742AD74BB800878939 /* FiraSans-SemiBoldItalic.ttf in Resources */,
+				98BE8C702AD74BB800878939 /* FiraSans-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FACD56962ACF7400004E36E6 /* GameViewController.swift in Sources */,
+				98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */,
 				FACD56932ACF700C004E36E6 /* CountdownViewController.swift in Sources */,
 				FACD56832ACF6E23004E36E6 /* ViewController.swift in Sources */,
 				FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */,
@@ -316,6 +404,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +433,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
