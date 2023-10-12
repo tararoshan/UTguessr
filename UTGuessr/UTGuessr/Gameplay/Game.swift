@@ -10,7 +10,7 @@ import CoreLocation
 
 class Game {
     let NUM_ROUNDS:Int = 5
-    let MAX_ROUND_SCORE:Int = 3000
+    let MAX_ROUND_SCORE:Int = 1000
     
     var roundScores:[Int]
     var roundImagesAndLocations:[ImageAndLocation]
@@ -30,7 +30,7 @@ class Game {
         
         // For now, populate with dummy values
         for _ in 1...5 {
-            self.roundImagesAndLocations.append(ImageAndLocation(image: "", location: CLLocationCoordinate2DMake(30.293307, -97.741870)))
+            self.roundImagesAndLocations.append(ImageAndLocation(image: "", location: CLLocationCoordinate2DMake(30.2862, -97.7394)))
         }
     }
     

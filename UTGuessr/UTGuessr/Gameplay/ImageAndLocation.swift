@@ -10,7 +10,7 @@ import CoreLocation
 
 class ImageAndLocation {
     
-    // Dummy type
+    // Dummy type -- should be UIImage
     let image:String
     let location:CLLocationCoordinate2D
     

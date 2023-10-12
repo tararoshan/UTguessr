@@ -17,11 +17,12 @@ class PostRoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.setHidesBackButton(true, animated: true)
         self.scoreLabel.text = score
     }
 
     @IBAction func nextRoundPressed(_ sender: Any) {
         // Segue back to the Game View Controller
-        performSegue(withIdentifier: segueToGameIdentifier, sender: nil)
+        self.navigationController!.popViewController(animated: true)
     }
 }

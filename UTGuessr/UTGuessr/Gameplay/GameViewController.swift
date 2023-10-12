@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
     
     var newGame:Bool = true
     
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         game = Game()
@@ -27,6 +29,10 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        // Remove any previous pins
+        self.gameMap.removeAnnotations(self.gameMap.annotations)
+        self.image.layer.cornerRadius = 8.0
         
         // Log the round
         print("Current round:", self.game!.currentRound)
@@ -43,6 +49,7 @@ class GameViewController: UIViewController {
             height: fabs(corner1.y - corner2.y))
         
         gameMap.setVisibleMapRect(mapRect, animated: false)
+        gameMap.pointOfInterestFilter = .excludingAll
         
         // Add gesture recognizer
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(self.mapTapPress(_:)))
@@ -84,6 +91,12 @@ class GameViewController: UIViewController {
         if (segue.identifier == segueToPostRoundIdentifier),
            let postRoundVC = segue.destination as? PostRoundViewController {
             postRoundVC.score = String(self.game!.roundScores[self.game!.currentRound - 2])
+        }
+        
+        // Segueing to Post Game screen
+        if (segue.identifier == segueToPostGameIdentifier),
+           let postGameVC = segue.destination as? PostGameViewController {
+            postGameVC.score = String(self.game!.roundScores.reduce(0, +))
         }
     }
 }
