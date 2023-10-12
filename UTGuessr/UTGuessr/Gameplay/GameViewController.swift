@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var gameMap: MKMapView!
     var userCoordinate: CLLocationCoordinate2D?
@@ -21,10 +21,14 @@ class GameViewController: UIViewController {
     var newGame:Bool = true
     
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         game = Game()
+        
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 6.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +36,7 @@ class GameViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Remove any previous pins
         self.gameMap.removeAnnotations(self.gameMap.annotations)
-        self.image.layer.cornerRadius = 8.0
+        self.image.layer.cornerRadius = 15.0
         
         // Log the round
         print("Current round:", self.game!.currentRound)
@@ -98,5 +102,9 @@ class GameViewController: UIViewController {
            let postGameVC = segue.destination as? PostGameViewController {
             postGameVC.score = String(self.game!.roundScores.reduce(0, +))
         }
+    }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.image
     }
 }

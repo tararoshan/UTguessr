@@ -53,7 +53,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-Mb-ada">
-                                <rect key="frame" x="162" y="526" width="106" height="50"/>
+                                <rect key="frame" x="162.33333333333334" y="526" width="105.66666666666666" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
@@ -258,9 +258,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22U-Be-LSX">
                                 <rect key="frame" x="0.0" y="431.66666666666674" width="430" height="431.33333333333326"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-j8-VLT">
                                         <rect key="frame" x="10" y="78" width="410" height="333.33333333333331"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="410" height="333.33333333333331"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Pox-xP-iCJ" firstAttribute="centerX" secondItem="fwh-13-xeU" secondAttribute="centerX" id="0S7-Kh-wU4"/>
+                                            <constraint firstItem="495-LW-4jC" firstAttribute="bottom" secondItem="Pox-xP-iCJ" secondAttribute="bottom" id="8FE-zk-Pon"/>
+                                            <constraint firstItem="Pox-xP-iCJ" firstAttribute="centerY" secondItem="fwh-13-xeU" secondAttribute="centerY" id="K1y-X9-9rP"/>
+                                            <constraint firstItem="Pox-xP-iCJ" firstAttribute="top" secondItem="9vx-j8-VLT" secondAttribute="top" id="UQd-JI-Qk6"/>
+                                            <constraint firstItem="Pox-xP-iCJ" firstAttribute="leading" secondItem="9vx-j8-VLT" secondAttribute="leading" id="rNr-LQ-OlK"/>
+                                            <constraint firstItem="495-LW-4jC" firstAttribute="trailing" secondItem="Pox-xP-iCJ" secondAttribute="trailing" id="vPu-Xp-9oJ"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="fwh-13-xeU"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="495-LW-4jC"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QCv-Ac-4df" id="2xR-cS-put"/>
+                                        </connections>
+                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awI-TL-i9t">
                                         <rect key="frame" x="10" y="20" width="410" height="38"/>
                                         <constraints>
@@ -280,13 +298,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Pox-xP-iCJ" firstAttribute="top" secondItem="awI-TL-i9t" secondAttribute="bottom" constant="20" id="4Cg-ah-vP5"/>
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="top" secondItem="22U-Be-LSX" secondAttribute="top" constant="20" id="8fA-Jx-Kj7"/>
-                                    <constraint firstItem="Pox-xP-iCJ" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="LpX-4C-0ui"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pox-xP-iCJ" secondAttribute="trailing" constant="10" id="LtC-Fb-7eO"/>
+                                    <constraint firstItem="9vx-j8-VLT" firstAttribute="top" secondItem="awI-TL-i9t" secondAttribute="bottom" constant="20" id="UFJ-WK-59x"/>
                                     <constraint firstAttribute="trailing" secondItem="awI-TL-i9t" secondAttribute="trailing" constant="10" id="YK4-Z8-oLd"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pox-xP-iCJ" secondAttribute="bottom" constant="20" id="eUN-8h-1Fu"/>
+                                    <constraint firstAttribute="bottom" secondItem="9vx-j8-VLT" secondAttribute="bottom" constant="20" id="ZzN-ML-JWs"/>
+                                    <constraint firstItem="9vx-j8-VLT" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="mMZ-IY-cXt"/>
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="q8f-G9-6VP"/>
+                                    <constraint firstAttribute="trailing" secondItem="9vx-j8-VLT" secondAttribute="trailing" constant="10" id="swX-jB-oPg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -306,13 +324,14 @@
                     <connections>
                         <outlet property="gameMap" destination="xeO-7w-Cad" id="dLm-b6-bIw"/>
                         <outlet property="image" destination="Pox-xP-iCJ" id="Mim-sT-DE6"/>
+                        <outlet property="scrollView" destination="9vx-j8-VLT" id="sBX-OZ-jLl"/>
                         <segue destination="zmF-nK-ztr" kind="show" identifier="GameToPostRound" id="Lsw-i6-BXJ"/>
                         <segue destination="Y6r-DT-tD8" kind="show" identifier="GameToPostGame" id="icY-Rq-aZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxw-sy-CAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676" y="98"/>
+            <point key="canvasLocation" x="2673.4883720930234" y="97.85407725321889"/>
         </scene>
         <!--Post Game View Controller-->
         <scene sceneID="pt2-Wj-uAS">
@@ -387,23 +406,23 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zmF-nK-ztr" customClass="PostRoundViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E55-G0-xl9">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbJ-Mp-lM8">
-                                <rect key="frame" x="130.66666666666669" y="354.66666666666669" width="168.66666666666669" height="41"/>
+                                <rect key="frame" x="130.66666666666669" y="389" width="168.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-X2-0gT">
-                                <rect key="frame" x="10" y="395.66666666666669" width="410" height="72"/>
+                                <rect key="frame" x="10" y="430" width="410" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-FL-DTU">
-                                <rect key="frame" x="60" y="527.66666666666663" width="310" height="60"/>
+                                <rect key="frame" x="60" y="562" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oCO-f1-IoY"/>
                                 </constraints>
