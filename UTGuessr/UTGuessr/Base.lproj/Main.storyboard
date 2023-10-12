@@ -53,7 +53,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-Mb-ada">
-                                <rect key="frame" x="162.33333333333334" y="526" width="105.66666666666666" height="50"/>
+                                <rect key="frame" x="162" y="526" width="106" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
@@ -258,8 +258,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22U-Be-LSX">
                                 <rect key="frame" x="0.0" y="466" width="430" height="466"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
-                                        <rect key="frame" x="10" y="78" width="410" height="900"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
+                                        <rect key="frame" x="10" y="78" width="410" height="346"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awI-TL-i9t">
                                         <rect key="frame" x="10" y="20" width="410" height="38"/>
@@ -270,6 +270,9 @@
                                             <fontDescription key="titleFontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
                                             <color key="baseBackgroundColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="confirmPinButtonPressed:" destination="QCv-Ac-4df" eventType="touchUpInside" id="cGv-va-fbv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -299,14 +302,144 @@
                     <navigationItem key="navigationItem" id="wEM-ia-3Xd"/>
                     <connections>
                         <outlet property="gameMap" destination="xeO-7w-Cad" id="dLm-b6-bIw"/>
+                        <segue destination="zmF-nK-ztr" kind="show" identifier="GameToPostRound" id="Lsw-i6-BXJ"/>
+                        <segue destination="Y6r-DT-tD8" kind="show" identifier="GameToPostGame" id="icY-Rq-aZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxw-sy-CAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2638.6046511627906" y="-2.5751072961373391"/>
+            <point key="canvasLocation" x="2676" y="98"/>
+        </scene>
+        <!--Post Game View Controller-->
+        <scene sceneID="pt2-Wj-uAS">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Y6r-DT-tD8" customClass="PostGameViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e3c-mc-ahy">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmq-4s-aZP">
+                                <rect key="frame" x="131" y="389" width="169" height="41"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="map-z1-rA0">
+                                <rect key="frame" x="207.66666666666666" y="430" width="15" height="72"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Good game!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdD-S3-Bqf">
+                                <rect key="frame" x="124" y="313" width="183" height="41"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-ph-dSR">
+                                <rect key="frame" x="60" y="562" width="310" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="OaZ-4M-utF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Confirm Pin"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play Again">
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="32"/>
+                                    <color key="baseBackgroundColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextRoundPressed:" destination="zmF-nK-ztr" eventType="touchUpInside" id="nfr-Gt-Roe"/>
+                                    <action selector="playAgainPressed:" destination="Y6r-DT-tD8" eventType="touchUpInside" id="bbV-uC-Akk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="75x-cF-5W5"/>
+                        <color key="backgroundColor" red="0.97575396299999995" green="0.91872119900000004" blue="0.84312552210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="75x-cF-5W5" firstAttribute="trailing" secondItem="78q-ph-dSR" secondAttribute="trailing" constant="60" id="05U-yU-2St"/>
+                            <constraint firstItem="map-z1-rA0" firstAttribute="top" secondItem="Rmq-4s-aZP" secondAttribute="bottom" id="3eD-XW-nmU"/>
+                            <constraint firstItem="map-z1-rA0" firstAttribute="centerX" secondItem="e3c-mc-ahy" secondAttribute="centerX" id="5bM-HI-mTt"/>
+                            <constraint firstItem="78q-ph-dSR" firstAttribute="top" secondItem="map-z1-rA0" secondAttribute="bottom" constant="60" id="9d3-Ku-pcT"/>
+                            <constraint firstItem="78q-ph-dSR" firstAttribute="leading" secondItem="75x-cF-5W5" secondAttribute="leading" constant="60" id="AeU-vL-NVW"/>
+                            <constraint firstItem="Rmq-4s-aZP" firstAttribute="top" secondItem="WdD-S3-Bqf" secondAttribute="bottom" constant="35" id="jg1-ae-rZP"/>
+                            <constraint firstItem="78q-ph-dSR" firstAttribute="centerX" secondItem="e3c-mc-ahy" secondAttribute="centerX" id="kug-r3-tD6"/>
+                            <constraint firstItem="map-z1-rA0" firstAttribute="centerY" secondItem="e3c-mc-ahy" secondAttribute="centerY" id="zrm-Er-uJX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C7Q-4r-HT3"/>
+                    <connections>
+                        <segue destination="i9Y-kd-vVI" kind="show" identifier="PostRoundToCountdown" id="dX3-nZ-xbx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aA3-Nf-CTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607" y="422"/>
+        </scene>
+        <!--Post Round View Controller-->
+        <scene sceneID="Obw-n4-POb">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="zmF-nK-ztr" customClass="PostRoundViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E55-G0-xl9">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbJ-Mp-lM8">
+                                <rect key="frame" x="130.66666666666669" y="389" width="168.66666666666669" height="41"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-X2-0gT">
+                                <rect key="frame" x="10" y="430" width="410" height="72"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-FL-DTU">
+                                <rect key="frame" x="60" y="562" width="310" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="oCO-f1-IoY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Confirm Pin"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next Round">
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="32"/>
+                                    <color key="baseBackgroundColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextRoundPressed:" destination="zmF-nK-ztr" eventType="touchUpInside" id="fS2-hn-EeK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iSK-Sy-YZG"/>
+                        <color key="backgroundColor" red="0.97575396299999995" green="0.91872119900000004" blue="0.84312552210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ee9-X2-0gT" firstAttribute="leading" secondItem="iSK-Sy-YZG" secondAttribute="leading" constant="10" id="573-f4-PjL"/>
+                            <constraint firstItem="iSK-Sy-YZG" firstAttribute="trailing" secondItem="hbi-FL-DTU" secondAttribute="trailing" constant="60" id="7cE-On-UAJ"/>
+                            <constraint firstItem="iSK-Sy-YZG" firstAttribute="trailing" secondItem="ee9-X2-0gT" secondAttribute="trailing" constant="10" id="9dC-h5-1EK"/>
+                            <constraint firstItem="ee9-X2-0gT" firstAttribute="centerX" secondItem="E55-G0-xl9" secondAttribute="centerX" id="FDK-uC-uMe"/>
+                            <constraint firstItem="MbJ-Mp-lM8" firstAttribute="centerX" secondItem="E55-G0-xl9" secondAttribute="centerX" id="GwN-VB-mug"/>
+                            <constraint firstItem="hbi-FL-DTU" firstAttribute="leading" secondItem="iSK-Sy-YZG" secondAttribute="leading" constant="60" id="OSt-kt-LqC"/>
+                            <constraint firstItem="ee9-X2-0gT" firstAttribute="centerY" secondItem="E55-G0-xl9" secondAttribute="centerY" id="Yxp-ji-Q4m"/>
+                            <constraint firstItem="hbi-FL-DTU" firstAttribute="top" secondItem="ee9-X2-0gT" secondAttribute="bottom" constant="60" id="dJV-ep-c2o"/>
+                            <constraint firstItem="ee9-X2-0gT" firstAttribute="top" secondItem="MbJ-Mp-lM8" secondAttribute="bottom" id="pZI-L6-rQs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JyJ-4n-8Xi"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="ee9-X2-0gT" id="Jkn-Yr-cyl"/>
+                        <segue destination="QCv-Ac-4df" kind="show" identifier="PostRoundToGame" id="18e-oP-2cg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Va9-pH-6A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607" y="-335"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="GYW-Og-fJY"/>
         <segue reference="3kw-Hj-qxu"/>
     </inferredMetricsTieBreakers>
     <resources>
