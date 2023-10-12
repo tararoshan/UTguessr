@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="FiraSans-Medium.ttf">
             <string>FiraSans-Medium</string>
+        </array>
+        <array key="FiraSans-Regular.ttf">
+            <string>FiraSans-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -24,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-go-4wY">
-                                <rect key="frame" x="135" y="125" width="160" height="160"/>
+                                <rect key="frame" x="135" y="184" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="eDV-Ug-GYf"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="lsc-1Z-w0B"/>
@@ -32,29 +34,29 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Wu-1V-qhE">
-                                <rect key="frame" x="50" y="335" width="330" height="36"/>
+                                <rect key="frame" x="50" y="394" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="ShW-pr-L4O"/>
                                     <constraint firstAttribute="height" constant="36" id="kfU-qU-zIm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="IcQ-F2-OxH">
-                                <rect key="frame" x="50" y="396" width="330" height="36"/>
+                                <rect key="frame" x="50" y="455" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="tys-Xq-E0b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-Mb-ada">
-                                <rect key="frame" x="161" y="467" width="108" height="50"/>
+                                <rect key="frame" x="162.33333333333334" y="526" width="105.66666666666666" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
                                     <color key="baseForegroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="baseBackgroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -64,10 +66,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-FR-pu4">
-                                <rect key="frame" x="54" y="552" width="322" height="41"/>
+                                <rect key="frame" x="50" y="611" width="330.33333333333331" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="new to UTguessr? sign up here!">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                     <color key="baseForegroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="baseBackgroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -110,46 +112,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zmp-y7-ni1">
-                                <rect key="frame" x="135" y="125" width="160" height="160"/>
+                                <rect key="frame" x="135" y="184" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="PAf-D3-E2K"/>
                                     <constraint firstAttribute="width" constant="160" id="nCH-va-Gh0"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nav-mc-Qgx">
-                                <rect key="frame" x="50" y="335" width="330" height="36"/>
+                                <rect key="frame" x="50" y="394" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="zeI-5f-nZB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="bQ4-dG-9uw">
-                                <rect key="frame" x="50" y="396" width="330" height="36"/>
+                                <rect key="frame" x="50" y="455" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="qNJ-MA-XdX"/>
                                     <constraint firstAttribute="width" constant="330" id="ucR-b7-xCd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="ads-g3-Iyg">
-                                <rect key="frame" x="50" y="457" width="330" height="36"/>
+                                <rect key="frame" x="50" y="516" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="9Pa-Nz-ygG"/>
                                     <constraint firstAttribute="height" constant="36" id="Sr5-jn-3LK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-Z1-rVo">
-                                <rect key="frame" x="148.66666666666666" y="528" width="132.99999999999997" height="50"/>
+                                <rect key="frame" x="151" y="587" width="128.33333333333337" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
                                     <color key="baseForegroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="baseBackgroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -159,10 +161,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1px-sQ-eSR">
-                                <rect key="frame" x="27.666666666666657" y="613" width="375" height="41"/>
+                                <rect key="frame" x="18.666666666666657" y="672" width="392.66666666666674" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="already have an account? log in here!">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                     <color key="baseForegroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="baseBackgroundColor" red="0.242980957" green="0.23934489489999999" blue="0.11788996309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -257,13 +259,17 @@
                                 <rect key="frame" x="0.0" y="466" width="430" height="466"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
-                                        <rect key="frame" x="10" y="76" width="410" height="900"/>
+                                        <rect key="frame" x="10" y="78" width="410" height="900"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awI-TL-i9t">
-                                        <rect key="frame" x="10" y="20" width="410" height="36"/>
+                                        <rect key="frame" x="10" y="20" width="410" height="38"/>
                                         <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Confirm Pin"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Confirm Pin">
+                                            <fontDescription key="titleFontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
+                                            <color key="baseBackgroundColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -304,7 +310,7 @@
         <segue reference="3kw-Hj-qxu"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="logo.png" width="310" height="312"/>
+        <image name="logo.png" width="1332" height="928"/>
         <image name="tower.jpeg" width="1200" height="900"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
