@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-go-4wY">
-                                <rect key="frame" x="135" y="184" width="160" height="160"/>
+                                <rect key="frame" x="135" y="125" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="eDV-Ug-GYf"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="lsc-1Z-w0B"/>
@@ -34,7 +35,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Wu-1V-qhE">
-                                <rect key="frame" x="50" y="394" width="330" height="36"/>
+                                <rect key="frame" x="50" y="335" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="ShW-pr-L4O"/>
@@ -44,16 +45,16 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="IcQ-F2-OxH">
-                                <rect key="frame" x="50" y="455" width="330" height="36"/>
+                                <rect key="frame" x="50" y="396" width="330" height="35"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="tys-Xq-E0b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-Mb-ada">
-                                <rect key="frame" x="162.33333333333334" y="526" width="105.66666666666666" height="50"/>
+                                <rect key="frame" x="162.33333333333334" y="466" width="105.66666666666666" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
@@ -62,11 +63,10 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="logIn:" destination="Aap-le-GJ7" eventType="touchUpInside" id="IBH-sA-tR4"/>
-                                    <segue destination="vOT-gd-Gnf" kind="show" id="BlO-hB-e57"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-FR-pu4">
-                                <rect key="frame" x="50" y="611" width="330.33333333333331" height="40.666666666666629"/>
+                                <rect key="frame" x="50" y="551" width="330.33333333333331" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="new to UTguessr? sign up here!">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="8Wu-1V-qhE" id="V1N-4j-5cg"/>
                         <outlet property="passwordTextField" destination="IcQ-F2-OxH" id="deT-KJ-1Jz"/>
+                        <segue destination="vOT-gd-Gnf" kind="show" identifier="logInSegue" id="AhG-s7-6GX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3J-MZ-Zfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -112,14 +113,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zmp-y7-ni1">
-                                <rect key="frame" x="135" y="184" width="160" height="160"/>
+                                <rect key="frame" x="135" y="125" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="PAf-D3-E2K"/>
                                     <constraint firstAttribute="width" constant="160" id="nCH-va-Gh0"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nav-mc-Qgx">
-                                <rect key="frame" x="50" y="394" width="330" height="36"/>
+                                <rect key="frame" x="50" y="335" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="zeI-5f-nZB"/>
@@ -128,27 +129,27 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="bQ4-dG-9uw">
-                                <rect key="frame" x="50" y="455" width="330" height="36"/>
+                                <rect key="frame" x="50" y="396" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="qNJ-MA-XdX"/>
                                     <constraint firstAttribute="width" constant="330" id="ucR-b7-xCd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="ads-g3-Iyg">
-                                <rect key="frame" x="50" y="516" width="330" height="36"/>
+                                <rect key="frame" x="50" y="457" width="330" height="36"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="9Pa-Nz-ygG"/>
                                     <constraint firstAttribute="height" constant="36" id="Sr5-jn-3LK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-Z1-rVo">
-                                <rect key="frame" x="151" y="587" width="128.33333333333337" height="50"/>
+                                <rect key="frame" x="151" y="528" width="128.33333333333337" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="30"/>
@@ -157,11 +158,10 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signUp:" destination="8ID-ab-9KN" eventType="touchUpInside" id="c3m-3F-rB5"/>
-                                    <segue destination="vOT-gd-Gnf" kind="show" id="3kw-Hj-qxu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1px-sQ-eSR">
-                                <rect key="frame" x="18.666666666666657" y="672" width="392.66666666666674" height="40.666666666666629"/>
+                                <rect key="frame" x="18.666666666666657" y="613" width="392.66666666666674" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="already have an account? log in here!">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
@@ -195,6 +195,7 @@
                         <outlet property="emailTextField" destination="Nav-mc-Qgx" id="ZzH-ea-1EW"/>
                         <outlet property="passwordConfirmationTextField" destination="ads-g3-Iyg" id="rEW-aG-gJj"/>
                         <outlet property="passwordTextField" destination="bQ4-dG-9uw" id="xyr-zt-lwR"/>
+                        <segue destination="vOT-gd-Gnf" kind="show" identifier="signUpSegue" id="sSK-Il-ebA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ix5-jv-hBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,17 +207,17 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="i9Y-kd-vVI" customClass="CountdownViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kaW-fw-Jrx">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting game in..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDZ-aU-Sx5">
-                                <rect key="frame" x="0.0" y="346.66666666666669" width="430" height="41"/>
+                                <rect key="frame" x="0.0" y="376" width="430" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtU-Jn-UPe">
-                                <rect key="frame" x="199.66666666666666" y="395.66666666666669" width="30.666666666666657" height="72"/>
+                                <rect key="frame" x="199.66666666666666" y="425" width="30.666666666666657" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -248,21 +249,21 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QCv-Ac-4df" customClass="GameViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22t-KL-0BA">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeO-7w-Cad">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="431.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="461"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22U-Be-LSX">
-                                <rect key="frame" x="0.0" y="431.66666666666674" width="430" height="431.33333333333326"/>
+                                <rect key="frame" x="0.0" y="461" width="430" height="461"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-j8-VLT">
-                                        <rect key="frame" x="10" y="78" width="410" height="333.33333333333331"/>
+                                        <rect key="frame" x="10" y="78" width="410" height="363"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="410" height="333.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="410" height="363"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -321,6 +322,7 @@
                             <constraint firstItem="22U-Be-LSX" firstAttribute="leading" secondItem="3UI-rB-nyy" secondAttribute="leading" id="jZN-ho-hOb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bba-cZ-fuw"/>
                     <connections>
                         <outlet property="gameMap" destination="xeO-7w-Cad" id="dLm-b6-bIw"/>
                         <outlet property="image" destination="Pox-xP-iCJ" id="Mim-sT-DE6"/>
@@ -338,29 +340,29 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Y6r-DT-tD8" customClass="PostGameViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3c-mc-ahy">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmq-4s-aZP">
-                                <rect key="frame" x="130.66666666666669" y="389" width="168.66666666666669" height="41"/>
+                                <rect key="frame" x="130.66666666666669" y="384" width="168.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="map-z1-rA0">
-                                <rect key="frame" x="207.66666666666666" y="430" width="15" height="72"/>
+                                <rect key="frame" x="207.66666666666666" y="425" width="15" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good game!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdD-S3-Bqf">
-                                <rect key="frame" x="124.00000000000001" y="313" width="182.33333333333337" height="41"/>
+                                <rect key="frame" x="124.00000000000001" y="308" width="182.33333333333337" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-ph-dSR">
-                                <rect key="frame" x="60" y="562" width="310" height="60"/>
+                                <rect key="frame" x="60" y="557" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OaZ-4M-utF"/>
                                 </constraints>
@@ -392,6 +394,7 @@
                             <constraint firstItem="map-z1-rA0" firstAttribute="centerY" secondItem="e3c-mc-ahy" secondAttribute="centerY" id="zrm-Er-uJX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="An2-x8-pnd"/>
                     <connections>
                         <outlet property="scoreLabel" destination="map-z1-rA0" id="i3I-8G-nA2"/>
                         <segue destination="vOT-gd-Gnf" kind="show" identifier="PostGameToCountdown" id="dX3-nZ-xbx"/>
@@ -406,23 +409,23 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zmF-nK-ztr" customClass="PostRoundViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E55-G0-xl9">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbJ-Mp-lM8">
-                                <rect key="frame" x="130.66666666666669" y="389" width="168.66666666666669" height="41"/>
+                                <rect key="frame" x="130.66666666666669" y="384" width="168.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-X2-0gT">
-                                <rect key="frame" x="10" y="430" width="410" height="72"/>
+                                <rect key="frame" x="10" y="425" width="410" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-FL-DTU">
-                                <rect key="frame" x="60" y="562" width="310" height="60"/>
+                                <rect key="frame" x="60" y="557" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oCO-f1-IoY"/>
                                 </constraints>
@@ -452,6 +455,7 @@
                             <constraint firstItem="ee9-X2-0gT" firstAttribute="top" secondItem="MbJ-Mp-lM8" secondAttribute="bottom" id="pZI-L6-rQs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="u2c-3r-efn"/>
                     <connections>
                         <outlet property="scoreLabel" destination="ee9-X2-0gT" id="Jkn-Yr-cyl"/>
                         <segue destination="QCv-Ac-4df" kind="show" identifier="PostRoundToGame" id="18e-oP-2cg"/>
@@ -468,7 +472,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hty-wb-4Ri"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qbx-pc-6LQ">
-                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -482,12 +486,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="icY-Rq-aZL"/>
-        <segue reference="dX3-nZ-xbx"/>
+        <segue reference="sSK-Il-ebA"/>
         <segue reference="GYW-Og-fJY"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="logo.png" width="1332" height="928"/>
+        <image name="logo.png" width="310" height="312"/>
         <image name="tower.jpeg" width="1200" height="900"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

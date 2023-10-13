@@ -8,23 +8,34 @@
 import UIKit
 import FirebaseAuth
 
+// login screen
 class LogInViewController: UIViewController {
     
-    // TODO: make the modal view how you want it
-    // TODO: make the login button conditional
-    
+    // email and password fields
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField! // TODO: change to dots
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // handles login button click by logging in or alerting user to an error
     @IBAction func logIn(_ sender: Any) {
         Auth.auth().signIn(
             withEmail: emailTextField.text!,
             password: passwordTextField.text!
-        )
-        // TODO: add error message here!
+        ) {
+            (authResult,error) in
+                if let error = error as NSError? {
+                    let loginErrorAlert = UIAlertController(
+                        title: "Login Error",
+                        message: error.localizedDescription, // goal for later: make the errors more understandable for a user
+                        preferredStyle: .alert)
+                    loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(loginErrorAlert, animated: true)
+                } else {
+                    self.performSegue(withIdentifier: "logInSegue", sender: self)
+                }
+        }
     }
 }
