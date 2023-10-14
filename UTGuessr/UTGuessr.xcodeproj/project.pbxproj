@@ -38,6 +38,7 @@
 		504D8FEB2AD862840060D6C1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 504D8FEA2AD862840060D6C1 /* FirebaseStorageCombine-Community */; };
 		504D8FEF2AD863F70060D6C1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D8FEE2AD863F70060D6C1 /* LogInViewController.swift */; };
 		504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */; };
+		57755F122ADB3A2900CD6AE7 /* Kavoon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57755F112ADB3A2800CD6AE7 /* Kavoon-Regular.ttf */; };
 		982F5C2A2AD762660082EDAF /* tower.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 982F5C292AD762660082EDAF /* tower.jpeg */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
 		988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764572AD88E4500025A06 /* PostRoundViewController.swift */; };
@@ -78,6 +79,7 @@
 		504D8FEC2AD863440060D6C1 /* UTGuessr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTGuessr.entitlements; sourceTree = "<group>"; };
 		504D8FEE2AD863F70060D6C1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		57755F112ADB3A2800CD6AE7 /* Kavoon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kavoon-Regular.ttf"; sourceTree = "<group>"; };
 		982F5C292AD762660082EDAF /* tower.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tower.jpeg; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
 		988764572AD88E4500025A06 /* PostRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoundViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				98BE8C622AD74BB700878939 /* FiraSans-SemiBoldItalic.ttf */,
 				98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */,
 				98BE8C5E2AD74BB600878939 /* FiraSans-ThinItalic.ttf */,
+				57755F112ADB3A2800CD6AE7 /* Kavoon-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				FACD568B2ACF6E25004E36E6 /* LaunchScreen.storyboard in Resources */,
 				504D8FB22AD8555A0060D6C1 /* logo.png in Resources */,
 				98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */,
+				57755F122ADB3A2900CD6AE7 /* Kavoon-Regular.ttf in Resources */,
 				FACD56882ACF6E25004E36E6 /* Assets.xcassets in Resources */,
 				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
@@ -528,8 +532,10 @@
 				DEVELOPMENT_TEAM = K3ZW7KU8DU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -557,8 +563,10 @@
 				DEVELOPMENT_TEAM = K3ZW7KU8DU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;

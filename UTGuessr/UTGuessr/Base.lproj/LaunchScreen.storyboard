@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Kavoon-Regular.ttf">
+            <string>Kavoon-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="EHf-IW-A2E">
@@ -15,8 +21,30 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Odg-Zf-n8b">
+                                <rect key="frame" x="64" y="294" width="265" height="264"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTGuessr" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ihJ-7h-8Rx">
+                                <rect key="frame" x="73" y="512" width="173" height="67"/>
+                                <fontDescription key="fontDescription" name="Kavoon-Regular" family="Kavoon" pointSize="38"/>
+                                <color key="textColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="bottom" secondItem="ihJ-7h-8Rx" secondAttribute="bottom" constant="-21" id="0SK-Mo-J0w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ihJ-7h-8Rx" secondAttribute="trailing" constant="147" id="43w-F1-Fbj"/>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8Cz-yt-4IT"/>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8EN-XZ-XL5"/>
+                            <constraint firstItem="ihJ-7h-8Rx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="453" id="b0r-XW-zrF"/>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="235" id="eoC-Bb-gBy"/>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="lU2-lX-vr6"/>
+                            <constraint firstItem="Odg-Zf-n8b" firstAttribute="leading" secondItem="ihJ-7h-8Rx" secondAttribute="leading" constant="-9" id="wL0-35-E0R"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="ylw-Ij-K9g"/>
                 </viewController>
@@ -24,27 +52,10 @@
             </objects>
             <point key="canvasLocation" x="979.38931297709917" y="374.64788732394368"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="at5-HD-uYH">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Vxd-cT-0Xg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Yp-xb-zzd">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="01J-lp-oVM" kind="relationship" relationship="viewControllers" id="pRF-G7-jrd"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qCq-Zv-DxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
-        </scene>
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
+        <image name="logo.png" width="310" height="312"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

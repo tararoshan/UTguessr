@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        // TESTING
+        for familyName in UIFont.familyNames {
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print(fontName)
+            }
+        }
+
         return true
     }
 
