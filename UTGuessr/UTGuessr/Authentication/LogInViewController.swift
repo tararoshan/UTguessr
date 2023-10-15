@@ -34,7 +34,15 @@ class LogInViewController: UIViewController {
                     loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(loginErrorAlert, animated: true)
                 } else {
+        
                     self.performSegue(withIdentifier: "logInSegue", sender: self)
+                    // TODO figure out how to make the segues match design doc
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabController")
+                    
+                    // Get SceneDelegate object from VC and change root VC to main tab bar
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+
                 }
         }
     }

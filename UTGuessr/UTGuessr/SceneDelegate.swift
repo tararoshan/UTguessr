@@ -11,12 +11,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    // https://fluffy.es/how-to-transition-from-login-screen-to-tab-bar-controller/
+    // For some reason, this isn't working --
+    func changeRootViewController(_ targetVC: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+        // Change the root view controller to the main tab controller (see "scene" func)
+        window.rootViewController = targetVC
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Check if the user has logged in before
+        // TODO change this for the keychain!
+        if let loggedUsername = UserDefaults.standard.string(forKey: "UTGuessrUsername") {
+            // Instantiate the main tab bar controller, set it as the root
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabController")
+            window?.rootViewController = mainTabBarController
+        } else {
+            // If the user hasn't logged in: instantiate the login screen, set it as the root
+            let loginNavController = storyboard.instantiateViewController(identifier: "LoginScreen")
+            window?.rootViewController = loginNavController
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
