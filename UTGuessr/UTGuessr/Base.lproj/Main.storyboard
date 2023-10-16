@@ -97,7 +97,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="8Wu-1V-qhE" id="V1N-4j-5cg"/>
                         <outlet property="passwordTextField" destination="IcQ-F2-OxH" id="deT-KJ-1Jz"/>
-                        <segue destination="vOT-gd-Gnf" kind="show" identifier="logInSegue" id="AhG-s7-6GX"/>
+                        <segue destination="Zwz-T7-DWQ" kind="presentation" identifier="logInSegue" modalPresentationStyle="fullScreen" id="Aet-tF-LYZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3J-MZ-Zfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,19 +195,19 @@
                         <outlet property="emailTextField" destination="Nav-mc-Qgx" id="ZzH-ea-1EW"/>
                         <outlet property="passwordConfirmationTextField" destination="ads-g3-Iyg" id="rEW-aG-gJj"/>
                         <outlet property="passwordTextField" destination="bQ4-dG-9uw" id="xyr-zt-lwR"/>
-                        <segue destination="vOT-gd-Gnf" kind="show" identifier="signUpSegue" id="sSK-Il-ebA"/>
+                        <segue destination="Zwz-T7-DWQ" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="Xj5-wS-Znn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ix5-jv-hBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1676" y="-261"/>
         </scene>
-        <!--game-->
+        <!--Countdown View Controller-->
         <scene sceneID="cBl-k1-HSb">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="i9Y-kd-vVI" customClass="CountdownViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kaW-fw-Jrx">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting game in..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDZ-aU-Sx5">
@@ -234,7 +234,6 @@
                             <constraint firstItem="wtU-Jn-UPe" firstAttribute="centerX" secondItem="kaW-fw-Jrx" secondAttribute="centerX" id="x6h-bU-zg6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="game" image="mappin.and.ellipse" catalog="system" id="xX9-iz-wNq"/>
                     <navigationItem key="navigationItem" id="Ff7-6w-Ndk"/>
                     <connections>
                         <outlet property="timer" destination="wtU-Jn-UPe" id="KrG-CF-Bnz"/>
@@ -243,14 +242,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgX-dT-z0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511" y="-692"/>
+            <point key="canvasLocation" x="4863" y="-633"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Sfu-eS-Ydq">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QCv-Ac-4df" customClass="GameViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22t-KL-0BA">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeO-7w-Cad">
@@ -334,36 +333,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxw-sy-CAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673.4883720930234" y="97.85407725321889"/>
+            <point key="canvasLocation" x="4741" y="538"/>
         </scene>
         <!--Post Game View Controller-->
         <scene sceneID="pt2-Wj-uAS">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Y6r-DT-tD8" customClass="PostGameViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3c-mc-ahy">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmq-4s-aZP">
-                                <rect key="frame" x="130.66666666666669" y="384" width="168.66666666666669" height="41"/>
+                                <rect key="frame" x="130.66666666666669" y="389" width="168.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="map-z1-rA0">
-                                <rect key="frame" x="207.66666666666666" y="425" width="15" height="72"/>
+                                <rect key="frame" x="207.66666666666666" y="430" width="15" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good game!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdD-S3-Bqf">
-                                <rect key="frame" x="124.00000000000001" y="308" width="182.33333333333337" height="41"/>
+                                <rect key="frame" x="124.00000000000001" y="313" width="182.33333333333337" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.24264895919999999" green="0.2404050529" blue="0.13331279160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-ph-dSR">
-                                <rect key="frame" x="60" y="557" width="310" height="60"/>
+                                <rect key="frame" x="60" y="562" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OaZ-4M-utF"/>
                                 </constraints>
@@ -398,19 +397,19 @@
                     <navigationItem key="navigationItem" id="An2-x8-pnd"/>
                     <connections>
                         <outlet property="scoreLabel" destination="map-z1-rA0" id="i3I-8G-nA2"/>
-                        <segue destination="vOT-gd-Gnf" kind="show" identifier="PostGameToCountdown" id="dX3-nZ-xbx"/>
+                        <segue destination="AVk-1J-o6K" kind="show" identifier="PostGameToCountdown" id="iYe-hg-MMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aA3-Nf-CTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606.9767441860463" y="421.67381974248929"/>
+            <point key="canvasLocation" x="3265" y="376"/>
         </scene>
         <!--Post Round View Controller-->
         <scene sceneID="Obw-n4-POb">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zmF-nK-ztr" customClass="PostRoundViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E55-G0-xl9">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbJ-Mp-lM8">
@@ -464,32 +463,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Va9-pH-6A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505.5813953488368" y="-335.40772532188845"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XIu-XW-6ub">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="vOT-gd-Gnf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="hty-wb-4Ri"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qbx-pc-6LQ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Zwz-T7-DWQ" kind="relationship" relationship="rootViewController" id="jtD-bf-7RY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0aH-CI-Dkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2638.6046511627906" y="-692.06008583690993"/>
+            <point key="canvasLocation" x="5782" y="-173"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="xpF-sC-iB8">
             <objects>
-                <viewController title="Main Menu" id="Zwz-T7-DWQ" sceneMemberID="viewController">
+                <viewController title="Main Menu" id="Zwz-T7-DWQ" customClass="MainMenuVC" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2u9-va-jRD">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Qs-451">
@@ -511,11 +492,11 @@
                                     <color key="baseBackgroundColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="i9Y-kd-vVI" kind="show" id="U1Z-83-5Uc"/>
+                                    <segue destination="EMP-xS-kCc" kind="presentation" identifier="playGameSegue" modalPresentationStyle="fullScreen" id="fu3-3c-lu3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D1-X1-EiK">
-                                <rect key="frame" x="78" y="507.33333333333331" width="274" height="45.666666666666686"/>
+                                <rect key="frame" x="78" y="507.33333333333331" width="274" height="46.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -524,6 +505,9 @@
                                     <color key="baseForegroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="EMP-xS-kCc" kind="presentation" identifier="leaderboardSegue" modalPresentationStyle="fullScreen" id="p6V-OD-FG5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqV-7y-YAK">
                                 <rect key="frame" x="78" y="411.66666666666669" width="274" height="45.666666666666686"/>
@@ -535,9 +519,12 @@
                                     <color key="baseForegroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="EMP-xS-kCc" kind="presentation" identifier="uploadLocationSegue" modalPresentationStyle="fullScreen" id="2vv-bD-10i"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzG-PO-Baf">
-                                <rect key="frame" x="78" y="603" width="274" height="46.666666666666629"/>
+                                <rect key="frame" x="78" y="604" width="274" height="46.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -546,6 +533,9 @@
                                     <color key="baseForegroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="EMP-xS-kCc" kind="presentation" identifier="profileSegue" modalPresentationStyle="fullScreen" id="2Zs-1o-97O"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kCQ-CW-L4n"/>
@@ -567,13 +557,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GUB-vE-cqI"/>
-                    <connections>
-                        <segue destination="EMP-xS-kCc" kind="show" id="lbn-Ua-pVs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTY-ge-ySD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2883" y="-1485"/>
+            <point key="canvasLocation" x="2563" y="-732"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="Kdl-YC-OeR">
@@ -603,7 +590,7 @@
             <objects>
                 <viewController title="Leaderboard" id="7uo-z6-lSo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cFq-dW-6Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="06C-uA-MHP"/>
                         <color key="backgroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -619,7 +606,7 @@
             <objects>
                 <viewController title="Upload Image" id="HPj-o2-2R2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6PR-s2-NQG">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPM-nj-sOr">
@@ -716,22 +703,22 @@
             </objects>
             <point key="canvasLocation" x="6735.3488372093025" y="-3380.472103004292"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab BarVC-->
         <scene sceneID="IvP-Wx-xlm">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabController" automaticallyAdjustsScrollViewInsets="NO" id="EMP-xS-kCc" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabController" automaticallyAdjustsScrollViewInsets="NO" id="EMP-xS-kCc" customClass="MainTabBarVC" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RkD-dc-wTh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3e8-0g-pi4">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.92965859169999998" green="0.77678728100000005" blue="0.59642285110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="i9Y-kd-vVI" kind="relationship" relationship="viewControllers" id="cCS-g5-iMA"/>
+                        <segue destination="AVk-1J-o6K" kind="relationship" relationship="viewControllers" id="cCS-g5-iMA"/>
                         <segue destination="HPj-o2-2R2" kind="relationship" relationship="viewControllers" id="IAd-AJ-dMm"/>
                         <segue destination="7uo-z6-lSo" kind="relationship" relationship="viewControllers" id="Bm2-4H-pKY"/>
                         <segue destination="pLm-hq-h95" kind="relationship" relationship="viewControllers" id="6pT-Nq-VIS"/>
@@ -739,7 +726,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTP-Oh-2m7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3717" y="-2453"/>
+            <point key="canvasLocation" x="3321" y="-1933"/>
         </scene>
         <!--profile-->
         <scene sceneID="fX2-e6-pTc">
@@ -761,11 +748,31 @@
             </objects>
             <point key="canvasLocation" x="4505.5813953488368" y="-3380.472103004292"/>
         </scene>
+        <!--game-->
+        <scene sceneID="f4K-l2-ZWe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="AVk-1J-o6K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="game" image="mappin.and.ellipse" catalog="system" id="xX9-iz-wNq"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="z0Z-Rp-avt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kYv-0e-Om2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i9Y-kd-vVI" kind="relationship" relationship="rootViewController" id="b4R-YA-7mv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1aE-NV-5DK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4187" y="-496"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AhG-s7-6GX"/>
+        <segue reference="cCS-g5-iMA"/>
+        <segue reference="2Zs-1o-97O"/>
+        <segue reference="Aet-tF-LYZ"/>
         <segue reference="GYW-Og-fJY"/>
-        <segue reference="U1Z-83-5Uc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
