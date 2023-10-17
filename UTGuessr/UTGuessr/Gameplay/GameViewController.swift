@@ -36,6 +36,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Remove any previous pins
         self.gameMap.removeAnnotations(self.gameMap.annotations)
+        
         self.image.layer.cornerRadius = 15.0
         
         // Log the round
@@ -59,7 +60,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(self.mapTapPress(_:)))
         gameMap.addGestureRecognizer(tapPress)
         
-        // TODO: Set the image to the image from the current round
+        // Set the image to the image from the current round
         image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
     }
     

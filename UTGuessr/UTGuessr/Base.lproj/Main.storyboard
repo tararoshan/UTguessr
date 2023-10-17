@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="IcQ-F2-OxH">
-                                <rect key="frame" x="49" y="443" width="330" height="34"/>
+                                <rect key="frame" x="49" y="443" width="330" height="35"/>
                                 <color key="backgroundColor" red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="tys-Xq-E0b"/>
@@ -53,7 +53,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-Mb-ada">
-                                <rect key="frame" x="160.66666666666666" y="512" width="106.99999999999997" height="49"/>
+                                <rect key="frame" x="161.33333333333334" y="513" width="105.33333333333334" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="30"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-FR-pu4">
-                                <rect key="frame" x="46" y="596" width="336.33333333333331" height="40.666666666666629"/>
+                                <rect key="frame" x="49" y="598" width="330.33333333333331" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="new to UTguessr? sign up here!">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
@@ -259,10 +259,10 @@
                                 <rect key="frame" x="0.0" y="463" width="428" height="463"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-j8-VLT">
-                                        <rect key="frame" x="10" y="78" width="408" height="365"/>
+                                        <rect key="frame" x="10" y="78" width="408" height="285"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="408" height="365"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="408" height="285"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -301,7 +301,7 @@
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="top" secondItem="22U-Be-LSX" secondAttribute="top" constant="20" id="8fA-Jx-Kj7"/>
                                     <constraint firstItem="9vx-j8-VLT" firstAttribute="top" secondItem="awI-TL-i9t" secondAttribute="bottom" constant="20" id="UFJ-WK-59x"/>
                                     <constraint firstAttribute="trailing" secondItem="awI-TL-i9t" secondAttribute="trailing" constant="10" id="YK4-Z8-oLd"/>
-                                    <constraint firstAttribute="bottom" secondItem="9vx-j8-VLT" secondAttribute="bottom" constant="20" id="ZzN-ML-JWs"/>
+                                    <constraint firstAttribute="bottom" secondItem="9vx-j8-VLT" secondAttribute="bottom" constant="100" id="ZzN-ML-JWs"/>
                                     <constraint firstItem="9vx-j8-VLT" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="mMZ-IY-cXt"/>
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="q8f-G9-6VP"/>
                                     <constraint firstAttribute="trailing" secondItem="9vx-j8-VLT" secondAttribute="trailing" constant="10" id="swX-jB-oPg"/>
