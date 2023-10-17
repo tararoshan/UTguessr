@@ -60,6 +60,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         gameMap.addGestureRecognizer(tapPress)
         
         // TODO: Set the image to the image from the current round
+        image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {

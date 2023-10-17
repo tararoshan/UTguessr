@@ -23,7 +23,6 @@ class Game {
         self.currentRound = 1
         self.roundImagesAndLocations = []
         self.populateRoundImageAndLocation()
-//        self.populateRoundImageAndLocation(self.roundImagesAndLocations)
         print("IMAGES AND LOCATION", self.roundImagesAndLocations)
     }
     
@@ -84,14 +83,14 @@ class Game {
 //                let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Float
 //                let longitude = imageAndLocationEntity.value(forKey: "longitude") as? Float
                 
-                guard let image = imageAndLocationEntity.value(forKey: "image") as? UIImage,
-                      let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Float,
-                      let longitude = imageAndLocationEntity.value(forKey: "longitude") as? Float else {
+                guard let imageData = imageAndLocationEntity.value(forKey: "image") as? Data,
+                      let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Double,
+                      let longitude = imageAndLocationEntity.value(forKey: "longitude") as? Double else {
                     print("Cannot cast data to types")
                     abort()
                 }
                 
-                self.roundImagesAndLocations.append(ImageAndLocation(image: image, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))))
+                self.roundImagesAndLocations.append(ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))))
                 print(self.roundImagesAndLocations.last!.location.latitude)
             }
         } catch let error as NSError {

@@ -38,17 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let context = persistentContainer.viewContext
         // Checks if Core Data is empty
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageAndLocationEntity")
-        var fetchedResults:[NSManagedObject]
         
         do {
             let count = try context.count(for: request)
-            
-            return count > 0
+            return count == 0
         } catch {
-            print("Error occurred while counting data")
-            return nil
+            return true
         }
-        return nil
     }
     
     private func imageNameFromImageNumber(_ imageNumber: Int) -> String {
@@ -86,11 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         // Get the longitude and latitude
                         let latitudeAndLongitude = locationsStringArray[i].components(separatedBy: " ")
-                        guard let latitude = Float(latitudeAndLongitude[0]) else {
+                        guard let latitude = Double(latitudeAndLongitude[0]) else {
                             print("Error reading latitude for image \(imageNameFromImageNumber(i))")
                             return false
                         }
-                        guard let longitude = Float(latitudeAndLongitude[1]) else {
+                        guard let longitude = Double(latitudeAndLongitude[1]) else {
                             print("Error reading longitude for image \(imageNameFromImageNumber(i))")
                             return false
                         }
@@ -137,10 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("UNABLE TO DETERMINE IF CORE DATA IS EMPTY")
         }
-        
-//        if !readImagesAndLocationsAndAddToCoreData(imagesAndLocationsDirectory: CORE_IMAGES_AND_LOCATIONS, locationsFile: LOCATIONS_FILE) {
-//            return false
-//        }
         return true
     }
 
