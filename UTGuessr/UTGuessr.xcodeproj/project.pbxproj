@@ -40,7 +40,6 @@
 		504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
-		9844F8492ADF0A0C00A52F6E /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
 		988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764572AD88E4500025A06 /* PostRoundViewController.swift */; };
 		9887645A2AD8904F00025A06 /* PostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764592AD8904F00025A06 /* PostGameViewController.swift */; };
@@ -62,15 +61,7 @@
 		98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */; };
 		98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */; };
 		98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8C7D2AD74EAD00878939 /* Game.swift */; };
-		98F738332ADDD2BF00CDBB70 /* 0005.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382B2ADDD2BE00CDBB70 /* 0005.jpeg */; };
-		98F738342ADDD2BF00CDBB70 /* 0004.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382C2ADDD2BE00CDBB70 /* 0004.jpeg */; };
-		98F738352ADDD2BF00CDBB70 /* 0002.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */; };
-		98F738362ADDD2BF00CDBB70 /* 0000.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382E2ADDD2BE00CDBB70 /* 0000.jpeg */; };
-		98F738372ADDD2BF00CDBB70 /* 0007.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382F2ADDD2BF00CDBB70 /* 0007.jpeg */; };
-		98F738382ADDD2BF00CDBB70 /* 0001.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F738302ADDD2BF00CDBB70 /* 0001.jpeg */; };
-		98F738392ADDD2BF00CDBB70 /* 0003.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F738312ADDD2BF00CDBB70 /* 0003.jpeg */; };
-		98F7383A2ADDD2BF00CDBB70 /* 0006.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F738322ADDD2BF00CDBB70 /* 0006.jpeg */; };
-		98F7383C2ADDD31C00CDBB70 /* CoreLocations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F7383B2ADDD31C00CDBB70 /* CoreLocations.txt */; };
+		98EA911B2ADF0C32006EA8D8 /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */; };
 		98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */; };
 		FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */; };
 		FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */; };
@@ -90,7 +81,6 @@
 		504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreImagesAndLocations; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
 		988764572AD88E4500025A06 /* PostRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoundViewController.swift; sourceTree = "<group>"; };
 		988764592AD8904F00025A06 /* PostGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGameViewController.swift; sourceTree = "<group>"; };
@@ -112,15 +102,7 @@
 		98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Thin.ttf"; sourceTree = "<group>"; };
 		98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		98BE8C7D2AD74EAD00878939 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		98F7382B2ADDD2BE00CDBB70 /* 0005.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0005.jpeg; sourceTree = "<group>"; };
-		98F7382C2ADDD2BE00CDBB70 /* 0004.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0004.jpeg; sourceTree = "<group>"; };
-		98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0002.jpeg; sourceTree = "<group>"; };
-		98F7382E2ADDD2BE00CDBB70 /* 0000.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0000.jpeg; sourceTree = "<group>"; };
-		98F7382F2ADDD2BF00CDBB70 /* 0007.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0007.jpeg; sourceTree = "<group>"; };
-		98F738302ADDD2BF00CDBB70 /* 0001.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0001.jpeg; sourceTree = "<group>"; };
-		98F738312ADDD2BF00CDBB70 /* 0003.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0003.jpeg; sourceTree = "<group>"; };
-		98F738322ADDD2BF00CDBB70 /* 0006.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0006.jpeg; sourceTree = "<group>"; };
-		98F7383B2ADDD31C00CDBB70 /* CoreLocations.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoreLocations.txt; sourceTree = "<group>"; };
+		98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreImagesAndLocations; sourceTree = "<group>"; };
 		98F7383E2ADDE86500CDBB70 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		FACD567B2ACF6E23004E36E6 /* UTGuessr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTGuessr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,24 +188,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		98F7382A2ADDD14600CDBB70 /* CoreImagesAndLocations */ = {
-			isa = PBXGroup;
-			children = (
-				9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */,
-				98F7382E2ADDD2BE00CDBB70 /* 0000.jpeg */,
-				98F738302ADDD2BF00CDBB70 /* 0001.jpeg */,
-				98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */,
-				98F738312ADDD2BF00CDBB70 /* 0003.jpeg */,
-				98F7382C2ADDD2BE00CDBB70 /* 0004.jpeg */,
-				98F7382B2ADDD2BE00CDBB70 /* 0005.jpeg */,
-				98F738322ADDD2BF00CDBB70 /* 0006.jpeg */,
-				98F7382F2ADDD2BF00CDBB70 /* 0007.jpeg */,
-				98F7383B2ADDD31C00CDBB70 /* CoreLocations.txt */,
-			);
-			name = CoreImagesAndLocations;
-			path = UTGuessr/CoreImagesAndLocations;
-			sourceTree = SOURCE_ROOT;
-		};
 		FACD56722ACF6E23004E36E6 = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +207,7 @@
 		FACD567D2ACF6E23004E36E6 /* UTGuessr */ = {
 			isa = PBXGroup;
 			children = (
-				98F7382A2ADDD14600CDBB70 /* CoreImagesAndLocations */,
+				98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */,
 				504D8FEC2AD863440060D6C1 /* UTGuessr.entitlements */,
 				98BE8C582AD74B8E00878939 /* Fonts */,
 				FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */,
@@ -366,26 +330,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98F7383C2ADDD31C00CDBB70 /* CoreLocations.txt in Resources */,
 				FACD568B2ACF6E25004E36E6 /* LaunchScreen.storyboard in Resources */,
 				504D8FB22AD8555A0060D6C1 /* logo.png in Resources */,
 				98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */,
-				98F7383A2ADDD2BF00CDBB70 /* 0006.jpeg in Resources */,
 				FACD56882ACF6E25004E36E6 /* Assets.xcassets in Resources */,
 				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
-				98F738342ADDD2BF00CDBB70 /* 0004.jpeg in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
 				98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */,
+				98EA911B2ADF0C32006EA8D8 /* CoreImagesAndLocations in Resources */,
 				98BE8C6E2AD74BB800878939 /* FiraSans-Italic.ttf in Resources */,
 				98BE8C6C2AD74BB800878939 /* FiraSans-Light.ttf in Resources */,
-				98F738332ADDD2BF00CDBB70 /* 0005.jpeg in Resources */,
 				98BE8C7A2AD74BB800878939 /* FiraSans-Medium.ttf in Resources */,
 				98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */,
 				98BE8C752AD74BB800878939 /* FiraSans-ExtraLightItalic.ttf in Resources */,
 				FACD56862ACF6E23004E36E6 /* Main.storyboard in Resources */,
 				98BE8C762AD74BB800878939 /* FiraSans-Bold.ttf in Resources */,
-				9844F8492ADF0A0C00A52F6E /* CoreImagesAndLocations in Resources */,
-				98F738392ADDD2BF00CDBB70 /* 0003.jpeg in Resources */,
 				98BE8C6F2AD74BB800878939 /* FiraSans-Black.ttf in Resources */,
 				98BE8C792AD74BB800878939 /* FiraSans-ExtraBoldItalic.ttf in Resources */,
 				98BE8C772AD74BB800878939 /* FiraSans-BlackItalic.ttf in Resources */,
@@ -393,10 +352,6 @@
 				98BE8C722AD74BB800878939 /* FiraSans-ExtraLight.ttf in Resources */,
 				98BE8C782AD74BB800878939 /* FiraSans-LightItalic.ttf in Resources */,
 				57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */,
-				98F738382ADDD2BF00CDBB70 /* 0001.jpeg in Resources */,
-				98F738352ADDD2BF00CDBB70 /* 0002.jpeg in Resources */,
-				98F738372ADDD2BF00CDBB70 /* 0007.jpeg in Resources */,
-				98F738362ADDD2BF00CDBB70 /* 0000.jpeg in Resources */,
 				98BE8C742AD74BB800878939 /* FiraSans-SemiBoldItalic.ttf in Resources */,
 				98BE8C702AD74BB800878939 /* FiraSans-ThinItalic.ttf in Resources */,
 			);
