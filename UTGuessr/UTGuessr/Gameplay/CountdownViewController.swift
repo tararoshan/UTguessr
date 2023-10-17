@@ -25,7 +25,7 @@ class CountdownViewController: UIViewController {
     
     @objc func countDown(){
         timer.text = String(Int(timer.text!)! - 1)
-        if timer.text == "0" {
+        if Int(timer.text!)! <= 0 {
             performSegue(withIdentifier: segueToGameIdentifier, sender: nil)
             sysTimer.invalidate()
         }

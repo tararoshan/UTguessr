@@ -24,6 +24,7 @@ Tara Roshan (25%)
  - added the app icon
  - created the tab bar controller
  - created the main menu and its segues to different pages
+ - added placeholders for tab controller's profile, leaderboard, settings
 
 Megan Sickler (25%)
  - added the signup screen
@@ -32,5 +33,9 @@ Megan Sickler (25%)
  - added Firebase authentication to the application
 
 ## Deviations
- - No deviations from alpha release plan.
+ - Didn't add modal popup asking if the user wanted to quit the game.
+	- Added zoom functionality to photos instead.
+ - Didn't populate database with user scores.
+	- Added more details to 'profile' and 'settings' pages instead.
+	- Figuring out the database took longer than expected.
 

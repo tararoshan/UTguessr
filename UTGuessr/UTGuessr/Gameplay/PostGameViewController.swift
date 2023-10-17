@@ -27,4 +27,15 @@ class PostGameViewController: UIViewController {
     @IBAction func playAgainPressed(_ sender: Any) {
         performSegue(withIdentifier: segueToCountdownIdentifier, sender: nil)
     }
+    
+    // Set up segues after each game
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Let the tab controller know to present the game page
+        if let tabBarController = segue.destination as? UITabBarController {
+            if segue.identifier == "PostGameToCountdown" {
+                tabBarController.selectedIndex = 0
+            }
+        }
+    }
+    
 }

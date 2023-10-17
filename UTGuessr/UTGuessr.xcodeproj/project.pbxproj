@@ -163,6 +163,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		571B990F2ADF38C300D4C2FB /* MainMenuTabControllerChildren */ = {
+			isa = PBXGroup;
+			children = (
+				57F2648C2ADDADF300441F97 /* MainMenuVC.swift */,
+			);
+			path = MainMenuTabControllerChildren;
+			sourceTree = "<group>";
+		};
 		98BE8C582AD74B8E00878939 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +224,7 @@
 				504D8FED2AD863C30060D6C1 /* Authentication */,
 				FACD56942ACF702A004E36E6 /* Gameplay */,
 				FACD56842ACF6E23004E36E6 /* Main.storyboard */,
-				57F2648C2ADDADF300441F97 /* MainMenuVC.swift */,
+				571B990F2ADF38C300D4C2FB /* MainMenuTabControllerChildren */,
 				FACD56892ACF6E25004E36E6 /* LaunchScreen.storyboard */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
