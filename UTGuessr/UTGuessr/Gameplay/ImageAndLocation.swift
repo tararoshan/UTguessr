@@ -7,14 +7,14 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class ImageAndLocation {
     
-    // Dummy type -- should be UIImage
-    let image:String
+    let image:UIImage
     let location:CLLocationCoordinate2D
     
-    init(image:String, location:CLLocationCoordinate2D) {
+    init(image:UIImage, location:CLLocationCoordinate2D) {
         self.image = image
         self.location = location
     }
