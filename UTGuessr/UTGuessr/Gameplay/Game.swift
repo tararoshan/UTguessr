@@ -26,50 +26,8 @@ class Game {
         print("IMAGES AND LOCATION", self.roundImagesAndLocations)
     }
     
-//    func fetchRandomImagesAndLocations() -> [ImageAndLocation] {
-//
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        var allImagesAndLocations:[ImageAndLocation] = []
-//
-//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ImageAndLocationEntity")
-//        do {
-//            let result = try context.fetch(fetchRequest)
-//            for imageAndLocationEntity in result as! [NSManagedObject] {
-//                var image = imageAndLocationEntity.value(forKey: "image") as! UIImage
-//                var latitude = imageAndLocationEntity.value(forKey: "latitude") as! Float
-//                var longitude = imageAndLocationEntity.value(forKey: "longitude") as! Float
-//                allImagesAndLocations.append(ImageAndLocation(image: image, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))))
-//                print(allImagesAndLocations.last)
-//            }
-//            return allImagesAndLocations
-//        } catch let error as NSError {
-//            print("Could not fetch images and locations : \(error), \(error.userInfo)")
-//        }
-//
-//        return []
-        
-        
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageAndLocationEntity")
-//        request.predicate = NSPredicate(format: "duedate > %@", due as NSDate)
-//
-//        // find out how many items are there
-//        let totalResults = try! context.count(for: request)
-//        if totalResults > 0 {
-//            // randomlize offset
-//            request.fetchOffset = Int.random(in: 0..<totalResults)
-//            request.fetchLimit = 5
-//
-//            let result = try! context.fetch(request) as! [ImageAndLocationEntity]
-//            return result
-//        }
-//
-//        return nil
-//    }
-    
     func populateRoundImageAndLocation() {
         // Go into Core Data and get 5 random images and location
-        // TODO: Core Data
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -79,9 +37,6 @@ class Game {
             let result = try context.fetch(fetchRequest)
             print("RESULT", result)
             for imageAndLocationEntity in result {
-//                let image = imageAndLocationEntity.value(forKey: "image") as? UIImage
-//                let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Float
-//                let longitude = imageAndLocationEntity.value(forKey: "longitude") as? Float
                 
                 guard let imageData = imageAndLocationEntity.value(forKey: "image") as? Data,
                       let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Double,
@@ -91,16 +46,12 @@ class Game {
                 }
                 
                 self.roundImagesAndLocations.append(ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))))
-                print(self.roundImagesAndLocations.last!.location.latitude)
+                // Debugging log
+                // print(self.roundImagesAndLocations.last!.location.latitude)
             }
         } catch let error as NSError {
             print("Could not fetch images and locations : \(error), \(error.userInfo)")
         }
-        
-        // For now, populate with dummy values
-//        for _ in 1...5 {
-//            self.roundImagesAndLocations.append(ImageAndLocation(image: , location: CLLocationCoordinate2DMake(30.2862, -97.7394)))
-//        }
     }
     
     func isOver() -> Bool{

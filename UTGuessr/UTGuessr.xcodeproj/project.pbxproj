@@ -40,7 +40,6 @@
 		504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
-		982F5C2A2AD762660082EDAF /* tower.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 982F5C292AD762660082EDAF /* tower.jpeg */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
 		988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764572AD88E4500025A06 /* PostRoundViewController.swift */; };
 		9887645A2AD8904F00025A06 /* PostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764592AD8904F00025A06 /* PostGameViewController.swift */; };
@@ -91,7 +90,6 @@
 		504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		982F5C292AD762660082EDAF /* tower.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tower.jpeg; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
 		988764572AD88E4500025A06 /* PostRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoundViewController.swift; sourceTree = "<group>"; };
 		988764592AD8904F00025A06 /* PostGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGameViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 				FACD56892ACF6E25004E36E6 /* LaunchScreen.storyboard */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
-				982F5C292AD762660082EDAF /* tower.jpeg */,
 				504D8FB12AD8555A0060D6C1 /* logo.png */,
 				504D8FB32AD861AE0060D6C1 /* GoogleService-Info.plist */,
 				98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */,
@@ -396,7 +393,6 @@
 				98BE8C722AD74BB800878939 /* FiraSans-ExtraLight.ttf in Resources */,
 				98BE8C782AD74BB800878939 /* FiraSans-LightItalic.ttf in Resources */,
 				57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */,
-				982F5C2A2AD762660082EDAF /* tower.jpeg in Resources */,
 				98F738382ADDD2BF00CDBB70 /* 0001.jpeg in Resources */,
 				98F738352ADDD2BF00CDBB70 /* 0002.jpeg in Resources */,
 				98F738372ADDD2BF00CDBB70 /* 0007.jpeg in Resources */,
