@@ -40,6 +40,7 @@
 		504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
+		9844F8492ADF0A0C00A52F6E /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
 		988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764572AD88E4500025A06 /* PostRoundViewController.swift */; };
 		9887645A2AD8904F00025A06 /* PostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764592AD8904F00025A06 /* PostGameViewController.swift */; };
@@ -61,7 +62,6 @@
 		98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */; };
 		98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */; };
 		98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8C7D2AD74EAD00878939 /* Game.swift */; };
-		98CD6DD02ADEDA4700B221C9 /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 98CD6DCF2ADEDA4700B221C9 /* CoreImagesAndLocations */; };
 		98F738332ADDD2BF00CDBB70 /* 0005.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382B2ADDD2BE00CDBB70 /* 0005.jpeg */; };
 		98F738342ADDD2BF00CDBB70 /* 0004.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382C2ADDD2BE00CDBB70 /* 0004.jpeg */; };
 		98F738352ADDD2BF00CDBB70 /* 0002.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */; };
@@ -90,6 +90,7 @@
 		504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreImagesAndLocations; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
 		988764572AD88E4500025A06 /* PostRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoundViewController.swift; sourceTree = "<group>"; };
 		988764592AD8904F00025A06 /* PostGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGameViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Thin.ttf"; sourceTree = "<group>"; };
 		98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		98BE8C7D2AD74EAD00878939 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		98CD6DCF2ADEDA4700B221C9 /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreImagesAndLocations; sourceTree = "<group>"; };
 		98F7382B2ADDD2BE00CDBB70 /* 0005.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0005.jpeg; sourceTree = "<group>"; };
 		98F7382C2ADDD2BE00CDBB70 /* 0004.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0004.jpeg; sourceTree = "<group>"; };
 		98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0002.jpeg; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		98F7382A2ADDD14600CDBB70 /* CoreImagesAndLocations */ = {
 			isa = PBXGroup;
 			children = (
-				98CD6DCF2ADEDA4700B221C9 /* CoreImagesAndLocations */,
+				9844F8482ADF0A0C00A52F6E /* CoreImagesAndLocations */,
 				98F7382E2ADDD2BE00CDBB70 /* 0000.jpeg */,
 				98F738302ADDD2BF00CDBB70 /* 0001.jpeg */,
 				98F7382D2ADDD2BE00CDBB70 /* 0002.jpeg */,
@@ -376,7 +376,6 @@
 				98F738342ADDD2BF00CDBB70 /* 0004.jpeg in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
 				98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */,
-				98CD6DD02ADEDA4700B221C9 /* CoreImagesAndLocations in Resources */,
 				98BE8C6E2AD74BB800878939 /* FiraSans-Italic.ttf in Resources */,
 				98BE8C6C2AD74BB800878939 /* FiraSans-Light.ttf in Resources */,
 				98F738332ADDD2BF00CDBB70 /* 0005.jpeg in Resources */,
@@ -385,6 +384,7 @@
 				98BE8C752AD74BB800878939 /* FiraSans-ExtraLightItalic.ttf in Resources */,
 				FACD56862ACF6E23004E36E6 /* Main.storyboard in Resources */,
 				98BE8C762AD74BB800878939 /* FiraSans-Bold.ttf in Resources */,
+				9844F8492ADF0A0C00A52F6E /* CoreImagesAndLocations in Resources */,
 				98F738392ADDD2BF00CDBB70 /* 0003.jpeg in Resources */,
 				98BE8C6F2AD74BB800878939 /* FiraSans-Black.ttf in Resources */,
 				98BE8C792AD74BB800878939 /* FiraSans-ExtraBoldItalic.ttf in Resources */,
