@@ -496,7 +496,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D1-X1-EiK">
-                                <rect key="frame" x="77" y="507.33333333333331" width="274" height="46.666666666666686"/>
+                                <rect key="frame" x="77" y="507.33333333333331" width="274" height="45.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -524,7 +524,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzG-PO-Baf">
-                                <rect key="frame" x="77" y="604" width="274" height="46.666666666666629"/>
+                                <rect key="frame" x="77" y="603" width="274" height="46.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -565,81 +565,111 @@
         <!--User Profile-->
         <scene sceneID="Kdl-YC-OeR">
             <objects>
-                <viewController title="User Profile" id="lEz-w9-RuP" sceneMemberID="viewController">
+                <viewController title="User Profile" id="lEz-w9-RuP" customClass="ProfileVC" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYs-pS-Keb">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Iaq-c6-wdj">
-                                <rect key="frame" x="134" y="94" width="160" height="160"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="individual statistics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-WH-1de">
+                                <rect key="frame" x="62.333333333333343" y="399" width="303.33333333333326" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="I2c-ZV-PFI"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="JUn-rA-5UH"/>
-                                    <constraint firstAttribute="width" constant="160" id="aUb-Mk-50y"/>
+                                    <constraint firstAttribute="height" constant="41" id="NL5-db-wcq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="competitive statistics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yk-cR-w6r">
+                                <rect key="frame" x="47.666666666666657" y="638" width="332.66666666666674" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="FeL-4r-JHw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F2r-kA-tn0">
+                                <rect key="frame" x="48" y="687" width="183" height="79"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="games played: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6O-bL-aOq">
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="games won: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4G-xK-NDq">
+                                        <rect key="frame" x="0.0" y="38" width="183" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="KyK-lG-Kch"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7DB-v4-G6z">
+                                <rect key="frame" x="48" y="448" width="183" height="117"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="games played: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBM-Dg-WzR">
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="average score: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Iz-UTh">
+                                        <rect key="frame" x="0.0" y="38" width="183" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="shN-S4-8E7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="high score: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2t-DQ-DXw">
+                                        <rect key="frame" x="0.0" y="87" width="183" height="30"/>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9bc-pO-wuI">
+                                <rect key="frame" x="125" y="90.33333333333303" width="179" height="178.33333333333331"/>
+                                <color key="backgroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9bc-pO-wuI" secondAttribute="height" multiplier="1:1" id="9bP-Zw-rV6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-sN-vc0">
-                                <rect key="frame" x="54" y="313" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-sN-vc0">
+                                <rect key="frame" x="135" y="276" width="158" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="2te-yf-Cai"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="30"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="individual statistics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-WH-1de">
-                                <rect key="frame" x="54" y="399" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
-                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="competitive statistics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yk-cR-w6r">
-                                <rect key="frame" x="48" y="638" width="333" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
-                                <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="games played: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6O-bL-aOq">
-                                <rect key="frame" x="48" y="687" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="games won: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4G-xK-NDq">
-                                <rect key="frame" x="48" y="736" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="games played: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBM-Dg-WzR">
-                                <rect key="frame" x="48" y="448" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="average score: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Iz-UTh">
-                                <rect key="frame" x="48" y="497" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="high score: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2t-DQ-DXw">
-                                <rect key="frame" x="48" y="546" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nTJ-Xm-IUz"/>
                         <color key="backgroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Iaq-c6-wdj" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="IZP-0e-2W7"/>
-                            <constraint firstItem="Iaq-c6-wdj" firstAttribute="top" secondItem="nTJ-Xm-IUz" secondAttribute="top" constant="55" id="NzV-R7-3yX"/>
+                            <constraint firstItem="7DB-v4-G6z" firstAttribute="top" secondItem="UFO-WH-1de" secondAttribute="bottom" constant="8" id="8mf-5g-Y4M"/>
+                            <constraint firstItem="9bc-pO-wuI" firstAttribute="top" secondItem="nTJ-Xm-IUz" secondAttribute="top" constant="45.999999999999702" id="AXG-J4-MEO"/>
+                            <constraint firstItem="7DB-v4-G6z" firstAttribute="top" secondItem="zYs-pS-Keb" secondAttribute="top" constant="448" id="BBb-Xa-BsR"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="EwD-Xg-lFf"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="top" secondItem="9bc-pO-wuI" secondAttribute="bottom" constant="7.0000000000002842" id="FTh-9Z-e8X"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="centerX" secondItem="9Yk-cR-w6r" secondAttribute="centerX" id="PAv-w5-N1c"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="top" secondItem="9bc-pO-wuI" secondAttribute="bottom" constant="7.0000000000002842" id="VNW-rF-Dt0"/>
+                            <constraint firstItem="9bc-pO-wuI" firstAttribute="trailing" secondItem="F2r-kA-tn0" secondAttribute="trailing" constant="73" id="eJD-mp-mUk"/>
+                            <constraint firstItem="F2r-kA-tn0" firstAttribute="top" secondItem="9Yk-cR-w6r" secondAttribute="bottom" constant="8" id="ibZ-cg-wZJ"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="centerX" secondItem="UFO-WH-1de" secondAttribute="centerX" id="k64-fO-lDl"/>
+                            <constraint firstItem="BU2-sN-vc0" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="135" id="lWq-Cf-ETX"/>
+                            <constraint firstItem="9bc-pO-wuI" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="125" id="mOw-hP-CcG"/>
+                            <constraint firstItem="nTJ-Xm-IUz" firstAttribute="trailing" secondItem="9bc-pO-wuI" secondAttribute="trailing" constant="124" id="rkl-dh-OVA"/>
+                            <constraint firstItem="9bc-pO-wuI" firstAttribute="trailing" secondItem="7DB-v4-G6z" secondAttribute="trailing" constant="73" id="tYm-Dy-IKU"/>
+                            <constraint firstItem="9Yk-cR-w6r" firstAttribute="top" secondItem="7DB-v4-G6z" secondAttribute="bottom" constant="73" id="xYT-5A-qoj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="pvo-7c-VfW">
@@ -651,6 +681,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profilePic" destination="9bc-pO-wuI" id="JnY-Cv-kVT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6F-yQ-hT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -897,11 +930,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2vv-bD-10i"/>
-        <segue reference="Aet-tF-LYZ"/>
-        <segue reference="GYW-Og-fJY"/>
+        <segue reference="Xj5-wS-Znn"/>
+        <segue reference="18e-oP-2cg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="camera.on.rectangle" catalog="system" width="32" height="32"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="99"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="logo.png" width="310" height="312"/>
