@@ -10,24 +10,53 @@ import UIKit
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set rounded borders (make into a circle)
         profilePic.layer.cornerRadius = profilePic.bounds.width / 2
         // Allow the picture to work like a button as well
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-        profilePic.addGestureRecognizer(tapGesture)
+        let photoTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
+        profilePic.addGestureRecognizer(photoTap)
         profilePic.isUserInteractionEnabled = true
+        // Allow the username to be changed
+        usernameLabel.lineBreakMode = .byCharWrapping
+        let usernameTap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
+        usernameLabel.addGestureRecognizer(usernameTap)
+        usernameLabel.isUserInteractionEnabled = true
+    }
+    
+    // Runs when the username is tapped
+    @objc func usernameTapped() {
+        let controller = UIAlertController(
+            title: "Set username",
+            message: nil,
+            preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        controller.addTextField(configurationHandler: {
+            (textField) in
+            textField.placeholder = "New username" } )
+        controller.addAction(UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: {
+                (action) in
+                let enteredText = controller.textFields![0].text
+                self.usernameLabel.text = enteredText!
+            }
+        ))
+        
+        present(controller, animated:true)
     }
     
     // Runs when the profile image is tapped
     @objc func profileImageTapped() {
-        print("Image Tapped")
         // Choose between the camera and the photo library
         let controller = UIAlertController(
-            title: "Action Sheet",
-            message: "test",
+            title: nil,
+            message: nil,
             preferredStyle: .actionSheet)
         
         controller.addAction(UIAlertAction(
@@ -35,7 +64,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             style: .default,
             handler: {
                 (action) in
-                print("upload")
                 self.choosePickerType(source: .savedPhotosAlbum)
             } ))
         controller.addAction(UIAlertAction(
@@ -43,16 +71,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             style: .default,
             handler: {
                 (action) in
-                print("take photo")
                 self.choosePickerType(source: .camera)
             } ))
         controller.addAction(UIAlertAction(
             title: "Cancel",
-            style: .cancel,
-            handler: {
-                (action) in
-                print("Cancel action")
-            } ))
+            style: .cancel))
         present(controller, animated: true)
     }
     
