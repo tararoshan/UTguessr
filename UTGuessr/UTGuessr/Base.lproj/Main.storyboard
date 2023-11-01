@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aap-le-GJ7">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -797,62 +798,97 @@
         <!--Settings-->
         <scene sceneID="yTQ-S6-UOR">
             <objects>
-                <viewController title="Settings" id="3l8-vf-uif" sceneMemberID="viewController">
+                <viewController title="Settings" id="3l8-vf-uif" customClass="SettingsViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9QI-Wx-WcQ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aby-Xx-yHi">
-                                <rect key="frame" x="0.0" y="101" width="430" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aby-Xx-yHi">
+                                <rect key="frame" x="150.66666666666666" y="94" width="126.99999999999997" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="display" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-Lo-QJZ">
-                                <rect key="frame" x="20" y="233" width="133" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sound" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXA-NC-ko6">
-                                <rect key="frame" x="20" y="341" width="133" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3kj-Zu-kTr">
-                                <rect key="frame" x="138" y="238" width="272" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.86954645460000002" blue="0.68701139450000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <segments>
-                                    <segment title="Light"/>
-                                    <segment title="Dark"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aM3-gA-iPP">
-                                <rect key="frame" x="138" y="346" width="272" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.86954645460000002" blue="0.68701139450000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <segments>
-                                    <segment title="On"/>
-                                    <segment title="Off"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7PW-mJ-ybm">
+                                <rect key="frame" x="20" y="210" width="388" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="display" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-Lo-QJZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="nBG-Sy-4z3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3kj-Zu-kTr">
+                                        <rect key="frame" x="115" y="0.0" width="273" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.86954645460000002" blue="0.68701139450000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <segments>
+                                            <segment title="light"/>
+                                            <segment title="dark"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" red="0.82409662009999995" green="0.54947334530000003" blue="0.31436973810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="displayControlChanged:" destination="3l8-vf-uif" eventType="valueChanged" id="ogW-lz-xIs"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="p4w-R2-gzo">
+                                <rect key="frame" x="20" y="291" width="388" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sound" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXA-NC-ko6">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="udB-Jx-25r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aM3-gA-iPP">
+                                        <rect key="frame" x="115" y="0.0" width="273" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.86954645460000002" blue="0.68701139450000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <segments>
+                                            <segment title="on"/>
+                                            <segment title="off"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" red="0.82409662009999995" green="0.54947334530000003" blue="0.31436973810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="soundControlChanged:" destination="3l8-vf-uif" eventType="valueChanged" id="nfK-OV-PoA"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aM3-gA-iPP" firstAttribute="leading" secondItem="jXA-NC-ko6" secondAttribute="trailing" constant="30" id="3T5-aH-0xG"/>
+                                    <constraint firstAttribute="trailing" secondItem="aM3-gA-iPP" secondAttribute="trailing" id="Yms-iK-7nd"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dGc-iX-Th3"/>
-                        <color key="backgroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aby-Xx-yHi" firstAttribute="centerX" secondItem="9QI-Wx-WcQ" secondAttribute="centerX" id="3aY-zv-FH7"/>
+                            <constraint firstItem="dGc-iX-Th3" firstAttribute="trailing" secondItem="p4w-R2-gzo" secondAttribute="trailing" constant="20" id="9lH-iw-ex6"/>
+                            <constraint firstItem="dGc-iX-Th3" firstAttribute="trailing" secondItem="7PW-mJ-ybm" secondAttribute="trailing" constant="20" id="CG5-aq-scX"/>
+                            <constraint firstItem="aby-Xx-yHi" firstAttribute="top" secondItem="dGc-iX-Th3" secondAttribute="top" constant="50" id="HYM-EV-74j"/>
+                            <constraint firstItem="p4w-R2-gzo" firstAttribute="leading" secondItem="dGc-iX-Th3" secondAttribute="leading" constant="20" id="OUX-Gm-KOv"/>
+                            <constraint firstItem="7PW-mJ-ybm" firstAttribute="top" secondItem="aby-Xx-yHi" secondAttribute="bottom" constant="75" id="XdX-tC-dZs"/>
+                            <constraint firstItem="7PW-mJ-ybm" firstAttribute="leading" secondItem="dGc-iX-Th3" secondAttribute="leading" constant="20" id="YO4-0j-dlI"/>
+                            <constraint firstItem="p4w-R2-gzo" firstAttribute="top" secondItem="7PW-mJ-ybm" secondAttribute="bottom" constant="50" id="bug-XW-gcn"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="VpZ-RG-H5t"/>
                     <navigationItem key="navigationItem" id="dEV-KL-8Jp"/>
+                    <connections>
+                        <outlet property="displayControl" destination="3kj-Zu-kTr" id="oAl-Ot-qus"/>
+                        <outlet property="soundControl" destination="aM3-gA-iPP" id="RpD-h4-rox"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcJ-Xg-xTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6735.3488372093025" y="-3380.472103004292"/>
+            <point key="canvasLocation" x="6734.5794392523358" y="-3380.9935205183588"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="IvP-Wx-xlm">
@@ -927,18 +963,21 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2vv-bD-10i"/>
-        <segue reference="Xj5-wS-Znn"/>
+        <segue reference="Aet-tF-LYZ"/>
         <segue reference="18e-oP-2cg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
-        <image name="camera.on.rectangle" catalog="system" width="32" height="32"/>
-        <image name="chart.bar.xaxis" catalog="system" width="128" height="99"/>
+        <image name="camera.on.rectangle" catalog="system" width="128" height="98"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="97"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="logo.png" width="310" height="312"/>
-        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="tower.jpeg" width="1200" height="900"/>
+        <namedColor name="backgroundColor">
+            <color red="0.98833626510000006" green="0.91779953240000001" blue="0.83542972800000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
