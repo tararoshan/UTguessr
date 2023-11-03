@@ -10,7 +10,6 @@ import MapKit
 import CoreLocation
 
 class GameViewController: UIViewController, UIScrollViewDelegate {
-
     @IBOutlet weak var gameMap: MKMapView!
     var userCoordinate: CLLocationCoordinate2D?
     var game:Game?
@@ -22,12 +21,15 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         game = Game()
         
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 6.0
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

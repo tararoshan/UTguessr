@@ -70,6 +70,7 @@
 		98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8C7D2AD74EAD00878939 /* Game.swift */; };
 		98EA911B2ADF0C32006EA8D8 /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */; };
 		98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */; };
+		FA7618902AF5A69F004A7CF9 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */; };
 		FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */; };
 		FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */; };
 		FACD56832ACF6E23004E36E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56822ACF6E23004E36E6 /* ViewController.swift */; };
@@ -113,6 +114,7 @@
 		98BE8C7D2AD74EAD00878939 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreImagesAndLocations; sourceTree = "<group>"; };
 		98F7383E2ADDE86500CDBB70 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadScreenViewController.swift; path = UTGuessr/LoadScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		FACD567B2ACF6E23004E36E6 /* UTGuessr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTGuessr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				FACD56892ACF6E25004E36E6 /* LaunchScreen.storyboard */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
+				FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */,
 				504D8FB12AD8555A0060D6C1 /* logo.png */,
 				504D8FB32AD861AE0060D6C1 /* GoogleService-Info.plist */,
 				98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */,
@@ -401,6 +404,7 @@
 				FACD56932ACF700C004E36E6 /* CountdownViewController.swift in Sources */,
 				988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */,
 				988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */,
+				FA7618902AF5A69F004A7CF9 /* LoadScreenViewController.swift in Sources */,
 				506663B02AF2D40E0066DF15 /* SettingsViewController.swift in Sources */,
 				504D8FEF2AD863F70060D6C1 /* LogInViewController.swift in Sources */,
 				FACD56832ACF6E23004E36E6 /* ViewController.swift in Sources */,

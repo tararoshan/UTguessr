@@ -9,6 +9,9 @@ import UIKit
 import FirebaseCore
 import CoreData
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -121,7 +124,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
         // Add core images and core locations to Core Data
         let CORE_IMAGES_AND_LOCATIONS = "CoreImagesAndLocations"
         let LOCATIONS_FILE = "CoreLocations.txt"
