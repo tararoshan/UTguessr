@@ -16,7 +16,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     var game:Game?
     
     let segueToPostRoundIdentifier = "GameToPostRound"
-    let segueToPostGameIdentifier = "GameToPostGame"
     
     var newGame:Bool = true
     
@@ -80,15 +79,9 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func confirmPinButtonPressed(_ sender: Any) {
-        
         if (self.userCoordinate != nil) {
             self.game!.finishRound(userCoordinate: self.userCoordinate!)
-            if self.game!.isOver() {
-                performSegue(withIdentifier: segueToPostGameIdentifier, sender: nil)
-            } else {
-                // Game not over, segue to Post Round View Controller
-                performSegue(withIdentifier: segueToPostRoundIdentifier, sender: nil)
-            }
+            performSegue(withIdentifier: segueToPostRoundIdentifier, sender: nil)
         }
     }
     
@@ -97,12 +90,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         if (segue.identifier == segueToPostRoundIdentifier),
            let postRoundVC = segue.destination as? PostRoundViewController {
             postRoundVC.score = String(self.game!.roundScores[self.game!.currentRound - 2])
-        }
-        
-        // Segueing to Post Game screen
-        if (segue.identifier == segueToPostGameIdentifier),
-           let postGameVC = segue.destination as? PostGameViewController {
-            postGameVC.score = String(self.game!.roundScores.reduce(0, +))
+            postRoundVC.game = self.game!
         }
     }
     
