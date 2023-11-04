@@ -9,7 +9,7 @@ import UIKit
 import FirebaseStorage
 
 class LoadScreenViewController: UIViewController {
-
+    let storage = Storage.storage()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,6 +18,7 @@ class LoadScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Task {
+            
             await appLoad()
             
             
@@ -27,19 +28,17 @@ class LoadScreenViewController: UIViewController {
         
     }
     func appLoad() async{
-        let storage = Storage.storage()
         let storageRef = storage.reference()
         let tempIMG = storageRef.child("catslol.gif")
         let imageRef = storageRef.child("images")
         let tempImg = imageRef.child("0000.jpeg")
-        let numberOfItems:Int?
         print("----------------------")
         var firebaseFiles:[StorageReference] = []
         
+        
         let dg = DispatchGroup()
         dg.enter()
-        getLocalImageCount(dg: dg)
-        dg.enter()
+        print("************LISTING ALL ********")
         imageRef.listAll() {(result, error) in
                 if let error = error {
                     print(error.localizedDescription.description)
@@ -47,13 +46,22 @@ class LoadScreenViewController: UIViewController {
                 }
                 if let result = result {
                     firebaseFiles = result.items
+                    if result.items.count != self.checkImageFolder(){
+                        self.loadImages()
+                    } else {
+                        print("images not loaded SAME IMAGES")
+                    }
                 }
+                
                 dg.leave()
             }
             
             dg.notify(queue: .main) {
                 print(firebaseFiles)
                 print("DONE!@#!@#!@#!@#!@#")
+                dg.enter()
+                
+                dg.leave()
                 self.performSegue(withIdentifier: "LoadingDone", sender: nil)
             }
         
@@ -69,15 +77,61 @@ class LoadScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func getLocalImageCount(dg: DispatchGroup) -> Int {
+    func checkImageFolder() -> Int {
+        print(NSHomeDirectory())
         do {
-            let dr = try FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            print(dr.path())
-            return 0
+            //  get reference to document directory
+            let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let imageFolderPath = dd.appendingPathComponent("images")
+            if FileManager.default.fileExists(atPath: imageFolderPath.path()){
+                print("image folder already exists")
+            } else {
+                print("Image folder does not exist")
+                try FileManager.default.createDirectory(at: imageFolderPath, withIntermediateDirectories: false, attributes: nil)
+                print("Image folder created")
+                return 0
+            }
+            let fileUrls = try FileManager.default.contentsOfDirectory(at: imageFolderPath, includingPropertiesForKeys: nil)
+            print("Documents", fileUrls.count)
+            return fileUrls.count
         } catch{
             print(error)
         }
-        dg.leave()
         return -1
+    }
+    func loadImages() {
+        let storageRef = storage.reference()
+        let fimageRef = storageRef.child("images") // firebase image folder reference
+        do {
+            let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let imageFolderPath = dd.appendingPathComponent("images")
+            let imageFiles = try FileManager.default.contentsOfDirectory(at: imageFolderPath, includingPropertiesForKeys: nil)
+            
+            for imageFile in imageFiles {
+                try FileManager.default.removeItem(at: imageFile)
+                print("Removed \(imageFile.lastPathComponent)")
+            }
+            fimageRef.listAll() {(result, error) in
+                if let error = error {
+                    print(error.localizedDescription.description)
+                    return
+                }
+                for item in result!.items {
+                    let localURL = imageFolderPath.appending(path: item.name)
+                    let downloadTask = item.write(toFile: localURL) {
+                        url, error in
+                        if let error = error{
+                            print(error)
+                        } else {
+                            print("Loaded \(item.name) to local storage")
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        
     }
 }
