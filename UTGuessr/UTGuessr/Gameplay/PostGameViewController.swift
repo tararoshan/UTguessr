@@ -50,5 +50,4 @@ class PostGameViewController: UIViewController {
             }
         }
     }
-    
 }

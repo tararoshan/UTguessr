@@ -38,7 +38,7 @@ class LoadScreenViewController: UIViewController {
         
         let dg = DispatchGroup()
         dg.enter()
-        print("************LISTING ALL ********")
+        print("************LISTING ALL************")
         imageRef.listAll() {(result, error) in
                 if let error = error {
                     print(error.localizedDescription.description)
