@@ -19,37 +19,44 @@ class LoadScreenViewController: UIViewController {
         super.viewDidAppear(animated)
         Task {
             await appLoad()
-            self.performSegue(withIdentifier: "LoadingDone", sender: nil)
+            
+            
         }
         
+        
+        
     }
-    func appLoad() async {
+    func appLoad() async{
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let tempIMG = storageRef.child("catslol.gif")
         let imageRef = storageRef.child("images")
         let tempImg = imageRef.child("0000.jpeg")
+        let numberOfItems:Int?
         print("----------------------")
-        let getFileNames = Task { () -> [StorageReference] in
-            var firebaseFiles:[StorageReference] = []
-            imageRef.listAll {(result, error) in
+        var firebaseFiles:[StorageReference] = []
+        
+        let dg = DispatchGroup()
+        dg.enter()
+        getLocalImageCount(dg: dg)
+        dg.enter()
+        imageRef.listAll() {(result, error) in
                 if let error = error {
+                    print(error.localizedDescription.description)
                     return
                 }
-                for item in result!.items{
-                    firebaseFiles.append(item)
-                    print(item)
-                }}
-            return firebaseFiles
-        }
-        let result = await getFileNames.result
-        do {
-            let list = try result.get()
-            print(list)
-        } catch {
-            print("error")
-        }
-        return
+                if let result = result {
+                    firebaseFiles = result.items
+                }
+                dg.leave()
+            }
+            
+            dg.notify(queue: .main) {
+                print(firebaseFiles)
+                print("DONE!@#!@#!@#!@#!@#")
+                self.performSegue(withIdentifier: "LoadingDone", sender: nil)
+            }
+        
     }
     
 
@@ -62,5 +69,15 @@ class LoadScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func getLocalImageCount(dg: DispatchGroup) -> Int {
+        do {
+            let dr = try FileManager.default.url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            print(dr.path())
+            return 0
+        } catch{
+            print(error)
+        }
+        dg.leave()
+        return -1
+    }
 }
