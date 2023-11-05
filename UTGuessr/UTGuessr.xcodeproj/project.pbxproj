@@ -71,6 +71,7 @@
 		98EA911B2ADF0C32006EA8D8 /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */; };
 		98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */; };
 		FA7618902AF5A69F004A7CF9 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */; };
+		FA7618922AF7212D004A7CF9 /* UploadPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7618912AF7212D004A7CF9 /* UploadPictureViewController.swift */; };
 		FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */; };
 		FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */; };
 		FACD56832ACF6E23004E36E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD56822ACF6E23004E36E6 /* ViewController.swift */; };
@@ -115,6 +116,7 @@
 		98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreImagesAndLocations; sourceTree = "<group>"; };
 		98F7383E2ADDE86500CDBB70 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadScreenViewController.swift; path = UTGuessr/LoadScreenViewController.swift; sourceTree = SOURCE_ROOT; };
+		FA7618912AF7212D004A7CF9 /* UploadPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPictureViewController.swift; sourceTree = "<group>"; };
 		FACD567B2ACF6E23004E36E6 /* UTGuessr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTGuessr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		571B990F2ADF38C300D4C2FB /* MainMenuChildren */ = {
 			isa = PBXGroup;
 			children = (
+				FA7618912AF7212D004A7CF9 /* UploadPictureViewController.swift */,
 				57F2648C2ADDADF300441F97 /* MainMenuVC.swift */,
 				573E229E2AED3C8C00CA6768 /* ProfileVC.swift */,
 			);
@@ -411,6 +414,7 @@
 				FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */,
 				98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */,
 				FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */,
+				FA7618922AF7212D004A7CF9 /* UploadPictureViewController.swift in Sources */,
 				9887645A2AD8904F00025A06 /* PostGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
