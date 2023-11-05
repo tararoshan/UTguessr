@@ -34,7 +34,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
 
             })
 
-            imageView.image = image
+//            imageView.image = image
     }
     @IBAction func uploadPhotoPressed(_ sender: Any) {
     }
