@@ -18,23 +18,17 @@ class LoadScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Task {
-            
             await appLoad()
-            
-            
         }
-        
-        
-        
     }
+    
     func appLoad() async{
         let storageRef = storage.reference()
-        let tempIMG = storageRef.child("catslol.gif")
         let imageRef = storageRef.child("images")
-        let tempImg = imageRef.child("0000.jpeg")
+        let userRef = storageRef.child("users")
         print("----------------------")
-        var firebaseFiles:[StorageReference] = []
-        
+        var imageFiles:[StorageReference] = []
+        var userFiles:[StorageReference] = []
         
         let dg = DispatchGroup()
         dg.enter()
@@ -45,7 +39,7 @@ class LoadScreenViewController: UIViewController {
                     return
                 }
                 if let result = result {
-                    firebaseFiles = result.items
+                    imageFiles = result.items
                     if result.items.count != self.checkImageFolder(){
                         self.loadImages()
                     } else {
@@ -55,15 +49,28 @@ class LoadScreenViewController: UIViewController {
                 
                 dg.leave()
             }
-            
-            dg.notify(queue: .main) {
-                print(firebaseFiles)
-                print("DONE!@#!@#!@#!@#!@#")
-                dg.enter()
-                
-                dg.leave()
-                self.performSegue(withIdentifier: "LoadingDone", sender: nil)
+        
+        userRef.listAll() {
+            (result, error) in
+            if let error = error {
+                print(error.localizedDescription.description)
+                return
             }
+            if let result = result {
+                userFiles = result.items
+            }
+        }
+            
+        dg.notify(queue: .main) {
+            print(imageFiles)
+            print("DONE!@#!@#!@#!@#!@#")
+            dg.enter()
+            
+            dg.leave()
+            self.performSegue(withIdentifier: "LoadingDone", sender: nil)
+        }
+        
+        
         
     }
     
@@ -84,7 +91,7 @@ class LoadScreenViewController: UIViewController {
             let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let imageFolderPath = dd.appendingPathComponent("images")
             if FileManager.default.fileExists(atPath: imageFolderPath.path()){
-                print("image folder already exists")
+                print("Image folder already exists")
             } else {
                 print("Image folder does not exist")
                 try FileManager.default.createDirectory(at: imageFolderPath, withIntermediateDirectories: false, attributes: nil)
@@ -99,6 +106,7 @@ class LoadScreenViewController: UIViewController {
         }
         return -1
     }
+    
     func loadImages() {
         let storageRef = storage.reference()
         let fimageRef = storageRef.child("images") // firebase image folder reference
