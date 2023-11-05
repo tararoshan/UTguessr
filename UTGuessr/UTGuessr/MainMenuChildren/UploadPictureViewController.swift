@@ -12,6 +12,17 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var uploadPhotoButton: UIButton!
     var imagePicker = UIImagePickerController()
+    
+    let userDefaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

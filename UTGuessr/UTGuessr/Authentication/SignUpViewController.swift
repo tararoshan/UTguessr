@@ -16,6 +16,19 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
+    let userDefaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+            emailTextField.overrideUserInterfaceStyle = .light
+            passwordTextField.overrideUserInterfaceStyle = .light
+            passwordConfirmationTextField.overrideUserInterfaceStyle = .light
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

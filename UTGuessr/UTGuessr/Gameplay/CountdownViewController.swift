@@ -17,6 +17,16 @@ class CountdownViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    let userDefaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)

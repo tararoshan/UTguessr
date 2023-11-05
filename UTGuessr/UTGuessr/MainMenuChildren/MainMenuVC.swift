@@ -8,6 +8,16 @@
 import UIKit
 
 class MainMenuVC: UIViewController {
+    
+    let userDefaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

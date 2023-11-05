@@ -16,6 +16,8 @@ class PostRoundViewController: UIViewController {
     @IBOutlet weak var nextRoundButton: UIButton!
     @IBOutlet weak var finishGameButton: UIButton!
     
+    let userDefaults = UserDefaults.standard
+    
     let segueToPostGameIdentifier = "PostRoundToPostGame"
     
     override func viewDidLoad() {
@@ -24,6 +26,12 @@ class PostRoundViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         

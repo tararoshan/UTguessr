@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5026E1DD2AF80D1E00E83769 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026E1DC2AF80D1E00E83769 /* LeaderboardViewController.swift */; };
 		504D8FB22AD8555A0060D6C1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 504D8FB12AD8555A0060D6C1 /* logo.png */; };
 		504D8FB42AD861AE0060D6C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 504D8FB32AD861AE0060D6C1 /* GoogleService-Info.plist */; };
 		504D8FB72AD862840060D6C1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 504D8FB62AD862840060D6C1 /* FirebaseAnalytics */; };
@@ -83,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5026E1DC2AF80D1E00E83769 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		504D8FB12AD8555A0060D6C1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		504D8FB32AD861AE0060D6C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		504D8FEC2AD863440060D6C1 /* UTGuessr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTGuessr.entitlements; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FA7618912AF7212D004A7CF9 /* UploadPictureViewController.swift */,
 				57F2648C2ADDADF300441F97 /* MainMenuVC.swift */,
 				573E229E2AED3C8C00CA6768 /* ProfileVC.swift */,
+				5026E1DC2AF80D1E00E83769 /* LeaderboardViewController.swift */,
 			);
 			path = MainMenuChildren;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				FACD56962ACF7400004E36E6 /* GameViewController.swift in Sources */,
 				573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */,
 				98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */,
+				5026E1DD2AF80D1E00E83769 /* LeaderboardViewController.swift in Sources */,
 				504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */,
 				FACD56932ACF700C004E36E6 /* CountdownViewController.swift in Sources */,
 				988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */,

@@ -14,6 +14,17 @@ class SettingsViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
+    override func viewWillAppear(_ animated: Bool) {
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textOnLightBackground]
+        displayControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        soundControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+            displayControl.selectedSegmentIndex = 1
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
