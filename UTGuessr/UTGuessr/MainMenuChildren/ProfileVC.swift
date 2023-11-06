@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var gamesPlayedLabel: UILabel!
+    @IBOutlet weak var averageScoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    
     let userDefaults = UserDefaults.standard
+    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
@@ -24,6 +31,29 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get user information from database
+        
+        let userDocRef = self.db.collection("users").document(Auth.auth().currentUser!.email!)
+        userDocRef.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                let averageScore = document.data()!["average_score"]! as! Float
+                let highScore = document.data()!["high_score"]! as! Int
+                let gamesPlayed = document.data()!["games_played"]! as! Int
+                
+                let username = document.data()!["username"]! as! String
+                let profileImage = document.data()!["profile_image"]
+                
+                self.usernameLabel.text = username
+                self.gamesPlayedLabel.text = "Games Played: \(gamesPlayed)"
+                self.averageScoreLabel.text = "Average Score: \(Int(averageScore))"
+                self.highScoreLabel.text = "High Score: \(highScore)"
+            } else {
+                print("Firebase Firestore: Can't find user data")
+            }
+        }
+        
         // Set rounded borders (make into a circle)
         profilePic.layer.cornerRadius = profilePic.bounds.width / 2
         // Allow the picture to work like a button as well
@@ -40,14 +70,14 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // Runs when the username is tapped
     @objc func usernameTapped() {
         let controller = UIAlertController(
-            title: "Set username",
+            title: "Set Username",
             message: nil,
             preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addTextField(configurationHandler: {
             (textField) in
-            textField.placeholder = "New username" } )
+            textField.placeholder = "New Username" } )
         controller.addAction(UIAlertAction(
             title: "OK",
             style: .default,
@@ -55,6 +85,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 (action) in
                 let enteredText = controller.textFields![0].text
                 self.usernameLabel.text = enteredText!
+                
+                // TODO: if username already exists, update text of alert
+                
+                // TODO: Update the username in the database
             }
         ))
         
@@ -77,7 +111,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 self.choosePickerType(source: .savedPhotosAlbum)
             } ))
         controller.addAction(UIAlertAction(
-            title: "Take photo",
+            title: "Take Photo",
             style: .default,
             handler: {
                 (action) in
@@ -108,16 +142,4 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

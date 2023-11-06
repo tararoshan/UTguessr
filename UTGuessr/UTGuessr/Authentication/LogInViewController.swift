@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 // login screen
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // email and password fields
     @IBOutlet weak var emailTextField: UITextField!
@@ -29,6 +29,20 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+    }
+    
+    // Called when 'return' key pressed
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // handles login button click by logging in or alerting user to an error

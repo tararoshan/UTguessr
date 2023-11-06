@@ -9,6 +9,8 @@ import Foundation
 import CoreLocation
 import CoreData
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class Game {
     let NUM_ROUNDS:Int = 5
@@ -17,6 +19,8 @@ class Game {
     var roundScores:[Int]
     var roundImagesAndLocations:[ImageAndLocation]
     var currentRound:Int
+    
+    let db = Firestore.firestore()
     
     init() {
         self.roundScores = []
@@ -63,6 +67,42 @@ class Game {
             userCoordinate: userCoordinate,
             actualCoordinate: self.roundImagesAndLocations[currentRound - 1].location))
         self.currentRound += 1
+    }
+    
+    // Updates user scoring infomation in the database
+    func finishGame() {
+        let userDocRef = self.db.collection("users").document(Auth.auth().currentUser!.email!)
+        userDocRef.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                let averageScore = document.data()!["average_score"]! as! Float
+                let highScore = document.data()!["high_score"]! as! Int
+                let gamesPlayed = document.data()!["games_played"]! as! Int
+                
+                let currentRoundScore = self.roundScores.reduce(0, +)
+                
+                // Update the high score
+                if highScore < currentRoundScore {
+                    userDocRef.setData([ "high_score": currentRoundScore ], merge: true)
+                    print("Firebase Firestore: Wrote new high score of \(currentRoundScore) from \(highScore)")
+                }
+                
+                // Update the games played
+                userDocRef.setData([ "games_played": gamesPlayed + 1 ], merge: true)
+                print("Firebase Firestore: Wrote new games played of \(gamesPlayed + 1) from \(gamesPlayed)")
+                
+                // Update the average score
+                let newAverageScore = self.calculateNewAverageScore(averageScore: averageScore, gamesPlayed: gamesPlayed, currentRoundScore: currentRoundScore)
+                userDocRef.setData([ "average_score": newAverageScore], merge: true)
+                print("Firebase Firestore: Wrote new average score of \(newAverageScore) from \(averageScore)")
+            } else {
+                print("Firebase Firestore: Can't find user data")
+            }
+        }
+    }
+    
+    func calculateNewAverageScore(averageScore:Float, gamesPlayed:Int, currentRoundScore:Int) -> Float {
+        return (averageScore * Float(gamesPlayed) + Float(currentRoundScore)) / (Float(gamesPlayed) + 1)
     }
     
     func calculateRoundScore(userCoordinate:CLLocationCoordinate2D, actualCoordinate:CLLocationCoordinate2D) -> Int {

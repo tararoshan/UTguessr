@@ -39,7 +39,6 @@ class PostRoundViewController: UIViewController {
         
         if self.game!.isOver() {
             // Hide the Next Round Button and show the Finish Game Button
-            print("disabling next round")
             self.nextRoundButton.isHidden = true
             self.finishGameButton.isHidden = false
         } else {
@@ -54,6 +53,8 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func finishGamePressed(_ sender: Any) {
+        // Write the game information to the database
+        self.game.finishGame()
         performSegue(withIdentifier: segueToPostGameIdentifier, sender: self)
     }
     
