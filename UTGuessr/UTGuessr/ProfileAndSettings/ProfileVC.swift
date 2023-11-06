@@ -41,12 +41,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 let gamesPlayed = document.data()!["games_played"]! as! Int
                 
                 let username = document.data()!["username"]! as! String
-                let profileImage = document.data()!["profile_image"] as? UIImage
+                let profileImageData = document.data()!["profile_image"] as? Data
                 
-                if profileImage != nil {
-                    // TODO: put profile image
-                    print("PROFILE IMAGE NOT NULL")
-                    print(profileImage)
+                if profileImageData != nil {
+                    self.profileImage.image = UIImage(data: profileImageData!)
                 } else {
                     self.profileImage.image = UIImage(named: "defaultProfileImage")
                 }
@@ -168,6 +166,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         if let chosenImage = info[.originalImage] as? UIImage {
             profileImage.image = chosenImage
             profileImage.contentMode = .scaleAspectFill
+            
+            // Update the database with the new profile picture
+            self.db.collection("users").document((Auth.auth().currentUser?.email)!).setData([ "profile_image": chosenImage.jpegData(compressionQuality: 0.25)!], merge: true)
         }
         dismiss(animated: true, completion: nil)
     }

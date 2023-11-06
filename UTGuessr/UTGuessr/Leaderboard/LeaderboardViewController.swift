@@ -89,7 +89,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         if segue.identifier == segueToLeaderboardProfileIdentifier,
            let destination = segue.destination as? LeaderboardProfileViewController,
            let selectedIndex = leaderboardTableView.indexPathForSelectedRow?.row {
-            print("EMAIL SENT \(self.leaderboardTableCells[selectedIndex][2])")
             destination.userEmail = self.leaderboardTableCells[selectedIndex][2]
         }
     }

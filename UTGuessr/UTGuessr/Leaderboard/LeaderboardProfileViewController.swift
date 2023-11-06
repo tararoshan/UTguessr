@@ -44,12 +44,11 @@ class LeaderboardProfileViewController: UIViewController {
                 let gamesPlayed = document.data()!["games_played"]! as! Int
                 
                 let username = document.data()!["username"]! as! String
-                let profileImage = document.data()!["profile_image"] as? UIImage
+                let profileImageData = document.data()!["profile_image"] as? Data
                 
-                if profileImage != nil {
-                    // TODO: put profile image
-                    print("PROFILE IMAGE NOT NULL")
-                    print(profileImage)
+                if profileImageData != nil {
+                    self.profileImage.image = UIImage(data: profileImageData!)
+                    self.profileImage.contentMode = .scaleAspectFill
                 } else {
                     self.profileImage.image = UIImage(named: "defaultProfileImage")
                 }
