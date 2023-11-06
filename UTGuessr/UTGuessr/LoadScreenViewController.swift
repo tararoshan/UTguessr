@@ -29,10 +29,13 @@ class LoadScreenViewController: UIViewController {
         print("----------------------")
         var imageFiles:[StorageReference] = []
         var userFiles:[StorageReference] = []
+        print("************LISTING ALL************")
         
         let dg = DispatchGroup()
         dg.enter()
-        print("************LISTING ALL************")
+        Task {loadCoreLocations()
+            dg.leave()}
+        dg.enter()
         imageRef.listAll() {(result, error) in
                 if let error = error {
                     print(error.localizedDescription.description)
@@ -139,7 +142,30 @@ class LoadScreenViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    func loadCoreLocations() {
+        let coreLocationsRef = storage.reference(withPath:"CoreLocations.txt")
+        do {
+            let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let coreLocationsPath = dd.appendingPathComponent("CoreLocations.txt")
+            do {
+                try FileManager.default.removeItem(at: coreLocationsPath)
+            } catch {
+                print(error.localizedDescription)
+            }
+            let downloadTask = coreLocationsRef.write(toFile: coreLocationsPath) {
+                url, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Loaded \(coreLocationsRef.name) to local storage")
+                }
 
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
         
     }
 }
+
