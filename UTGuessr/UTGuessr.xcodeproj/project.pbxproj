@@ -45,6 +45,8 @@
 		506663AC2AF2CC4E0066DF15 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 506663AB2AF2CC4E0066DF15 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		506663AE2AF2CC4E0066DF15 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 506663AD2AF2CC4E0066DF15 /* FirebaseAppCheck */; };
 		506663B02AF2D40E0066DF15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */; };
+		5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12A2AF98ECB008B1F78 /* countdown.wav */; };
+		5078D12D2AF98ECC008B1F78 /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */; };
 		573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E229E2AED3C8C00CA6768 /* ProfileVC.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
@@ -92,6 +94,8 @@
 		504D8FEE2AD863F70060D6C1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		504D8FF02AD8640B0060D6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5078D12A2AF98ECB008B1F78 /* countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown.wav; sourceTree = "<group>"; };
+		5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fanfare.mp3; sourceTree = "<group>"; };
 		573E229E2AED3C8C00CA6768 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				FACD56842ACF6E23004E36E6 /* Main.storyboard */,
 				571B990F2ADF38C300D4C2FB /* MainMenuChildren */,
 				FACD56892ACF6E25004E36E6 /* LaunchScreen.storyboard */,
+				5078D12A2AF98ECB008B1F78 /* countdown.wav */,
+				5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
 				FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */,
@@ -383,6 +389,7 @@
 				504D8FB22AD8555A0060D6C1 /* logo.png in Resources */,
 				98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */,
 				FACD56882ACF6E25004E36E6 /* Assets.xcassets in Resources */,
+				5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */,
 				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
 				98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */,
@@ -392,6 +399,7 @@
 				98BE8C7A2AD74BB800878939 /* FiraSans-Medium.ttf in Resources */,
 				98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */,
 				98BE8C752AD74BB800878939 /* FiraSans-ExtraLightItalic.ttf in Resources */,
+				5078D12D2AF98ECC008B1F78 /* fanfare.mp3 in Resources */,
 				FACD56862ACF6E23004E36E6 /* Main.storyboard in Resources */,
 				98BE8C762AD74BB800878939 /* FiraSans-Bold.ttf in Resources */,
 				98BE8C6F2AD74BB800878939 /* FiraSans-Black.ttf in Resources */,
