@@ -123,7 +123,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                         }
                     }
                 }
-                
             }
         ))
         present(controller, animated:true)

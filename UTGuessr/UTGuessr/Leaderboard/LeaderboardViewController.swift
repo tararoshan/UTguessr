@@ -19,6 +19,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     var leaderboardTableCells:[[String]] = []
     
+    let segueToLeaderboardProfileIdentifier = "LeaderboardToLeaderboardProfile"
+    
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
             overrideUserInterfaceStyle = .dark
@@ -60,6 +62,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: segueToLeaderboardProfileIdentifier, sender: nil)
         leaderboardTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -75,30 +78,19 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                 for document in querySnapshot!.documents {
                     let username = document.data()["username"] as! String
                     let highScore = document.data()["high_score"] as! Int
-                    self.leaderboardTableCells.append([username, String(highScore)])
+                    self.leaderboardTableCells.append([username, String(highScore), document.documentID])
                 }
                 self.leaderboardTableView.reloadData()
             }
         }
     }
     
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == teamSegueIdentifier,
-//           let destination = segue.destination as? TeamViewController,
-//           let teamIndex = tableView.indexPathForSelectedRow?.row {
-//            destination.teamName = teams[teamIndex]
-//        }
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == segueToLeaderboardProfileIdentifier,
+           let destination = segue.destination as? LeaderboardProfileViewController,
+           let selectedIndex = leaderboardTableView.indexPathForSelectedRow?.row {
+            print("EMAIL SENT \(self.leaderboardTableCells[selectedIndex][2])")
+            destination.userEmail = self.leaderboardTableCells[selectedIndex][2]
+        }
     }
-    */
-
 }
