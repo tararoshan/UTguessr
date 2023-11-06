@@ -18,6 +18,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
+    @IBOutlet weak var competitiveGamesPlayedLabel: UILabel!
+    @IBOutlet weak var gamesWonLabel: UILabel!
+    
     let userDefaults = UserDefaults.standard
     let db = Firestore.firestore()
     
@@ -27,13 +30,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         } else {
             overrideUserInterfaceStyle = .light
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         // Get user information from database
-        
         let userDocRef = self.db.collection("users").document(Auth.auth().currentUser!.email!)
         userDocRef.getDocument {
             (document, error) in
@@ -53,6 +51,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 print("Firebase Firestore: Can't find user data")
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         // Set rounded borders (make into a circle)
         profilePic.layer.cornerRadius = profilePic.bounds.width / 2
@@ -65,6 +67,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let usernameTap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
         usernameLabel.addGestureRecognizer(usernameTap)
         usernameLabel.isUserInteractionEnabled = true
+        
+        // TODO: unhide when competitive is implemented
+        competitiveGamesPlayedLabel.text = "Unavailable"
+        gamesWonLabel.isHidden = true
     }
     
     // Runs when the username is tapped

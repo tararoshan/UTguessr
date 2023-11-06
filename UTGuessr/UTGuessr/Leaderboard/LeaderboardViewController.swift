@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
+    let db = Firestore.firestore()
     
     @IBOutlet weak var leaderboardTableView: UITableView!
     let leaderboardTableCellIdentifier = "LeaderboardTableCell"
@@ -22,6 +25,9 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             overrideUserInterfaceStyle = .light
         }
+        
+        populateTop25Users()
+        
     }
 
     override func viewDidLoad() {
@@ -29,15 +35,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = LeaderboardTableViewCell()
-        headerCell.placeLabel.text = "Place"
-        headerCell.usernameLabel.text = "Username"
-        headerCell.highScoreLabel.text = "High Score"
-        
-        return headerCell
+        leaderboardTableView.backgroundColor = UIColor(red: CGFloat(252/255.0), green: CGFloat(234/255.0), blue: CGFloat(213/255.0), alpha: CGFloat(1))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,14 +48,39 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         // Set the text in the textLable of the Cell to the team at the corresponding index to the row number
         let row = indexPath.row
         cell.placeLabel.text = "\(row + 1)"
-        cell.usernameLabel.text = "" // TODO: replace
-        cell.highScoreLabel.text = ""
+        cell.usernameLabel.text = leaderboardTableCells[row][0]
+        cell.highScoreLabel.text = leaderboardTableCells[row][1]
         
+        if (row % 2 == 1) {
+            cell.backgroundColor = UIColor(red: CGFloat(252/255.0), green: CGFloat(234/255.0), blue: CGFloat(213/255.0), alpha: CGFloat(1))
+        } else {
+            cell.backgroundColor = .white
+        }
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         leaderboardTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func populateTop25Users() {
+        print("************** GETTING TOP 25 **************")
+        let usersRef = self.db.collection("users")
+        leaderboardTableCells = []
+        usersRef.order(by: "high_score", descending: true).limit(to: 25).getDocuments() {
+            (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let username = document.data()["username"] as! String
+                    let highScore = document.data()["high_score"] as! Int
+                    self.leaderboardTableCells.append([username, String(highScore)])
+                }
+                self.leaderboardTableView.reloadData()
+            }
+        }
     }
     
     

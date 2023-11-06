@@ -75,7 +75,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             
             // add new user to the database
-            print("**************ACCESSING DB**************")
+            print("************** CREATING NEW USER IN FIRESTORE **************")
             self.db.collection("users").document(self.emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)).setData([
                 "profile_image": nil,
                 "games_played": 0,
