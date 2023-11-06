@@ -27,7 +27,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         populateTop25Users()
-        
     }
 
     override func viewDidLoad() {

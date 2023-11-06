@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var gamesPlayedLabel: UILabel!
@@ -41,7 +41,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 let gamesPlayed = document.data()!["games_played"]! as! Int
                 
                 let username = document.data()!["username"]! as! String
-                let profileImage = document.data()!["profile_image"]
+                let profileImage = document.data()!["profile_image"] as? UIImage
+                
+                if profileImage != nil {
+                    // TODO: put profile image
+                    print("PROFILE IMAGE NOT NULL")
+                    print(profileImage)
+                } else {
+                    self.profileImage.image = UIImage(named: "defaultProfileImage")
+                }
                 
                 self.usernameLabel.text = username
                 self.gamesPlayedLabel.text = "Games Played: \(gamesPlayed)"
@@ -57,11 +65,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         super.viewDidLoad()
         
         // Set rounded borders (make into a circle)
-        profilePic.layer.cornerRadius = profilePic.bounds.width / 2
+        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
         // Allow the picture to work like a button as well
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-        profilePic.addGestureRecognizer(photoTap)
-        profilePic.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(photoTap)
+        profileImage.isUserInteractionEnabled = true
         // Allow the username to be changed
         usernameLabel.lineBreakMode = .byCharWrapping
         let usernameTap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
@@ -80,6 +88,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             message: nil,
             preferredStyle: .alert)
         
+        let usernameTakenController = UIAlertController(
+            title: "Username already taken",
+            message: "Please enter another username.",
+            preferredStyle: .alert)
+        
+        usernameTakenController.addAction(UIAlertAction(
+            title: "OK",
+            style: .default))
+        
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addTextField(configurationHandler: {
             (textField) in
@@ -90,14 +107,25 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             handler: {
                 (action) in
                 let enteredText = controller.textFields![0].text
-                self.usernameLabel.text = enteredText!
-                
+
                 // TODO: if username already exists, update text of alert
+                self.db.collection("users").whereField("username", isEqualTo: enteredText).getDocuments() {
+                    (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        if querySnapshot!.documents.count > 0 {
+                            self.present(usernameTakenController, animated:true)
+                        } else {
+                            self.usernameLabel.text = enteredText!
+                            // Update the username in the database
+                            self.db.collection("users").document((Auth.auth().currentUser?.email)!).setData([ "username": enteredText ], merge: true)
+                        }
+                    }
+                }
                 
-                // TODO: Update the username in the database
             }
         ))
-        
         present(controller, animated:true)
     }
     
@@ -139,8 +167,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[.originalImage] as? UIImage {
-            profilePic.image = chosenImage
-            profilePic.contentMode = .scaleAspectFill
+            profileImage.image = chosenImage
+            profileImage.contentMode = .scaleAspectFill
         }
         dismiss(animated: true, completion: nil)
     }

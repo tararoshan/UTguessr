@@ -787,6 +787,7 @@
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9bc-pO-wuI" secondAttribute="height" multiplier="1:1" id="9bP-Zw-rV6"/>
+                                    <constraint firstAttribute="width" constant="178" id="LFC-c9-bY8"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1J-dF-h1c">
@@ -802,13 +803,11 @@
                             <constraint firstItem="E1J-dF-h1c" firstAttribute="top" secondItem="9bc-pO-wuI" secondAttribute="bottom" constant="30" id="4ZH-EY-121"/>
                             <constraint firstItem="E1J-dF-h1c" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="7pT-45-xEc"/>
                             <constraint firstItem="9bc-pO-wuI" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="9Hd-qN-Muu"/>
-                            <constraint firstItem="9bc-pO-wuI" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="125" id="A49-oQ-eyZ"/>
                             <constraint firstItem="9Yk-cR-w6r" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="H57-Ty-4iH"/>
                             <constraint firstItem="UFO-WH-1de" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="J6y-nJ-mGl"/>
                             <constraint firstItem="F2r-kA-tn0" firstAttribute="top" secondItem="9Yk-cR-w6r" secondAttribute="bottom" constant="5" id="Jjf-6s-1os"/>
                             <constraint firstItem="F2r-kA-tn0" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="60" id="KGf-sX-gG8"/>
                             <constraint firstItem="UFO-WH-1de" firstAttribute="top" secondItem="E1J-dF-h1c" secondAttribute="bottom" constant="30" id="ORD-Ae-f8l"/>
-                            <constraint firstItem="nTJ-Xm-IUz" firstAttribute="trailing" secondItem="9bc-pO-wuI" secondAttribute="trailing" constant="125" id="Rmn-wM-djZ"/>
                             <constraint firstItem="7DB-v4-G6z" firstAttribute="top" secondItem="UFO-WH-1de" secondAttribute="bottom" constant="5" id="WcU-wT-9ST"/>
                             <constraint firstItem="nTJ-Xm-IUz" firstAttribute="trailing" secondItem="F2r-kA-tn0" secondAttribute="trailing" constant="60" id="YxK-AW-nBM"/>
                             <constraint firstItem="7DB-v4-G6z" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="60" id="fdQ-lA-Sbp"/>
@@ -832,7 +831,7 @@
                         <outlet property="gamesPlayedLabel" destination="uBM-Dg-WzR" id="iJg-Jb-Ajv"/>
                         <outlet property="gamesWonLabel" destination="A4G-xK-NDq" id="qCq-Gz-ExR"/>
                         <outlet property="highScoreLabel" destination="s2t-DQ-DXw" id="h7M-AD-IQq"/>
-                        <outlet property="profilePic" destination="9bc-pO-wuI" id="JnY-Cv-kVT"/>
+                        <outlet property="profileImage" destination="9bc-pO-wuI" id="irk-6U-7z2"/>
                         <outlet property="usernameLabel" destination="E1J-dF-h1c" id="tVA-zS-fVl"/>
                     </connections>
                 </viewController>
@@ -950,6 +949,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvO-oj-IPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5112.6168224299063" y="-2539.3088552915769"/>
+        </scene>
+        <!--Leaderboard Profile View Controller-->
+        <scene sceneID="wHQ-TB-QcE">
+            <objects>
+                <viewController id="dl3-mq-9GB" customClass="LeaderboardProfileViewController" customModule="UTGuessr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wEU-IE-vOj">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gNZ-sv-AF5"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3i-Xf-TdS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6178" y="-2515"/>
         </scene>
         <!--Upload Image-->
         <scene sceneID="mpV-dH-aPc">
