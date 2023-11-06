@@ -11,6 +11,9 @@ import CoreLocation
 
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var gameMap: MKMapView!
+    
+    let userDefaults = UserDefaults.standard
+    
     var userCoordinate: CLLocationCoordinate2D?
     var game:Game?
     
@@ -32,6 +35,13 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Remove any previous pins
         self.gameMap.removeAnnotations(self.gameMap.annotations)

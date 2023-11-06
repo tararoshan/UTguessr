@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkText]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textOnLightBackground]
         displayControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
         soundControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
 

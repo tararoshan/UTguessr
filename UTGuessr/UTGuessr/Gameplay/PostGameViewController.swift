@@ -9,6 +9,8 @@ import UIKit
 
 class PostGameViewController: UIViewController {
     
+    var userDefaults = UserDefaults.standard
+    
     let segueToCountdownIdentifier = "PostGameToCountdown"
     
     @IBOutlet weak var round1ScoreLabel: UILabel!
@@ -26,6 +28,12 @@ class PostGameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.scoreLabel.text = String(self.game!.roundScores.reduce(0, +))
