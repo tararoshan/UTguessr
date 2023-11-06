@@ -28,8 +28,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 6.0
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
