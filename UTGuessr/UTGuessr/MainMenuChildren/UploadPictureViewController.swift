@@ -32,19 +32,27 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            print("LOCATION SERVICES ENABLED")
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        DispatchQueue.global().async {
+              if CLLocationManager.locationServicesEnabled() {
+                  print("LOCATION SERVICES ENABLED")
+                  self.locationManager.delegate = self
+                  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+              }
         }
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        imageView.image = nil
+        
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         curLat = locValue.latitude
         curLong = locValue.longitude
         print("CURRENTLY AT \(locValue.latitude) \(locValue.longitude)")
+        addCoordinateToCoreLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -55,33 +63,34 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
                     print("Button capture")
 
                     imagePicker.delegate = self
-                    imagePicker.sourceType = .savedPhotosAlbum // TOOD: CHANGE TO .camera in final. using album for debug purposes
+            imagePicker.sourceType = .camera // TOOD: CHANGE TO .camera in final. using album for debug purposes
                     imagePicker.allowsEditing = true
-
                     present(imagePicker, animated: true, completion: nil)
             }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+        if let image = info[.editedImage] as? UIImage {
             imageView.image = image
         }
         picker.dismiss(animated: true)
+        print("DONE PICKING IMAGE")
+        uploadPhotoButton.isEnabled = true
     }
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
     @IBAction func uploadPhotoPressed(_ sender: Any) {
-        locationManager.requestLocation()
         if imageView.image == nil {
             print("No image selected")
             return
         }
+        uploadPhotoButton.isEnabled = false
+        locationManager.requestLocation()
         do {
             let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let imageFolderPath = dd.appendingPathComponent("images")
             let imageFiles = try FileManager.default.contentsOfDirectory(at: imageFolderPath, includingPropertiesForKeys: nil)
-            let fileName = imageNameFromImageNumber(imageFiles.count-1)
+            let fileName = imageNameFromImageNumber(imageFiles.count)
             let filePath = imageFolderPath.appendingPathComponent("\(fileName)")
             try imageView.image!.jpegData(compressionQuality: 1.0)?.write(to: filePath)
             let storageRef = storage.reference()
@@ -91,16 +100,16 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
                 guard let metadata = metadata else {
                     return
                 }
-                let size = metadata.size
                 fimageRef.downloadURL(){
                     (url, error) in
                     guard let downloadURL = url else {
                         return
                     }
                 }
+                let uploadDone = UIAlertController(title: "Upload Complete", message: "Your picture and location have been successfully uploaded to the server", preferredStyle: .alert)
+                uploadDone.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(uploadDone, animated: true, completion: nil)
             }
-            
-            
         } catch {
             print(error.localizedDescription)
         }
@@ -121,6 +130,35 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func addCoordinateToCoreLocation() {
-        
+        do {
+            let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let coreLocationsFile = dd.appendingPathComponent("CoreLocations.txt")
+            let newCord = "\(curLat) \(curLong)\n"
+            if let fileHandle = FileHandle(forWritingAtPath: coreLocationsFile.path(percentEncoded: false)) {
+                fileHandle.seekToEndOfFile()
+                if let data = newCord.data(using: .utf8) {
+                    fileHandle.write(data)
+                    fileHandle.closeFile()
+                    print("Wrote to CoreLocations")
+                } else {
+                    print("Error in writing file")
+                }
+            }
+            let storageRef = storage.reference()
+            let flocRef = storageRef.child("CoreLocations.txt")
+            let uploadTask = flocRef.putFile(from: coreLocationsFile, metadata: nil) {metadata, error in
+                guard let metadata = metadata else {
+                    return
+                }
+                flocRef.downloadURL(){
+                    (url, error) in
+                    guard let downloadURL = url else {
+                        return
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
