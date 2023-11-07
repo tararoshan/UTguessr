@@ -80,7 +80,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 "profile_image": nil,
                 "games_played": 0,
                 "average_score": 0,
-                "high_score": 0
+                "high_score": 0,
+                "images_added": 0
             ]) { err in
                 if let err = err {
                     print("Firebase Firestore: Error adding document: \(err)")

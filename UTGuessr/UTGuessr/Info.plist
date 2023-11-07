@@ -23,10 +23,6 @@
 		<string>FiraSans-Thin</string>
 		<string>FiraSans-ThinItalic</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>using camera</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>using location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

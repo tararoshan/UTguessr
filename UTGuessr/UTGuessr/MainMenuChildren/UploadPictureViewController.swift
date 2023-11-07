@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseStorage
 import CoreLocation
+import FirebaseAuth
+import FirebaseFirestore
 
 class UploadPictureViewController: UIViewController, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate {
 
@@ -19,6 +21,8 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     let locationManager = CLLocationManager()
     var curLat:CLLocationDegrees = 0.0
     var curLong:CLLocationDegrees = 0.0
+    
+    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
@@ -87,5 +91,62 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             print("No image selected")
             return
         }
+        // Add photo to firebase. First get the number of images.
+        var imageCount = -1
+        let countDocRef = self.db.collection("count").document("count")
+        countDocRef.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                imageCount = document.data()!["image_and_location_count"]! as! Int
+                print("COUNT : \(imageCount)")
+                // Increment by one (we're about to add an image)
+                self.db.collection("count").document("count").setData([ "image_and_location_count": imageCount + 1 ], merge: true)
+                print("Firebase Firestore: Wrote new user count of \(imageCount + 1)")
+            } else {
+                print("Firebase Firestore: Can't find count")
+                // TODO end execution here? since we can't access the DB. We could show an alert.
+            }
+        }
+        
+        guard let imageData = imageView.image!.jpegData(compressionQuality: 0.25) else {
+            print("Error converting image to data")
+            return
+        }
+        
+        guard let imageSource = CGImageSourceCreateWithData(imageData as CFData, nil) else {
+            print("Error loading image data")
+            return
+        }
+        
+        guard let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [String: Any] else {
+            print("Error extracting properties")
+            return
+        }
+        
+        if let gpsData = imageProperties[kCGImagePropertyGPSDictionary as String] as? [String: Any] {
+            if let latitude = gpsData[kCGImagePropertyGPSLatitude as String] as? Double,
+               let longitude = gpsData[kCGImagePropertyGPSLongitude as String] as? Double {
+                print("Image Latitude: \(latitude), Longitude: \(longitude)")
+                
+                // TODO change the string of the image URL? idk if String(imageCount) works
+                db.collection("images_and_locations").document(String(imageCount)).setData([
+                    "image": imageData,
+                    "latitude": latitude,
+                    "longitude": longitude,
+                ]) { err in
+                    if let err = err {
+                        print("IMAGES AND LOCATIONS Firebase Firestore: Error adding document: \(err)")
+                    } else {
+                        print("IMAGES AND LOCATIONS Firebase Firestore: Document successfully written!")
+                    }
+                }
+            }
+        }
+        
+        print("Coordinates not found in image metadata. Using current location.")
+        // TODO check user's current location & upload the latitude & longitude
+        
+        // Update the number of photos the user has contributed
+        self.db.collection("users").document((Auth.auth().currentUser?.email)!).updateData(["images_added": FieldValue.increment(Int64(1))])
     }
 }

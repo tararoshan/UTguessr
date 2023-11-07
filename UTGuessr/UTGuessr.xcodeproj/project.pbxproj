@@ -593,12 +593,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K3ZW7KU8DU;
+				DEVELOPMENT_TEAM = B6NVKADX3Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "using camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "using location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "location use";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -611,7 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test2.tetst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -629,12 +630,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K3ZW7KU8DU;
+				DEVELOPMENT_TEAM = B6NVKADX3Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "using camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "using location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "location use";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -647,7 +649,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test2.tetst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
