@@ -58,14 +58,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             password: passwordTextField.text!
         ) {
             (authResult,error) in
-//            if let error = error as NSError? {
-//                let loginErrorAlert = UIAlertController(
-//                    title: "Login Error",
-//                    message: error.localizedDescription, // goal for later: make the errors more understandable for a user
-//                    preferredStyle: .alert)
-//                loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
-//                self.present(loginErrorAlert, animated: true)
-//            } else {
+           if let error = error as NSError? {
+               let loginErrorAlert = UIAlertController(
+                   title: "Login Error",
+                   message: error.localizedDescription, // goal for later: make the errors more understandable for a user
+                   preferredStyle: .alert)
+               loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(loginErrorAlert, animated: true)
+           } else {
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
                 
                 if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
@@ -80,7 +80,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-//        }
+       }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
