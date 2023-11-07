@@ -9,6 +9,12 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
+extension String {
+    var isAlphanumeric: Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+    }
+}
+
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -20,6 +26,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBOutlet weak var competitiveGamesPlayedLabel: UILabel!
     @IBOutlet weak var gamesWonLabel: UILabel!
+    
+    @IBOutlet weak var contributorLabel: UILabel!
     
     let userDefaults = UserDefaults.standard
     let db = Firestore.firestore()
@@ -43,10 +51,24 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 let username = document.data()!["username"]! as! String
                 let profileImageData = document.data()!["profile_image"] as? Data
                 
+                let numImagesUploaded = document.data()!["images_uploaded"] as! Int
+                
                 if profileImageData != nil {
                     self.profileImage.image = UIImage(data: profileImageData!)
                 } else {
                     self.profileImage.image = UIImage(named: "defaultProfileImage")
+                }
+                
+                if numImagesUploaded >= 25 {
+                    // Gold Contributor
+                    self.contributorLabel.text = "Gold Contributor"
+                    self.contributorLabel.textColor = UIColor(red: 228/255.0, green: 202/255.0, blue: 106/255.0, alpha: 1)
+                    self.contributorLabel.isHidden = false
+                } else if numImagesUploaded >= 10 {
+                    // Silver Contributor
+                    self.contributorLabel.text = "Silver Contributor"
+                    self.contributorLabel.textColor = .lightGray
+                    self.contributorLabel.isHidden = false
                 }
                 
                 self.usernameLabel.text = username
@@ -62,8 +84,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set rounded borders (make into a circle)
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
+        contributorLabel.layer.cornerRadius = 30.0
+        self.view.bringSubviewToFront(profileImage)
+        self.view.bringSubviewToFront(usernameLabel)
+        self.view.bringSubviewToFront(contributorLabel)
         profileImage.contentMode = .scaleAspectFill
         // Allow the picture to work like a button as well
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
@@ -78,6 +103,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // TODO: unhide when competitive is implemented
         competitiveGamesPlayedLabel.text = "Unavailable"
         gamesWonLabel.isHidden = true
+        
+        // Hide the contributor label until we load data
+        contributorLabel.isHidden = true
     }
     
     // Runs when the username is tapped
@@ -96,29 +124,42 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             title: "OK",
             style: .default))
         
+        let usernameInvalidController = UIAlertController(
+            title: "Invalid username",
+            message: "Usernames must be less than 20 characters and only contain alpha numeric characters.",
+            preferredStyle: .alert)
+        
+        usernameInvalidController.addAction(UIAlertAction(
+            title: "OK",
+            style: .default))
+        
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addTextField(configurationHandler: {
             (textField) in
             textField.placeholder = "New Username" } )
+        
         controller.addAction(UIAlertAction(
             title: "OK",
             style: .default,
             handler: {
                 (action) in
                 let enteredText = controller.textFields![0].text
-
-                // TODO: if username already exists, update text of alert
-                self.db.collection("users").whereField("username", isEqualTo: enteredText).getDocuments() {
-                    (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        if querySnapshot!.documents.count > 0 {
-                            self.present(usernameTakenController, animated:true)
+                
+                if enteredText!.count > 20 || !enteredText!.isAlphanumeric {
+                    self.present(usernameInvalidController, animated:true)
+                } else {
+                    self.db.collection("users").whereField("username", isEqualTo: enteredText).getDocuments() {
+                        (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
                         } else {
-                            self.usernameLabel.text = enteredText!
-                            // Update the username in the database
-                            self.db.collection("users").document((Auth.auth().currentUser?.email)!).setData([ "username": enteredText ], merge: true)
+                            if querySnapshot!.documents.count > 0 {
+                                self.present(usernameTakenController, animated:true)
+                            } else {
+                                self.usernameLabel.text = enteredText!
+                                // Update the username in the database
+                                self.db.collection("users").document((Auth.auth().currentUser?.email)!).setData([ "username": enteredText ], merge: true)
+                            }
                         }
                     }
                 }

@@ -785,7 +785,7 @@
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="9bc-pO-wuI">
                                 <rect key="frame" x="125" y="131" width="178" height="178"/>
-                                <color key="backgroundColor" red="0.97575384379999996" green="0.91872125859999998" blue="0.84312540290000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9bc-pO-wuI" secondAttribute="height" multiplier="1:1" id="9bP-Zw-rV6"/>
@@ -795,7 +795,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1J-dF-h1c">
                                 <rect key="frame" x="210.33333333333334" y="339" width="7.6666666666666572" height="36"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="30"/>
-                                <color key="textColor" name="titleColor"/>
+                                <color key="textColor" name="headerColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9DJ-ER-bA8">
+                                <rect key="frame" x="113" y="115" width="295" height="295"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="0Sx-Bz-Qyn"/>
+                                    <constraint firstAttribute="height" constant="295" id="K0A-Of-jbc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silver Contributor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlT-6o-prK">
+                                <rect key="frame" x="251" y="140" width="97" height="50"/>
+                                <color key="backgroundColor" name="titleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="XED-NV-xDy"/>
+                                    <constraint firstAttribute="height" constant="50" id="dRi-CT-QyY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="16"/>
+                                <color key="textColor" name="textOnDarkBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -803,12 +821,15 @@
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="E1J-dF-h1c" firstAttribute="top" secondItem="9bc-pO-wuI" secondAttribute="bottom" constant="30" id="4ZH-EY-121"/>
+                            <constraint firstItem="PlT-6o-prK" firstAttribute="centerX" secondItem="9bc-pO-wuI" secondAttribute="centerX" constant="85.5" id="6z6-NP-zEG"/>
                             <constraint firstItem="E1J-dF-h1c" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="7pT-45-xEc"/>
                             <constraint firstItem="9bc-pO-wuI" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="9Hd-qN-Muu"/>
                             <constraint firstItem="9Yk-cR-w6r" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="H57-Ty-4iH"/>
+                            <constraint firstItem="PlT-6o-prK" firstAttribute="centerY" secondItem="9bc-pO-wuI" secondAttribute="centerY" constant="-55" id="I5W-tD-mtd"/>
                             <constraint firstItem="UFO-WH-1de" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" id="J6y-nJ-mGl"/>
                             <constraint firstItem="F2r-kA-tn0" firstAttribute="top" secondItem="9Yk-cR-w6r" secondAttribute="bottom" constant="5" id="Jjf-6s-1os"/>
                             <constraint firstItem="F2r-kA-tn0" firstAttribute="leading" secondItem="nTJ-Xm-IUz" secondAttribute="leading" constant="60" id="KGf-sX-gG8"/>
+                            <constraint firstItem="9DJ-ER-bA8" firstAttribute="top" secondItem="9bc-pO-wuI" secondAttribute="bottom" constant="-194" id="Lrk-a8-gYY"/>
                             <constraint firstItem="UFO-WH-1de" firstAttribute="top" secondItem="E1J-dF-h1c" secondAttribute="bottom" constant="30" id="ORD-Ae-f8l"/>
                             <constraint firstItem="7DB-v4-G6z" firstAttribute="top" secondItem="UFO-WH-1de" secondAttribute="bottom" constant="5" id="WcU-wT-9ST"/>
                             <constraint firstItem="nTJ-Xm-IUz" firstAttribute="trailing" secondItem="F2r-kA-tn0" secondAttribute="trailing" constant="60" id="YxK-AW-nBM"/>
@@ -816,6 +837,7 @@
                             <constraint firstItem="9bc-pO-wuI" firstAttribute="top" secondItem="nTJ-Xm-IUz" secondAttribute="top" constant="40" id="ibt-zW-EFm"/>
                             <constraint firstItem="9Yk-cR-w6r" firstAttribute="top" secondItem="7DB-v4-G6z" secondAttribute="bottom" constant="30" id="mpc-UY-Kx5"/>
                             <constraint firstItem="nTJ-Xm-IUz" firstAttribute="trailing" secondItem="7DB-v4-G6z" secondAttribute="trailing" constant="60" id="rAu-gD-5Jg"/>
+                            <constraint firstItem="9DJ-ER-bA8" firstAttribute="centerX" secondItem="zYs-pS-Keb" secondAttribute="centerX" constant="46.5" id="rVE-hb-lgh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="pvo-7c-VfW">
@@ -830,6 +852,7 @@
                     <connections>
                         <outlet property="averageScoreLabel" destination="0mO-Iz-UTh" id="afL-2e-FCk"/>
                         <outlet property="competitiveGamesPlayedLabel" destination="L6O-bL-aOq" id="1p7-yg-FJe"/>
+                        <outlet property="contributorLabel" destination="PlT-6o-prK" id="OQs-M9-6uK"/>
                         <outlet property="gamesPlayedLabel" destination="uBM-Dg-WzR" id="iJg-Jb-Ajv"/>
                         <outlet property="gamesWonLabel" destination="A4G-xK-NDq" id="qCq-Gz-ExR"/>
                         <outlet property="highScoreLabel" destination="s2t-DQ-DXw" id="h7M-AD-IQq"/>
@@ -874,9 +897,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6k-FL-c7n">
-                                                    <rect key="frame" x="80" y="12" width="170" height="20"/>
+                                                    <rect key="frame" x="80" y="12" width="230" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="4Nr-X3-Bx8"/>
+                                                        <constraint firstAttribute="width" constant="230" id="4Nr-X3-Bx8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1028,6 +1051,17 @@
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silver Contributor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-hl-610">
+                                <rect key="frame" x="251" y="140" width="97" height="50"/>
+                                <color key="backgroundColor" name="titleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WI9-A9-RPb"/>
+                                    <constraint firstAttribute="width" constant="97" id="qwt-v1-37H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="16"/>
+                                <color key="textColor" name="textOnDarkBackground"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gNZ-sv-AF5"/>
                         <color key="backgroundColor" name="backgroundColor"/>
@@ -1038,10 +1072,12 @@
                             <constraint firstItem="2S1-Mq-CV2" firstAttribute="top" secondItem="bzJ-JK-mzp" secondAttribute="bottom" constant="5" id="Jpk-Sb-HKC"/>
                             <constraint firstItem="bzJ-JK-mzp" firstAttribute="centerX" secondItem="wEU-IE-vOj" secondAttribute="centerX" id="QC1-Yh-OTe"/>
                             <constraint firstItem="S6w-XL-kNN" firstAttribute="top" secondItem="2S1-Mq-CV2" secondAttribute="bottom" constant="30" id="QG8-qA-GRO"/>
+                            <constraint firstItem="K5l-hl-610" firstAttribute="centerX" secondItem="BJk-DU-dai" secondAttribute="centerX" constant="85.5" id="U1s-Uq-DAX"/>
                             <constraint firstItem="BJk-DU-dai" firstAttribute="top" secondItem="gNZ-sv-AF5" secondAttribute="top" constant="40" id="UNl-nC-j47"/>
                             <constraint firstItem="Cnu-SM-zUM" firstAttribute="top" secondItem="S6w-XL-kNN" secondAttribute="bottom" constant="5" id="Vs3-xi-kmb"/>
                             <constraint firstItem="S6w-XL-kNN" firstAttribute="centerX" secondItem="wEU-IE-vOj" secondAttribute="centerX" id="bRP-HE-5ic"/>
                             <constraint firstItem="2S1-Mq-CV2" firstAttribute="leading" secondItem="gNZ-sv-AF5" secondAttribute="leading" constant="60.000000000000014" id="cp0-Nv-be6"/>
+                            <constraint firstItem="K5l-hl-610" firstAttribute="centerY" secondItem="BJk-DU-dai" secondAttribute="centerY" constant="-55" id="jSH-xY-3Hc"/>
                             <constraint firstItem="cvw-AH-AxK" firstAttribute="centerX" secondItem="wEU-IE-vOj" secondAttribute="centerX" id="okX-8o-gZn"/>
                             <constraint firstItem="bzJ-JK-mzp" firstAttribute="top" secondItem="cvw-AH-AxK" secondAttribute="bottom" constant="30" id="wbz-Wf-P0v"/>
                         </constraints>
@@ -1050,6 +1086,7 @@
                     <connections>
                         <outlet property="averageScoreLabel" destination="h2c-Ck-Igr" id="eQ5-Q5-4z8"/>
                         <outlet property="competitiveGamesPlayedLabel" destination="b6J-YQ-833" id="dI3-KZ-hEx"/>
+                        <outlet property="contributorLabel" destination="K5l-hl-610" id="7vw-26-6sc"/>
                         <outlet property="gamesWonLabel" destination="dk2-np-XiB" id="1fq-Rh-HTb"/>
                         <outlet property="highScoreLabel" destination="ByD-iE-bXl" id="PlM-Cb-Ldq"/>
                         <outlet property="individualGamesPlayedLabel" destination="hEr-FE-ke2" id="Peb-rY-TOv"/>
@@ -1377,7 +1414,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zY0-B1-STZ"/>
         <segue reference="PvB-Qx-hf4"/>
         <segue reference="Aet-tF-LYZ"/>
         <segue reference="eJL-vS-htW"/>
