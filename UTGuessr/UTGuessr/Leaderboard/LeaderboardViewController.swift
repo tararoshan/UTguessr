@@ -36,7 +36,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
-        leaderboardTableView.backgroundColor = UIColor(red: CGFloat(252/255.0), green: CGFloat(234/255.0), blue: CGFloat(213/255.0), alpha: CGFloat(1))
+        leaderboardTableView.backgroundColor = UIColor.background
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,9 +53,9 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         cell.highScoreLabel.text = leaderboardTableCells[row][1]
         
         if (row % 2 == 1) {
-            cell.backgroundColor = UIColor(red: CGFloat(252/255.0), green: CGFloat(234/255.0), blue: CGFloat(213/255.0), alpha: CGFloat(1))
+            cell.backgroundColor = UIColor.background
         } else {
-            cell.backgroundColor = .white
+            cell.backgroundColor = UIColor.cell
         }
     
         return cell
