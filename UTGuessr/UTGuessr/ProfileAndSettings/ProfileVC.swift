@@ -64,6 +64,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         // Set rounded borders (make into a circle)
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
+        profileImage.contentMode = .scaleAspectFill
         // Allow the picture to work like a button as well
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImage.addGestureRecognizer(photoTap)

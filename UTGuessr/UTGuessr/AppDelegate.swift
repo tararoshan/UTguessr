@@ -13,42 +13,9 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    private func clearCoreData() {
-        let context = persistentContainer.viewContext
-        // Delete everything from Core Data
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageAndLocationEntity")
-        var fetchedResults:[NSManagedObject]
-        
-        do {
-            try fetchedResults = context.fetch(request) as! [NSManagedObject]
-            
-            if fetchedResults.count > 0 {
-                for result in fetchedResults {
-                    context.delete(result)
-                }
-            }
-            saveContext()
-        } catch {
-            print("Error occurred while clearing data")
-            abort()
-        }
-    }
-    
-    private func emptyCoreData() -> Bool? {
-        let context = persistentContainer.viewContext
-        // Checks if Core Data is empty
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageAndLocationEntity")
-        
-        do {
-            let count = try context.count(for: request)
-            return count == 0
-        } catch {
-            return true
-        }
-    }
     
     private func imageNameFromImageNumber(_ imageNumber: Int) -> String {
         return "\(String(format: "%04d", imageNumber)).jpeg"
@@ -63,10 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return nil
     }
-
-    private func readImagesAndLocationsAndAddToCoreData(imagesAndLocationsDirectory:String, locationsFile:String) -> Bool {
+    
+    func populateFirestoreWithDefaultImages() {
+        let imagesAndLocationsDirectory = "CoreImagesAndLocations"
+        let locationsFile = "CoreLocations.txt"
         
-        let context = persistentContainer.viewContext
+        let db = Firestore.firestore()
         
         if let imagesAndLocationsDirectoryURL = Bundle.main.url(forResource: imagesAndLocationsDirectory, withExtension: nil) {
             let locationsFileURL = imagesAndLocationsDirectoryURL.appendingPathComponent(locationsFile)
@@ -74,37 +43,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let locationsData = try Data(contentsOf: locationsFileURL)
                 if let locationsString = String(data: locationsData, encoding: .utf8) {
                     let locationsStringArray = locationsString.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n")
+                    print("NUM IMAGES: \(locationsStringArray.count)")
                     for i in 0...locationsStringArray.count-1 {
                         // Get the image
                         let imageFileURL = imagesAndLocationsDirectoryURL.appendingPathComponent(imageNameFromImageNumber(i))
                         
                         guard let image = load(imageFileURL: imageFileURL) else {
                             print("Error reading image")
-                            return false
+                            return
                         }
                         
                         // Get the longitude and latitude
                         let latitudeAndLongitude = locationsStringArray[i].components(separatedBy: " ")
                         guard let latitude = Double(latitudeAndLongitude[0]) else {
                             print("Error reading latitude for image \(imageNameFromImageNumber(i))")
-                            return false
+                            return
                         }
                         guard let longitude = Double(latitudeAndLongitude[1]) else {
                             print("Error reading longitude for image \(imageNameFromImageNumber(i))")
-                            return false
+                            return
                         }
                         
                         // Add the image and its coordinates to Core Data
-                        let imageData = image.jpegData(compressionQuality: 1.0)
+                        let imageData = image.jpegData(compressionQuality: 0.25)
                         
-                        let entityName =  NSEntityDescription.entity(forEntityName: "ImageAndLocationEntity", in: context)!
-                        let imageAndLocationEntity = NSManagedObject(entity: entityName, insertInto: context)
-                        imageAndLocationEntity.setValue(imageData, forKeyPath: "image")
-                        imageAndLocationEntity.setValue(latitude, forKeyPath: "latitude")
-                        imageAndLocationEntity.setValue(longitude, forKeyPath: "longitude")
-                        
-                        print("Adding \(imageNameFromImageNumber(i))")
-                        saveContext()
+                        print("adding image and location \(i)")
+                        db.collection("images_and_locations").document(String(i)).setData([
+                            "image": imageData,
+                            "latitude": latitude,
+                            "longitude": longitude,
+                        ]) { err in
+                            if let err = err {
+                                print("IMAGES AND LOCATIONS Firebase Firestore: Error adding document: \(err)")
+                            } else {
+                                print("IMAGES AND LOCATIONS Firebase Firestore: Document successfully written!")
+                            }
+                        }
                     }
                 } else {
                     // Handle the case where the file's content can't be converted to a string
@@ -118,23 +92,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Failed to find directory : \(imagesAndLocationsDirectory)")
         }
         
-        return false
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        // Add core images and core locations to Core Data
-        let CORE_IMAGES_AND_LOCATIONS = "CoreImagesAndLocations"
-        let LOCATIONS_FILE = "CoreLocations.txt"
-        
-        if let empty = emptyCoreData(), empty == true {
-            if !readImagesAndLocationsAndAddToCoreData(imagesAndLocationsDirectory: CORE_IMAGES_AND_LOCATIONS, locationsFile: LOCATIONS_FILE) {
-                print("UNABLE TO UPLOAD IMAGES")
-            }
-        } else {
-            print("UNABLE TO DETERMINE IF CORE DATA IS EMPTY")
-        }
+        // Add core images and core locations to Core Data if needed
+//        self.populateFirestoreWithDefaultImages()
         return true
     }
 

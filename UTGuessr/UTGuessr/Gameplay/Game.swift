@@ -7,18 +7,28 @@
 
 import Foundation
 import CoreLocation
-import CoreData
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class Game {
+protocol FetchCountDelegate {
+     func didFetchCount(count:Int)
+}
+
+protocol FetchImageAndLocationDelegate {
+     func didFetch(data:ImageAndLocation)
+}
+
+class Game: FetchCountDelegate, FetchImageAndLocationDelegate {
     let NUM_ROUNDS:Int = 5
     let MAX_ROUND_SCORE:Int = 1000
     
     var roundScores:[Int]
     var roundImagesAndLocations:[ImageAndLocation]
     var currentRound:Int
+//    var fetchedImagesAndLocations:Bool
+    
+    var viewController:GameViewController!
     
     let db = Firestore.firestore()
     
@@ -26,35 +36,67 @@ class Game {
         self.roundScores = []
         self.currentRound = 1
         self.roundImagesAndLocations = []
+//        self.fetchedImagesAndLocations = false
         self.populateRoundImageAndLocation()
-        print("IMAGES AND LOCATION", self.roundImagesAndLocations)
+        print("IMAGES AND LOCATION: ", self.roundImagesAndLocations)
     }
     
     func populateRoundImageAndLocation() {
-        // Go into Core Data and get 5 random images and location
+        // Go into Firestore and get 5 random images and location
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ImageAndLocationEntity")
-        do {
-            let result = try context.fetch(fetchRequest)
-            print("RESULT", result)
-            for imageAndLocationEntity in result {
-                
-                guard let imageData = imageAndLocationEntity.value(forKey: "image") as? Data,
-                      let latitude = imageAndLocationEntity.value(forKey: "latitude") as? Double,
-                      let longitude = imageAndLocationEntity.value(forKey: "longitude") as? Double else {
-                    print("Cannot cast data to types")
-                    abort()
-                }
-                
-                self.roundImagesAndLocations.append(ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))))
-                // Debugging log
-                // print(self.roundImagesAndLocations.last!.location.latitude)
+        // Get the number of images
+        let countDocRef = self.db.collection("count").document("count")
+        countDocRef.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                let count = document.data()!["image_and_location_count"]! as! Int
+                print("COUNT : \(count)")
+                self.didFetchCount(count: count)
+            } else {
+                print("Firebase Firestore: Can't find count")
             }
-        } catch let error as NSError {
-            print("Could not fetch images and locations : \(error), \(error.userInfo)")
+        }
+    }
+    
+    // We have the count, now get random images
+    func didFetchCount(count: Int) {
+        // Generate 5 random image IDs between 0 and count
+        var imageIDs = Set<Int>()
+        while imageIDs.count < NUM_ROUNDS {
+            imageIDs.insert(Int.random(in: 0..<count))
+        }
+        
+        print("RANDOM IDS: \(imageIDs)")
+        
+        // Query for images with our random IDs
+        let ref = self.db.collection("images_and_locations")
+        for imageID in imageIDs {
+            ref.document(String(imageID)).getDocument {
+                (document, error) in
+                if let document = document, document.exists {
+                    let imageData = document.data()!["image"]! as! Data
+                    let latitude = document.data()!["latitude"]! as! Double
+                    let longitude = document.data()!["longitude"]! as! Double
+                    
+                    let imageAndLocation = ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)))
+                    
+                    self.didFetch(data: imageAndLocation)
+                } else {
+                    print("Firebase Firestore: Can't find image \(imageID)")
+                }
+            }
+        }
+    }
+    
+    // We have the ImageAndLocation, now append to roundImagesAndLocations
+    func didFetch(data: ImageAndLocation) {
+        print("APPENDING \(data)")
+        self.roundImagesAndLocations.append(data)
+        
+        if self.roundImagesAndLocations.count == NUM_ROUNDS {
+            print("SETTING FETCHED TO TRUE")
+            self.viewController.gameFinishedFetching = true
+//            self.fetchedImagesAndLocations = true
         }
     }
     

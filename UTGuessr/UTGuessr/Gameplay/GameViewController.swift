@@ -12,22 +12,37 @@ import CoreLocation
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var gameMap: MKMapView!
     
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
     let userDefaults = UserDefaults.standard
     
     var userCoordinate: CLLocationCoordinate2D?
     var game:Game?
+    var gameFinishedFetching = false {
+        didSet {
+            print("IN DIDSET \(gameFinishedFetching)")
+            if gameFinishedFetching == true {
+                print("GAME DONE POPULATING")
+                // Set the image to the image from the current round
+                self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
+                
+                // Enable the Confirm Pin button
+                self.confirmButton.isEnabled = true
+            }
+        }
+    }
     
     let segueToPostRoundIdentifier = "GameToPostRound"
     
     var newGame:Bool = true
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         game = Game()
+        game?.viewController = self
         
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 6.0
@@ -69,8 +84,16 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(self.mapTapPress(_:)))
         gameMap.addGestureRecognizer(tapPress)
         
+        // Disable the Confirm Pin until the image has finished loading
+        self.confirmButton.isEnabled = false
+        
+        if (gameFinishedFetching) {
+            self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
+            self.confirmButton.isEnabled = true
+        }
+        
         // Set the image to the image from the current round
-        image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
+//        image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {

@@ -290,7 +290,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-j8-VLT">
                                         <rect key="frame" x="10" y="78" width="408" height="285"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="408" height="285"/>
                                             </imageView>
                                         </subviews>
@@ -353,6 +353,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bba-cZ-fuw"/>
                     <connections>
+                        <outlet property="confirmButton" destination="awI-TL-i9t" id="XKr-2A-P0V"/>
                         <outlet property="gameMap" destination="xeO-7w-Cad" id="dLm-b6-bIw"/>
                         <outlet property="image" destination="Pox-xP-iCJ" id="Mim-sT-DE6"/>
                         <outlet property="scrollView" destination="9vx-j8-VLT" id="sBX-OZ-jLl"/>
@@ -384,7 +385,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-ph-dSR">
-                                <rect key="frame" x="60" y="677" width="308" height="52.666666666666629"/>
+                                <rect key="frame" x="60" y="657" width="308" height="52.666666666666629"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Confirm Pin"/>
@@ -495,7 +496,7 @@
                             <constraint firstItem="7L4-sq-EtM" firstAttribute="leading" secondItem="75x-cF-5W5" secondAttribute="leading" constant="60" id="DQq-d7-lVs"/>
                             <constraint firstItem="wbw-k1-9ZA" firstAttribute="top" secondItem="Rmq-4s-aZP" secondAttribute="bottom" constant="5" id="Dhh-E2-xpi"/>
                             <constraint firstItem="WdD-S3-Bqf" firstAttribute="top" secondItem="75x-cF-5W5" secondAttribute="top" constant="45" id="EE4-KB-K38"/>
-                            <constraint firstItem="78q-ph-dSR" firstAttribute="top" secondItem="FYv-BA-S5h" secondAttribute="bottom" constant="60" id="KaW-0M-356"/>
+                            <constraint firstItem="78q-ph-dSR" firstAttribute="top" secondItem="FYv-BA-S5h" secondAttribute="bottom" constant="40" id="KaW-0M-356"/>
                             <constraint firstItem="lJC-uk-GAY" firstAttribute="centerY" secondItem="Kcy-wv-F2p" secondAttribute="centerY" id="LM3-NI-dP9"/>
                             <constraint firstItem="7L4-sq-EtM" firstAttribute="top" secondItem="Kcy-wv-F2p" secondAttribute="bottom" constant="5" id="LSV-4j-bcm"/>
                             <constraint firstItem="wbw-k1-9ZA" firstAttribute="leading" secondItem="75x-cF-5W5" secondAttribute="leading" constant="60" id="PTG-UD-WZB"/>
@@ -906,7 +907,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEh-7T-eEP">
-                                <rect key="frame" x="19.999999999999996" y="202" width="48.666666666666657" height="24"/>
+                                <rect key="frame" x="19.999999999999996" y="202" width="49.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="20"/>
                                 <color key="textColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1352,10 +1353,10 @@
         <image name="chart.bar.xaxis" catalog="system" width="128" height="99"/>
         <image name="defaultProfileImage" width="2048" height="2048"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="loading" width="856" height="416"/>
         <image name="logo.png" width="1332" height="928"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="tower.jpeg" width="1200" height="900"/>
         <namedColor name="authenticationBackgroundColor">
             <color red="0.93000000715255737" green="0.77700001001358032" blue="0.59600001573562622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
