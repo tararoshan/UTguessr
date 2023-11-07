@@ -47,6 +47,8 @@
 		506663B02AF2D40E0066DF15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */; };
 		5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12A2AF98ECB008B1F78 /* countdown.wav */; };
 		5078D12D2AF98ECC008B1F78 /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */; };
+		50CEFBA32AFAD11600298E04 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50CEFBA22AFAD11600298E04 /* click.mp3 */; };
+		50CEFBA52AFAD1C100298E04 /* pin-drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50CEFBA42AFAD1C100298E04 /* pin-drop.mp3 */; };
 		571326FA2AF9CA5000F82374 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571326F92AF9CA5000F82374 /* MainTabBarVC.swift */; };
 		573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E229E2AED3C8C00CA6768 /* ProfileVC.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
@@ -96,6 +98,8 @@
 		506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5078D12A2AF98ECB008B1F78 /* countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown.wav; sourceTree = "<group>"; };
 		5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fanfare.mp3; sourceTree = "<group>"; };
+		50CEFBA22AFAD11600298E04 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		50CEFBA42AFAD1C100298E04 /* pin-drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pin-drop.mp3"; sourceTree = "<group>"; };
 		571326F92AF9CA5000F82374 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		573E229E2AED3C8C00CA6768 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
@@ -189,6 +193,17 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		50CEFB9F2AFACFE400298E04 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */,
+				50CEFBA42AFAD1C100298E04 /* pin-drop.mp3 */,
+				50CEFBA22AFAD11600298E04 /* click.mp3 */,
+				5078D12A2AF98ECB008B1F78 /* countdown.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		571B990F2ADF38C300D4C2FB /* MainMenuChildren */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,8 +288,7 @@
 				571B990F2ADF38C300D4C2FB /* MainMenuChildren */,
 				FACD56842ACF6E23004E36E6 /* Main.storyboard */,
 				504D8FB12AD8555A0060D6C1 /* logo.png */,
-				5078D12A2AF98ECB008B1F78 /* countdown.wav */,
-				5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */,
+				50CEFB9F2AFACFE400298E04 /* Sounds */,
 				98BE8C582AD74B8E00878939 /* Fonts */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
@@ -396,6 +410,8 @@
 				504D8FB22AD8555A0060D6C1 /* logo.png in Resources */,
 				98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */,
 				FACD56882ACF6E25004E36E6 /* Assets.xcassets in Resources */,
+				50CEFBA52AFAD1C100298E04 /* pin-drop.mp3 in Resources */,
+				50CEFBA32AFAD11600298E04 /* click.mp3 in Resources */,
 				5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */,
 				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
