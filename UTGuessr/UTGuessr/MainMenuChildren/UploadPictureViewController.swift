@@ -50,6 +50,10 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
         addCoordinateToCoreLocation()
     }
     
+    func addCoordinateToCoreLocation() {
+        // TODO add functionality
+    }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }

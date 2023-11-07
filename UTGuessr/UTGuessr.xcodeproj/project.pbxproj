@@ -47,6 +47,7 @@
 		506663B02AF2D40E0066DF15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */; };
 		5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12A2AF98ECB008B1F78 /* countdown.wav */; };
 		5078D12D2AF98ECC008B1F78 /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */; };
+		571326FA2AF9CA5000F82374 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571326F92AF9CA5000F82374 /* MainTabBarVC.swift */; };
 		573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E229E2AED3C8C00CA6768 /* ProfileVC.swift */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
@@ -95,6 +96,7 @@
 		506663AF2AF2D40E0066DF15 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5078D12A2AF98ECB008B1F78 /* countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown.wav; sourceTree = "<group>"; };
 		5078D12B2AF98ECB008B1F78 /* fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fanfare.mp3; sourceTree = "<group>"; };
+		571326F92AF9CA5000F82374 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		573E229E2AED3C8C00CA6768 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7618912AF7212D004A7CF9 /* UploadPictureViewController.swift */,
+				571326F92AF9CA5000F82374 /* MainTabBarVC.swift */,
 				57F2648C2ADDADF300441F97 /* MainMenuVC.swift */,
 			);
 			path = MainMenuChildren;
@@ -436,6 +439,7 @@
 				988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */,
 				988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */,
 				FA7618902AF5A69F004A7CF9 /* LoadScreenViewController.swift in Sources */,
+				571326FA2AF9CA5000F82374 /* MainTabBarVC.swift in Sources */,
 				506663B02AF2D40E0066DF15 /* SettingsViewController.swift in Sources */,
 				504D8FEF2AD863F70060D6C1 /* LogInViewController.swift in Sources */,
 				FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */,
