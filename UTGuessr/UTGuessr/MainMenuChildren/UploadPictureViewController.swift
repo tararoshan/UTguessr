@@ -28,6 +28,8 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     var currentLatitude:CLLocationDegrees = 0.0
     var currentLongitude:CLLocationDegrees = 0.0
     
+    var imageUploaded = false
+    
     let db = Firestore.firestore()
     
     var queue: DispatchQueue!
@@ -39,13 +41,15 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             overrideUserInterfaceStyle = .light
         }
         
-        if imageView.image == UIImage(named: "logo") {
+        if !imageUploaded {
             // Disable Save Button
             savePhotoButton.isEnabled = false
-            
-            // Clear the Status Label
-            statusLabel.text = ""
+        } else {
+            savePhotoButton.isEnabled = true
         }
+        
+        // Clear the Status Label
+        statusLabel.text = ""
     }
     
     override func viewDidLoad() {
@@ -98,6 +102,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             
             // Image successfully uploaded, enable Save Button
             savePhotoButton.isEnabled = true
+            imageUploaded = true
         } else {
             statusLabel.text = "Unable to upload image from camera."
         }
@@ -193,8 +198,9 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             
             // Set the image to nil again -- do not want to upload the same photo
             imageView.image = UIImage(named: "logo")
-            // Disable the Upload Button
+            // Disable the Save Button
             savePhotoButton.isEnabled = false
+            imageUploaded = false
             statusLabel.text = "Successfully uploaded your image to the database."
         } else {
             print("Latitude and latitude nil. Unable to upload.")
