@@ -585,6 +585,7 @@
                                 <state key="normal" title="Confirm Pin"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Finish Game">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="32"/>
+                                    <color key="baseForegroundColor" name="textOnDarkBackground"/>
                                     <color key="baseBackgroundColor" name="greenButtonColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1376,6 +1377,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="zY0-B1-STZ"/>
         <segue reference="PvB-Qx-hf4"/>
         <segue reference="Aet-tF-LYZ"/>
         <segue reference="eJL-vS-htW"/>

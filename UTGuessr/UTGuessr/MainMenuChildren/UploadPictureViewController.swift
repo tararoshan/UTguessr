@@ -37,11 +37,13 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             overrideUserInterfaceStyle = .light
         }
         
-        // Reset image
-        imageView.image = UIImage(named: "logo")
-        
-        // Disable Save Button
-        savePhotoButton.isEnabled = false
+        if imageView.image == UIImage(named: "logo") {
+            // Disable Save Button
+            savePhotoButton.isEnabled = false
+            
+            // Clear the Status Label
+            statusLabel.text = ""
+        }
     }
     
     override func viewDidLoad() {
@@ -64,23 +66,25 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
         // Clear the status label
         statusLabel.text = ""
         
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             print("Button capture")
 
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum // TODO: CHANGE TO .camera in final. Using album for debug purposes
-            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .camera // TODO: CHANGE TO .camera in final. Using album for debug purposes
+            imagePicker.allowsEditing = false
             present(imagePicker, animated: true, completion: nil)
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
+        if let image = info[.originalImage] as? UIImage {
             imageView.image = image
             imageView.contentMode = .scaleAspectFill
             
             // Image successfully uploaded, enable Save Button
             savePhotoButton.isEnabled = true
+        } else {
+            statusLabel.text = "Unable to upload image from camera."
         }
         picker.dismiss(animated: true)
     }

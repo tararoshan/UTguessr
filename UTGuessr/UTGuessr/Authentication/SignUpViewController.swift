@@ -107,11 +107,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         countDocRef.getDocument {
             (document, error) in
             if let document = document, document.exists {
-                let count = document.data()!["count"]! as! Int
+                let count = document.data()!["user_count"]! as! Int
                 print("COUNT : \(count)")
                 
                 // change the count to count + 1
-                self.db.collection("count").document("count").setData([ "count": count + 1 ], merge: true)
+                self.db.collection("count").document("count").setData([ "user_count": count + 1 ], merge: true)
                 print("Firebase Firestore: Wrote new user count of \(count + 1)")
                 
                 // set the username of the user
