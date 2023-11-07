@@ -26,7 +26,6 @@ class Game: FetchCountDelegate, FetchImageAndLocationDelegate {
     var roundScores:[Int]
     var roundImagesAndLocations:[ImageAndLocation]
     var currentRound:Int
-//    var fetchedImagesAndLocations:Bool
     
     var viewController:GameViewController!
     
@@ -36,7 +35,6 @@ class Game: FetchCountDelegate, FetchImageAndLocationDelegate {
         self.roundScores = []
         self.currentRound = 1
         self.roundImagesAndLocations = []
-//        self.fetchedImagesAndLocations = false
         self.populateRoundImageAndLocation()
         print("IMAGES AND LOCATION: ", self.roundImagesAndLocations)
     }
@@ -96,7 +94,6 @@ class Game: FetchCountDelegate, FetchImageAndLocationDelegate {
         if self.roundImagesAndLocations.count == NUM_ROUNDS {
             print("SETTING FETCHED TO TRUE")
             self.viewController.gameFinishedFetching = true
-//            self.fetchedImagesAndLocations = true
         }
     }
     

@@ -23,7 +23,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     var game:Game?
     var gameFinishedFetching = false {
         didSet {
-            print("IN DIDSET \(gameFinishedFetching)")
             if gameFinishedFetching == true {
                 print("GAME DONE POPULATING")
                 // Set the image to the image from the current round
@@ -88,12 +87,10 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.confirmButton.isEnabled = false
         
         if (gameFinishedFetching) {
+            // Set the image to the image from the current round and enable the confirm buttom
             self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
             self.confirmButton.isEnabled = true
         }
-        
-        // Set the image to the image from the current round
-//        image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {
