@@ -23,6 +23,10 @@ class SettingsViewController: UIViewController {
             overrideUserInterfaceStyle = .dark
             displayControl.selectedSegmentIndex = 1
         }
+        
+        if userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            soundControl.selectedSegmentIndex = 1
+        }
     }
     
     override func viewDidLoad() {

@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import AVFAudio
 
 class MainMenuVC: UIViewController {
     
     let userDefaults = UserDefaults.standard
+    
+    var audioPlayer:AVAudioPlayer?
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
@@ -26,6 +29,19 @@ class MainMenuVC: UIViewController {
     
     // Get ready for segues (currently just to the main tab controller)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         // Determine if we're segueing to the tab controller & which page to display
         if let tabBarController = segue.destination as? UITabBarController {
             if segue.identifier == "playGameSegue" {

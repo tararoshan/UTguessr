@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import AVFAudio
 
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var gameMap: MKMapView!
@@ -18,6 +19,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var confirmButton: UIButton!
     
     let userDefaults = UserDefaults.standard
+    var audioPlayer:AVAudioPlayer?
     
     var userCoordinate: CLLocationCoordinate2D?
     var game:Game?
@@ -94,6 +96,19 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "pin-drop.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         // Remove any previous pins
         self.gameMap.removeAnnotations(self.gameMap.annotations)
 
@@ -110,6 +125,19 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func confirmPinButtonPressed(_ sender: Any) {
         if (self.userCoordinate != nil) {
+
+            if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer!.play()
+                } catch {
+                    print("Couldn't load sound effect.")
+                }
+            }
+                
             self.game!.finishRound(userCoordinate: self.userCoordinate!)
             performSegue(withIdentifier: segueToPostRoundIdentifier, sender: nil)
         }

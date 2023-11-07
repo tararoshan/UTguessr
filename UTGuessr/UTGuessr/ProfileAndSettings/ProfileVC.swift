@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import AVFAudio
 
 extension String {
     var isAlphanumeric: Bool {
@@ -30,7 +31,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var contributorLabel: UILabel!
     
     let userDefaults = UserDefaults.standard
+    var audioPlayer:AVAudioPlayer?
     let db = Firestore.firestore()
+    
+    let settingsSegueIdentifier = "settingsSegue"
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
@@ -218,4 +222,21 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == settingsSegueIdentifier {
+            if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer!.play()
+                } catch {
+                    print("Couldn't load sound effect.")
+                }
+            }
+        }
+    }
 }
+

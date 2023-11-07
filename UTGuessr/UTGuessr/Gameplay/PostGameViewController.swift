@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import AVFAudio
 
 class PostGameViewController: UIViewController {
     
     var userDefaults = UserDefaults.standard
+    
+    var audioPlayer:AVAudioPlayer?
     
     let segueToCountdownIdentifier = "PostGameToCountdown"
     
@@ -24,6 +27,18 @@ class PostGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "fanfare.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +60,18 @@ class PostGameViewController: UIViewController {
     }
     
     @IBAction func playAgainPressed(_ sender: Any) {
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         // TODO: add more logic for new game
         performSegue(withIdentifier: segueToCountdownIdentifier, sender: nil)
     }

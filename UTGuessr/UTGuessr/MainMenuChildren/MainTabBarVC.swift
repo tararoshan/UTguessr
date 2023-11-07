@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import AVFAudio
 
 
 class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
+    
+    var audioPlayer:AVAudioPlayer?
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,19 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+            
         if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
             // Currently on the game screen, confirm with user before changing screen
             if self.selectedIndex == 0 {

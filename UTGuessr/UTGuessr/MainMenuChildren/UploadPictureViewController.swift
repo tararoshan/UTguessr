@@ -10,6 +10,7 @@ import FirebaseStorage
 import CoreLocation
 import FirebaseAuth
 import FirebaseFirestore
+import AVFAudio
 
 class UploadPictureViewController: UIViewController, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, FetchCountDelegate {
     
@@ -22,6 +23,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker = UIImagePickerController()
     let userDefaults = UserDefaults.standard
+    var audioPlayer:AVAudioPlayer?
     let locationManager = CLLocationManager()
     var currentLatitude:CLLocationDegrees = 0.0
     var currentLongitude:CLLocationDegrees = 0.0
@@ -63,6 +65,19 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func uploadPhotoPressed(_ sender: Any) {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+
         // Clear the status label
         statusLabel.text = ""
         
@@ -94,6 +109,19 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func savePhotoPressed(_ sender: Any) {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         // Add photo to firebase
         let countDocRef = self.db.collection("count").document("count")
         countDocRef.getDocument {

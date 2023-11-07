@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import AVFAudio
 
 // login screen
 class LogInViewController: UIViewController, UITextFieldDelegate {
@@ -14,6 +15,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // email and password fields
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    let signUpSegueIdentifier = "signUpSegue"
+    
+    var audioPlayer: AVAudioPlayer?
     
     let userDefaults = UserDefaults.standard
     
@@ -47,21 +52,51 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // handles login button click by logging in or alerting user to an error
     @IBAction func logIn(_ sender: Any) {
+
         Auth.auth().signIn(
             withEmail: emailTextField.text!,
             password: passwordTextField.text!
         ) {
             (authResult,error) in
-//                if let error = error as NSError? {
-//                    let loginErrorAlert = UIAlertController(
-//                        title: "Login Error",
-//                        message: error.localizedDescription, // goal for later: make the errors more understandable for a user
-//                        preferredStyle: .alert)
-//                    loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
-//                    self.present(loginErrorAlert, animated: true)
-//                } else {
-                    self.performSegue(withIdentifier: "logInSegue", sender: self)
+//            if let error = error as NSError? {
+//                let loginErrorAlert = UIAlertController(
+//                    title: "Login Error",
+//                    message: error.localizedDescription, // goal for later: make the errors more understandable for a user
+//                    preferredStyle: .alert)
+//                loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
+//                self.present(loginErrorAlert, animated: true)
+//            } else {
+                self.performSegue(withIdentifier: "logInSegue", sender: self)
+                
+                if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                    let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                    let url = URL(fileURLWithPath: path)
+                    
+                    do {
+                        self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                        self.audioPlayer!.play()
+                    } catch {
+                        print("Couldn't load sound effect.")
+                    }
                 }
+            }
 //        }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == signUpSegueIdentifier {
+             if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer!.play()
+                } catch {
+                    print("Couldn't load sound effect.")
+                }
+            }
+        }
+    }
 }
+

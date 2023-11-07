@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import AVFAudio
 
 // signup screen
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -17,7 +18,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
+    let logInSegueIdentifier = "logInSegue"
+    
     let userDefaults = UserDefaults.standard
+    
+    var audioPlayer:AVAudioPlayer?
     
     let db = Firestore.firestore()
     
@@ -71,6 +76,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         self.present(signupErrorAlert, animated: true)
                     } else {
                         self.performSegue(withIdentifier: "signUpSegue", sender: self)
+                        
+                        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                            let url = URL(fileURLWithPath: path)
+                            
+                            do {
+                                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                                self.audioPlayer!.play()
+                            } catch {
+                                print("Couldn't load sound effect.")
+                            }
+                        }
                     }
             }
             
@@ -120,6 +137,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 print("**************WROTE USER TO DB**************")
             } else {
                 print("Firebase Firestore: Can't find count")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == logInSegueIdentifier {
+            if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+                let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer!.play()
+                } catch {
+                    print("Couldn't load sound effect.")
+                }
             }
         }
     }

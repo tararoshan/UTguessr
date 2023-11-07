@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 class PostRoundViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class PostRoundViewController: UIViewController {
     @IBOutlet weak var finishGameButton: UIButton!
     
     let userDefaults = UserDefaults.standard
+    
+    var audioPlayer:AVAudioPlayer?
     
     let segueToPostGameIdentifier = "PostRoundToPostGame"
     
@@ -49,10 +52,35 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func nextRoundPressed(_ sender: Any) {
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         self.navigationController!.popViewController(animated: true)
     }
     
     @IBAction func finishGamePressed(_ sender: Any) {
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         // Write the game information to the database
         self.game.finishGame()
         performSegue(withIdentifier: segueToPostGameIdentifier, sender: self)

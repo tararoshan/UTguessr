@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 class CountdownViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class CountdownViewController: UIViewController {
     }
     
     let userDefaults = UserDefaults.standard
+    var audioPlayer:AVAudioPlayer?
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
@@ -30,6 +32,19 @@ class CountdownViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
+            let path = Bundle.main.path(forResource: "countdown.wav", ofType: nil)!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("Couldn't load sound effect.")
+            }
+        }
+        
         sysTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
     }
     

@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-FR-pu4">
-                                <rect key="frame" x="50" y="551" width="328.33333333333326" height="40.666666666666629"/>
+                                <rect key="frame" x="50" y="551" width="328.33333333333331" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="New to UTguessr? Signup here!">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
@@ -98,7 +98,7 @@
                                     <color key="baseBackgroundColor" name="greenAccentButtonColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="8ID-ab-9KN" kind="showDetail" id="hHs-hr-z8O"/>
+                                    <segue destination="8ID-ab-9KN" kind="showDetail" identifier="signUpSegue" id="hHs-hr-z8O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,7 +149,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="zeI-5f-nZB"/>
                                 </constraints>
-                                <color key="textColor" name="textOnDarkBackground"/>
+                                <color key="textColor" name="textOnLightBackground"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -160,7 +160,7 @@
                                     <constraint firstAttribute="height" constant="36" id="qNJ-MA-XdX"/>
                                     <constraint firstAttribute="width" constant="330" id="ucR-b7-xCd"/>
                                 </constraints>
-                                <color key="textColor" name="textOnDarkBackground"/>
+                                <color key="textColor" name="textOnLightBackground"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -171,7 +171,7 @@
                                     <constraint firstAttribute="width" constant="330" id="9Pa-Nz-ygG"/>
                                     <constraint firstAttribute="height" constant="36" id="Sr5-jn-3LK"/>
                                 </constraints>
-                                <color key="textColor" name="textOnDarkBackground"/>
+                                <color key="textColor" name="textOnLightBackground"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -196,7 +196,7 @@
                                     <color key="baseBackgroundColor" name="greenAccentButtonColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Aap-le-GJ7" kind="showDetail" id="2L9-zx-oyH"/>
+                                    <segue destination="Aap-le-GJ7" kind="showDetail" identifier="logInSegue" id="2L9-zx-oyH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -846,7 +846,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="45L-T9-uT8">
                             <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="3l8-vf-uif" kind="show" identifier="SettingsSegue" id="dua-Xk-01Z"/>
+                                <segue destination="3l8-vf-uif" kind="show" identifier="settingsSegue" id="dua-Xk-01Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1416,8 +1416,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="PvB-Qx-hf4"/>
-        <segue reference="Aet-tF-LYZ"/>
-        <segue reference="eJL-vS-htW"/>
+        <segue reference="Xj5-wS-Znn"/>
+        <segue reference="2L9-zx-oyH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
