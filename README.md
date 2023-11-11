@@ -1,6 +1,8 @@
 # UTguessr
 Mobile UT-themed Geoguessr app. iOS Mobile Computing group project.
 
+**Important:** please use xCode version 15 to run the app (otherwise there may be issues with loading color assets).
+
 ## Contributions
 
 Alex Lu (Release: 25%, Overall: 25%)
