@@ -374,19 +374,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your scores:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmq-4s-aZP">
-                                <rect key="frame" x="121" y="131" width="186" height="41"/>
+                                <rect key="frame" x="121" y="178" width="186" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryTitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good game!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdD-S3-Bqf">
-                                <rect key="frame" x="123.00000000000001" y="45" width="182.33333333333337" height="41"/>
+                                <rect key="frame" x="123.00000000000001" y="92" width="182.33333333333337" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryTitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-ph-dSR">
-                                <rect key="frame" x="60" y="610" width="308" height="52.666666666666629"/>
+                                <rect key="frame" x="60" y="657" width="308" height="52.666666666666629"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Confirm Pin"/>
@@ -401,43 +401,43 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbw-k1-9ZA">
-                                <rect key="frame" x="60.000000000000007" y="177" width="123.66666666666669" height="41"/>
+                                <rect key="frame" x="60.000000000000007" y="224" width="123.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryHeaderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-wv-F2p">
-                                <rect key="frame" x="60.000000000000007" y="223" width="125.66666666666669" height="41"/>
+                                <rect key="frame" x="60.000000000000007" y="270" width="125.66666666666669" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryHeaderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L4-sq-EtM">
-                                <rect key="frame" x="60" y="269" width="126" height="41"/>
+                                <rect key="frame" x="60" y="316" width="126" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryHeaderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycu-nz-eby">
-                                <rect key="frame" x="59.999999999999993" y="315" width="127.33333333333331" height="41"/>
+                                <rect key="frame" x="59.999999999999993" y="362" width="127.33333333333331" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryHeaderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total score:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9c-ng-mNn">
-                                <rect key="frame" x="126" y="452" width="176" height="41"/>
+                                <rect key="frame" x="126" y="499" width="176" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryTitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQZ-TI-GMd">
-                                <rect key="frame" x="59.999999999999993" y="361" width="126.33333333333331" height="41"/>
+                                <rect key="frame" x="59.999999999999993" y="408" width="126.33333333333331" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" name="secondaryHeaderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibx-jh-rqe">
-                                <rect key="frame" x="218" y="177" width="150" height="41"/>
+                                <rect key="frame" x="218" y="224" width="150" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="4fd-3m-4NH"/>
                                 </constraints>
@@ -446,7 +446,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJC-uk-GAY">
-                                <rect key="frame" x="218" y="223" width="150" height="41"/>
+                                <rect key="frame" x="218" y="270" width="150" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="lNw-s1-uVb"/>
                                 </constraints>
@@ -455,7 +455,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9S-9H-iT3">
-                                <rect key="frame" x="218" y="269" width="150" height="41"/>
+                                <rect key="frame" x="218" y="316" width="150" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Tec-r4-Yay"/>
                                 </constraints>
@@ -464,7 +464,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-hg-0Lg">
-                                <rect key="frame" x="218" y="315" width="150" height="41"/>
+                                <rect key="frame" x="218" y="362" width="150" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="VI9-AA-g4i"/>
                                 </constraints>
@@ -473,7 +473,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGJ-uC-6ee">
-                                <rect key="frame" x="218" y="361" width="150" height="41"/>
+                                <rect key="frame" x="218" y="408" width="150" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="qfW-qS-jA8"/>
                                 </constraints>
@@ -482,7 +482,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-BA-S5h">
-                                <rect key="frame" x="206.66666666666666" y="498" width="15" height="72"/>
+                                <rect key="frame" x="206.66666666666666" y="545" width="15" height="72"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="60"/>
                                 <color key="textColor" red="0.67450982329999998" green="0.35294118520000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -843,6 +843,19 @@
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="pvo-7c-VfW">
                         <barButtonItem key="backBarButtonItem" title="User Profile" id="yMF-ar-Wyn"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="cbp-6k-A5r">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xFq-Ia-oNk">
+                                <rect key="frame" x="20" y="5" width="95" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                    <color key="baseBackgroundColor" red="0.72631579639999999" green="0.33003771310000002" blue="0.002843365772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Aap-le-GJ7" kind="showDetail" id="Gm4-mx-2uH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="45L-T9-uT8">
                             <color key="tintColor" red="0.67668420080000002" green="0.35142022369999998" blue="0.12540221209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -1108,7 +1121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPM-nj-sOr">
-                                <rect key="frame" x="74" y="538.66666666666663" width="280" height="46.666666666666629"/>
+                                <rect key="frame" x="74" y="585.66666666666663" width="280" height="46.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="6IV-ZZ-Xpo"/>
@@ -1125,7 +1138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXI-Sd-XRM" userLabel="Save Photo Button">
-                                <rect key="frame" x="74" y="600.33333333333337" width="280" height="46.666666666666629"/>
+                                <rect key="frame" x="74" y="647.33333333333337" width="280" height="46.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="jvw-po-51y"/>
@@ -1142,13 +1155,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgI-ei-99u">
-                                <rect key="frame" x="126.33333333333333" y="15" width="175.33333333333337" height="33.666666666666664"/>
+                                <rect key="frame" x="126.33333333333333" y="62" width="175.33333333333337" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Medium" family="Fira Sans" pointSize="28"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Upload a photo by taking a picture of your current location." lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-e8-ioE">
-                                <rect key="frame" x="74" y="63.666666666666657" width="280" height="40"/>
+                                <rect key="frame" x="74" y="110.66666666666669" width="280" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="87i-qf-cCY"/>
                                     <constraint firstAttribute="height" constant="40" id="DdT-0d-ewA"/>
@@ -1158,14 +1171,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Q0-UZ-5jh">
-                                <rect key="frame" x="66.666666666666686" y="218.66666666666663" width="295" height="295"/>
+                                <rect key="frame" x="66.666666666666686" y="265.66666666666669" width="295" height="295.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="295" id="9hJ-iD-Ulz"/>
                                     <constraint firstAttribute="height" constant="295" id="WII-hN-dWE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Ensure that your photo has minimal zoom and gives a good idea of the location's surroundings." lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olu-Jb-UkX">
-                                <rect key="frame" x="74" y="108.66666666666669" width="280" height="60"/>
+                                <rect key="frame" x="74" y="155.66666666666666" width="280" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="3L3-wI-1LN"/>
                                     <constraint firstAttribute="height" constant="60" id="mgd-nc-g5L"/>
@@ -1175,7 +1188,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Save the photo to our database!" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-p2-JqZ">
-                                <rect key="frame" x="74" y="173.66666666666666" width="280" height="20"/>
+                                <rect key="frame" x="74" y="220.66666666666666" width="280" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="9xm-Ex-whK"/>
                                     <constraint firstAttribute="width" constant="280" id="YB0-UF-rNa"/>
@@ -1185,7 +1198,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx9-4p-qyn">
-                                <rect key="frame" x="74" y="662" width="280" height="40"/>
+                                <rect key="frame" x="74" y="709" width="280" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="a62-iP-OuA"/>
                                     <constraint firstAttribute="height" constant="40" id="b4M-me-VY3"/>
@@ -1415,9 +1428,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="cCS-g5-iMA"/>
         <segue reference="PvB-Qx-hf4"/>
-        <segue reference="Xj5-wS-Znn"/>
-        <segue reference="2L9-zx-oyH"/>
+        <segue reference="Aet-tF-LYZ"/>
+        <segue reference="Gm4-mx-2uH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>

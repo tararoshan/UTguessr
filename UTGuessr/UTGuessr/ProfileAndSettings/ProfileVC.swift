@@ -35,6 +35,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     let db = Firestore.firestore()
     
     let settingsSegueIdentifier = "settingsSegue"
+    let logOutSegueIdentifier = "logOutSegue"
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {

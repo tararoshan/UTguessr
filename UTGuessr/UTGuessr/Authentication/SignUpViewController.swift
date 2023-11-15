@@ -88,25 +88,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                 print("Couldn't load sound effect.")
                             }
                         }
+                        
+                        // add new user to the database
+                        print("************** CREATING NEW USER IN FIRESTORE **************")
+                        self.db.collection("users").document(self.emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)).setData([
+                            "profile_image": nil,
+                            "games_played": 0,
+                            "average_score": 0,
+                            "high_score": 0,
+                            "images_uploaded": 0
+                        ]) { err in
+                            if let err = err {
+                                print("Firebase Firestore: Error adding document: \(err)")
+                            } else {
+                                print("Firebase Firestore: Document successfully written!")
+                            }
+                        }
+                        self.incrementUserCountAndSetUsername()
                     }
             }
-            
-            // add new user to the database
-            print("************** CREATING NEW USER IN FIRESTORE **************")
-            self.db.collection("users").document(self.emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)).setData([
-                "profile_image": nil,
-                "games_played": 0,
-                "average_score": 0,
-                "high_score": 0,
-                "images_uploaded": 0
-            ]) { err in
-                if let err = err {
-                    print("Firebase Firestore: Error adding document: \(err)")
-                } else {
-                    print("Firebase Firestore: Document successfully written!")
-                }
-            }
-            self.incrementUserCountAndSetUsername()
         } else {
             // catching password confirmation error
             let badPasswordConfirmationAlert = UIAlertController(
