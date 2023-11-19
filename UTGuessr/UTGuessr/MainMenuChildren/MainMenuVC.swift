@@ -43,7 +43,7 @@ class MainMenuVC: UIViewController {
         }
         
         // Determine if we're segueing to the tab controller & which page to display
-        if let tabBarController = segue.destination as? UITabBarController {
+        if let tabBarController = segue.destination as? MainTabBarVC {
             if segue.identifier == "playGameSegue" {
                 tabBarController.selectedIndex = 0
             } else if segue.identifier == "uploadLocationSegue" {

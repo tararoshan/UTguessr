@@ -27,6 +27,7 @@ class CountdownViewController: UIViewController {
         } else {
             overrideUserInterfaceStyle = .light
         }
+        timer.text = "3"
     }
     
     override func viewDidAppear(_ animated: Bool) {

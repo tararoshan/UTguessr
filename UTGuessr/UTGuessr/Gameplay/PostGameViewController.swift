@@ -50,6 +50,11 @@ class PostGameViewController: UIViewController {
             overrideUserInterfaceStyle = .light
         }
         
+        // Turn off the "Leave Game?" alert
+        if let tabBarController = self.tabBarController as? MainTabBarVC {
+            tabBarController.showingRoundEndedScreen = true
+        }
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.scoreLabel.text = String(self.game!.roundScores.reduce(0, +))
         self.round1ScoreLabel.text = String(self.game!.roundScores[0])
@@ -57,6 +62,14 @@ class PostGameViewController: UIViewController {
         self.round3ScoreLabel.text = String(self.game!.roundScores[2])
         self.round4ScoreLabel.text = String(self.game!.roundScores[3])
         self.round5ScoreLabel.text = String(self.game!.roundScores[4])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Let the tab bar know that it can ask about leaving the game if needed
+        if let tabBarController = self.tabBarController as? MainTabBarVC {
+            tabBarController.showingRoundEndedScreen = false
+        }
     }
     
     @IBAction func playAgainPressed(_ sender: Any) {

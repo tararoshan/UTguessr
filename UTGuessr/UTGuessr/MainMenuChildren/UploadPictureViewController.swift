@@ -23,10 +23,10 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker = UIImagePickerController()
     let userDefaults = UserDefaults.standard
-    var audioPlayer:AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer?
     let locationManager = CLLocationManager()
-    var currentLatitude:CLLocationDegrees = 0.0
-    var currentLongitude:CLLocationDegrees = 0.0
+    var currentLatitude: CLLocationDegrees = 0.0
+    var currentLongitude: CLLocationDegrees = 0.0
     
     var imageUploaded = false
     

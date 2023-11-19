@@ -11,8 +11,10 @@ import AVFAudio
 
 class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     
-    var audioPlayer:AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer?
     let userDefaults = UserDefaults.standard
+    var showingRoundEndedScreen: Bool = false
+    var restartGame: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
             
         if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
             // Currently on the game screen, confirm with user before changing screen
-            if self.selectedIndex == 0 {
+            if self.selectedIndex == 0 && !showingRoundEndedScreen {
                 let quitGameAlert = UIAlertController(title: "Leave Game", message: "Are you sure you want to quit?", preferredStyle: .alert)
                 
                 // Change the background color of the alert to fit the theme
@@ -47,10 +49,10 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                     alertContentView.layer.cornerRadius = 15
                 }
                 
-                // Quit game
+                // Quit & restart game
                 let quitAction = UIAlertAction(title: "Yes", style: .default) {_ in
-                    // TODO how do I restart the game?
                     tabBarController.selectedIndex = index
+                    self.restartGame = true
                 }
                 quitGameAlert.addAction(quitAction)
                 
@@ -72,6 +74,14 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                 self.present(quitGameAlert, animated: true)
                 // Stop the tab selection from happening, it'll go through if the user confirms
                 return false
+            }
+            
+            // If we're going back to the game screen, check if the game is supposed to restart
+            if index == 0 && self.restartGame,
+               let navController = viewController as? UINavigationController {
+                self.restartGame = false
+                navController.popToRootViewController(animated: true)
+//                performSegue(withIdentifier: "TEST", sender: nil)
             }
         }
         // Allow the tab selection to happen otherwise

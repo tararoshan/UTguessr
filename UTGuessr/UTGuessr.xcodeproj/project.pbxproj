@@ -51,6 +51,7 @@
 		50CEFBA52AFAD1C100298E04 /* pin-drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50CEFBA42AFAD1C100298E04 /* pin-drop.mp3 */; };
 		571326FA2AF9CA5000F82374 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571326F92AF9CA5000F82374 /* MainTabBarVC.swift */; };
 		573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E229E2AED3C8C00CA6768 /* ProfileVC.swift */; };
+		5762A80A2B09BB560066BA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5762A8092B09BB560066BA0E /* LaunchScreen.storyboard */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
@@ -102,6 +103,7 @@
 		50CEFBA42AFAD1C100298E04 /* pin-drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pin-drop.mp3"; sourceTree = "<group>"; };
 		571326F92AF9CA5000F82374 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		573E229E2AED3C8C00CA6768 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		5762A8092B09BB560066BA0E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				50CEFB9F2AFACFE400298E04 /* Sounds */,
 				98BE8C582AD74B8E00878939 /* Fonts */,
 				FACD56872ACF6E25004E36E6 /* Assets.xcassets */,
+				5762A8092B09BB560066BA0E /* LaunchScreen.storyboard */,
 				FACD568C2ACF6E25004E36E6 /* Info.plist */,
 				504D8FEC2AD863440060D6C1 /* UTGuessr.entitlements */,
 				504D8FB32AD861AE0060D6C1 /* GoogleService-Info.plist */,
@@ -413,6 +416,7 @@
 				50CEFBA52AFAD1C100298E04 /* pin-drop.mp3 in Resources */,
 				50CEFBA32AFAD11600298E04 /* click.mp3 in Resources */,
 				5078D12C2AF98ECC008B1F78 /* countdown.wav in Resources */,
+				5762A80A2B09BB560066BA0E /* LaunchScreen.storyboard in Resources */,
 				98BE8C6B2AD74BB800878939 /* FiraSans-Regular.ttf in Resources */,
 				98BE8C6D2AD74BB800878939 /* FiraSans-ExtraBold.ttf in Resources */,
 				98BE8C732AD74BB800878939 /* FiraSans-MediumItalic.ttf in Resources */,
@@ -533,6 +537,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -590,6 +596,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -609,7 +617,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZWAN9P88HJ;
+				DEVELOPMENT_TEAM = 76US5UV74Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
@@ -628,7 +636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -646,7 +654,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZWAN9P88HJ;
+				DEVELOPMENT_TEAM = 76US5UV74Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
@@ -665,7 +673,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.test;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
