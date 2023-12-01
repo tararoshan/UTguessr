@@ -28,6 +28,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var username:String!
     
+    var user: Any
+    
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
             overrideUserInterfaceStyle = .dark
@@ -75,6 +77,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         signupErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(signupErrorAlert, animated: true)
                     } else {
+//                        self.user = authResult?.user
+//                        authResult?.user.sendEmailVerification {
+//                            (error) in
+//                            if let error = error {
+//                                print("Failed sending email verification: \(error.localizedDescription)")
+//                            } else {
+//                                print("Email verification sent")
+//                            }
+//                        }
+//                        let alertController = UIAlertController(title: "Verify Email", message: "An email verification link has been sent to your inbox please click the verification link.", preferredStyle: .alert)
+//                        let okAction = UIAlertAction(title: "OK", style: .default) {(action) in
+//                                print("Button Pressed")
+//                        }
+//                        alertController.addAction(okAction)
                         self.performSegue(withIdentifier: "signUpSegue", sender: self)
                         
                         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
