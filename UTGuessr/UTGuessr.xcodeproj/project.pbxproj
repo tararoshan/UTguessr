@@ -54,6 +54,7 @@
 		5762A80A2B09BB560066BA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5762A8092B09BB560066BA0E /* LaunchScreen.storyboard */; };
 		57F2648D2ADDADF300441F97 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2648C2ADDADF300441F97 /* MainMenuVC.swift */; };
 		57FC0D6A2ADC38CC00A960C4 /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */; };
+		983217B32B1BE55A00917515 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983217B22B1BE55A00917515 /* LeaderboardManager.swift */; };
 		988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764552AD8853600025A06 /* ImageAndLocation.swift */; };
 		988764582AD88E4500025A06 /* PostRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764572AD88E4500025A06 /* PostRoundViewController.swift */; };
 		9887645A2AD8904F00025A06 /* PostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988764592AD8904F00025A06 /* PostGameViewController.swift */; };
@@ -106,6 +107,7 @@
 		5762A8092B09BB560066BA0E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F2648C2ADDADF300441F97 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		57FC0D692ADC38CC00A960C4 /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		983217B22B1BE55A00917515 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		988764552AD8853600025A06 /* ImageAndLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocation.swift; sourceTree = "<group>"; };
 		988764572AD88E4500025A06 /* PostRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoundViewController.swift; sourceTree = "<group>"; };
 		988764592AD8904F00025A06 /* PostGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGameViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				5026E1DC2AF80D1E00E83769 /* LeaderboardViewController.swift */,
 				98FC4EC42AF979030091FE67 /* LeaderboardTableViewCell.swift */,
 				98FC4EC72AF9946E0091FE67 /* LeaderboardProfileViewController.swift */,
+				983217B22B1BE55A00917515 /* LeaderboardManager.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				504D8FEF2AD863F70060D6C1 /* LogInViewController.swift in Sources */,
 				FACD567F2ACF6E23004E36E6 /* AppDelegate.swift in Sources */,
 				98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */,
+				983217B32B1BE55A00917515 /* LeaderboardManager.swift in Sources */,
 				FACD56812ACF6E23004E36E6 /* SceneDelegate.swift in Sources */,
 				FA7618922AF7212D004A7CF9 /* UploadPictureViewController.swift in Sources */,
 				98FC4EC82AF9946E0091FE67 /* LeaderboardProfileViewController.swift in Sources */,
@@ -617,7 +621,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 76US5UV74Q;
+				DEVELOPMENT_TEAM = ZWAN9P88HJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
@@ -627,6 +631,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "location use";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -636,7 +641,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -654,7 +659,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 76US5UV74Q;
+				DEVELOPMENT_TEAM = ZWAN9P88HJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTGuessr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = UTGuessr;
@@ -664,6 +669,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "location use";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -673,7 +679,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = utcs.UTGuessr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

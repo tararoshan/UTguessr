@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-FR-pu4">
-                                <rect key="frame" x="50" y="551" width="328.33333333333331" height="40.666666666666629"/>
+                                <rect key="frame" x="50" y="551" width="328.33333333333326" height="40.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="New to UTguessr? Signup here!">
                                     <fontDescription key="titleFontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="22"/>
@@ -850,6 +850,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="20"/>
                                     <color key="baseBackgroundColor" red="0.72631579639999999" green="0.33003771310000002" blue="0.002843365772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -893,26 +894,26 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeaderboardTableCell" id="WAB-sx-trm" customClass="LeaderboardTableViewCell" customModule="UTGuessr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="428" height="47.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="428" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WAB-sx-trm" id="8RM-r0-D15">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="47.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-tt-KC9">
-                                                    <rect key="frame" x="20" y="14" width="41" height="20"/>
+                                                    <rect key="frame" x="20" y="12" width="41" height="20"/>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7L-Z6-VD2">
-                                                    <rect key="frame" x="326" y="14" width="82" height="20"/>
+                                                    <rect key="frame" x="326" y="12" width="82" height="20"/>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6k-FL-c7n">
-                                                    <rect key="frame" x="80" y="14" width="230" height="20"/>
+                                                    <rect key="frame" x="80" y="12" width="230" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="230" id="4Nr-X3-Bx8"/>
                                                     </constraints>
@@ -1469,7 +1470,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="loading" width="856" height="416"/>
         <image name="logo" width="310" height="312"/>
-        <image name="logo.png" width="310" height="312"/>
+        <image name="logo.png" width="1332" height="928"/>
         <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="authenticationBackgroundColor">

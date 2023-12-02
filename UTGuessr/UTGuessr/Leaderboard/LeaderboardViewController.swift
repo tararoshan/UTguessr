@@ -17,7 +17,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var leaderboardTableView: UITableView!
     let leaderboardTableCellIdentifier = "LeaderboardTableCell"
     
-    var leaderboardTableCells:[[String]] = []
+    let leaderboardManager = LeaderboardManager()
     
     let segueToLeaderboardProfileIdentifier = "LeaderboardToLeaderboardProfile"
     
@@ -27,8 +27,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             overrideUserInterfaceStyle = .light
         }
-        
-        populateTop25Users()
+        leaderboardTableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -37,10 +36,16 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
         leaderboardTableView.backgroundColor = UIColor.background
+        
+        // Initial query for top 25
+        populateTop25Users()
+        
+        // Start listening to changes in high scores
+        leaderboardManager.listenToHighScores()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaderboardTableCells.count
+        return leaderboardManager.leaderboardEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,8 +54,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         // Set the text in the textLable of the Cell to the team at the corresponding index to the row number
         let row = indexPath.row
         cell.placeLabel.text = "\(row + 1)"
-        cell.usernameLabel.text = leaderboardTableCells[row][0]
-        cell.highScoreLabel.text = leaderboardTableCells[row][1]
+        cell.usernameLabel.text = leaderboardManager.leaderboardEntries[row].username
+        cell.highScoreLabel.text = String(leaderboardManager.leaderboardEntries[row].highScore)
         
         if (row % 2 == 1) {
             cell.backgroundColor = UIColor.background
@@ -69,7 +74,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     func populateTop25Users() {
         print("************** GETTING TOP 25 **************")
         let usersRef = self.db.collection("users")
-        leaderboardTableCells = []
+        self.leaderboardManager.leaderboardEntries = []
         usersRef.order(by: "high_score", descending: true).limit(to: 25).getDocuments() {
             (querySnapshot, err) in
             if let err = err {
@@ -78,7 +83,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                 for document in querySnapshot!.documents {
                     let username = document.data()["username"] as! String
                     let highScore = document.data()["high_score"] as! Int
-                    self.leaderboardTableCells.append([username, String(highScore), document.documentID])
+                    self.leaderboardManager.leaderboardEntries.append(LeaderboardEntry(userEmail: document.documentID, username: username, highScore: highScore))
                 }
                 self.leaderboardTableView.reloadData()
             }
@@ -89,7 +94,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         if segue.identifier == segueToLeaderboardProfileIdentifier,
            let destination = segue.destination as? LeaderboardProfileViewController,
            let selectedIndex = leaderboardTableView.indexPathForSelectedRow?.row {
-            destination.userEmail = self.leaderboardTableCells[selectedIndex][2]
+            destination.userEmail = self.leaderboardManager.leaderboardEntries[selectedIndex].userEmail
         }
     }
 }

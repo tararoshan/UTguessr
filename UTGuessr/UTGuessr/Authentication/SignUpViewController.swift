@@ -28,8 +28,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var username:String!
     
-    var user: Any
-    
     override func viewWillAppear(_ animated: Bool) {
         if userDefaults.bool(forKey: "UTGuesserDarkMode") {
             overrideUserInterfaceStyle = .dark
