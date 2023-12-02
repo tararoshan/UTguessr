@@ -1429,23 +1429,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="headerColor"/>
-                        <color key="tintColor" name="headerColor"/>
+                        <color key="tintColor" name="titleColor"/>
                         <color key="barTintColor" name="headerColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="textOnDarkBackground"/>
-                            <color key="textShadowColor" name="textOnDarkBackground"/>
+                            <color key="textColor" name="titleColor"/>
+                            <color key="textShadowColor" name="titleColor"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="textOnDarkBackground"/>
-                            <color key="textShadowColor" name="textOnDarkBackground"/>
+                            <color key="textColor" name="titleColor"/>
+                            <color key="textShadowColor" name="titleColor"/>
                         </textAttributes>
                         <navigationBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="headerColor"/>
-                            <color key="shadowColor" name="headerColor"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" name="titleColor"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="backButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="titleColor"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
                         </navigationBarAppearance>
                         <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" name="headerColor"/>
-                            <color key="shadowColor" name="headerColor"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
