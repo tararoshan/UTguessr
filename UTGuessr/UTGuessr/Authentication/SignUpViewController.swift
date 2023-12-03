@@ -78,21 +78,26 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         signupErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(signupErrorAlert, animated: true)
                     } else {
-//                        self.user = authResult?.user
-//                        authResult?.user.sendEmailVerification {
-//                            (error) in
-//                            if let error = error {
-//                                print("Failed sending email verification: \(error.localizedDescription)")
-//                            } else {
-//                                print("Email verification sent")
-//                            }
-//                        }
-//                        let alertController = UIAlertController(title: "Verify Email", message: "An email verification link has been sent to your inbox please click the verification link.", preferredStyle: .alert)
-//                        let okAction = UIAlertAction(title: "OK", style: .default) {(action) in
-//                                print("Button Pressed")
-//                        }
-//                        alertController.addAction(okAction)
-                        self.performSegue(withIdentifier: "signUpSegue", sender: self)
+                        authResult?.user.sendEmailVerification() {
+                            (error) in
+                            if let error = error {
+                                print("Failed sending email verification: \(error.localizedDescription)")
+                            } else {
+                                print("Email verification sent")
+                            }
+                        }
+                        let alertController = UIAlertController(title: "Verify Email", message: "An email verification link has been sent to your inbox please click the verification link to verify your account.", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default) {(action) in
+                                print("Button Pressed")
+                                DispatchQueue.main.async {
+                                    print("segue")
+                                    self.performSegue(withIdentifier: "signUpSegue", sender: self)
+                                    print("segue done")
+                                }
+
+                        }
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
                         
                         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
