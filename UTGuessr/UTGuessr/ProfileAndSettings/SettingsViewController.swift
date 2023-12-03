@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum displayTypeEnum: Int {
+case system = 0, light = 1, dark = 2
+}
+
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var displayControl: UISegmentedControl!
@@ -19,9 +23,14 @@ class SettingsViewController: UIViewController {
         displayControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
         soundControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
 
-        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+        let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
+        displayControl.selectedSegmentIndex = displaySetting
+        if displaySetting == displayTypeEnum.system.rawValue {
+            overrideUserInterfaceStyle = .unspecified
+        } else if displaySetting == displayTypeEnum.dark.rawValue {
             overrideUserInterfaceStyle = .dark
-            displayControl.selectedSegmentIndex = 1
+        } else if displaySetting == displayTypeEnum.light.rawValue {
+            overrideUserInterfaceStyle = .light
         }
         
         if userDefaults.bool(forKey: "UTGuesserSoundOff") {
@@ -38,9 +47,12 @@ class SettingsViewController: UIViewController {
     @IBAction func displayControlChanged(_ sender: Any) {
         userDefaults.set(displayControl.selectedSegmentIndex, forKey: "UTGuesserDarkMode")
         
-        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+        let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
+        if displaySetting == displayTypeEnum.system.rawValue {
+            overrideUserInterfaceStyle = .unspecified
+        } else if displaySetting == displayTypeEnum.dark.rawValue {
             overrideUserInterfaceStyle = .dark
-        } else {
+        } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
     }

@@ -30,9 +30,12 @@ class LeaderboardProfileViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
-        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+        let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
+        if displaySetting == displayTypeEnum.system.rawValue {
+            overrideUserInterfaceStyle = .unspecified
+        } else if displaySetting == displayTypeEnum.dark.rawValue {
             overrideUserInterfaceStyle = .dark
-        } else {
+        } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
     }

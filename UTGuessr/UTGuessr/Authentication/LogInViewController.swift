@@ -23,13 +23,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     let userDefaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
-        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+        let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
+        if displaySetting == displayTypeEnum.system.rawValue {
+            overrideUserInterfaceStyle = .unspecified
+        } else if displaySetting == displayTypeEnum.dark.rawValue {
             overrideUserInterfaceStyle = .dark
-            emailTextField.overrideUserInterfaceStyle = .light
-            passwordTextField.overrideUserInterfaceStyle = .light
-        } else {
+        } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
+        emailTextField.overrideUserInterfaceStyle = .light
+        passwordTextField.overrideUserInterfaceStyle = .light
     }
     
     override func viewDidLoad() {
@@ -61,7 +64,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
            if let error = error as NSError? {
                let loginErrorAlert = UIAlertController(
                    title: "Login Error",
-                   message: error.localizedDescription, // goal for later: make the errors more understandable for a user
+                   message: error.localizedDescription,
                    preferredStyle: .alert)
                loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                self.present(loginErrorAlert, animated: true)

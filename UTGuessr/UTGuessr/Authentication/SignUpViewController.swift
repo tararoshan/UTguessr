@@ -29,14 +29,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var username:String!
     
     override func viewWillAppear(_ animated: Bool) {
-        if userDefaults.bool(forKey: "UTGuesserDarkMode") {
+        let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
+        if displaySetting == displayTypeEnum.system.rawValue {
+            overrideUserInterfaceStyle = .unspecified
+        } else if displaySetting == displayTypeEnum.dark.rawValue {
             overrideUserInterfaceStyle = .dark
-            emailTextField.overrideUserInterfaceStyle = .light
-            passwordTextField.overrideUserInterfaceStyle = .light
-            passwordConfirmationTextField.overrideUserInterfaceStyle = .light
-        } else {
+        } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
+        emailTextField.overrideUserInterfaceStyle = .light
+        passwordTextField.overrideUserInterfaceStyle = .light
+        passwordConfirmationTextField.overrideUserInterfaceStyle = .light
     }
     
     override func viewDidLoad() {
