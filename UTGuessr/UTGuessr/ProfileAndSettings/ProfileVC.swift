@@ -115,11 +115,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Runs when the username is tapped
     @objc func usernameTapped() {
-        let controller = UIAlertController(
-            title: "Set Username",
-            message: nil,
-            preferredStyle: .alert)
-        
         let usernameTakenController = UIAlertController(
             title: "Username already taken",
             message: "Please enter another username.",
@@ -138,6 +133,20 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             title: "OK",
             style: .default))
         
+        let usernameReservedController = UIAlertController(
+            title: "Username reserved",
+            message: "Please enter another username that is not in the format user#.",
+            preferredStyle: .alert)
+        
+        usernameReservedController.addAction(UIAlertAction(
+            title: "OK",
+            style: .default))
+        
+        let controller = UIAlertController(
+            title: "Set Username",
+            message: nil,
+            preferredStyle: .alert)
+        
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addTextField(configurationHandler: {
             (textField) in
@@ -151,7 +160,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 let enteredText = controller.textFields![0].text
                 
                 if enteredText!.count > 20 || !enteredText!.isAlphanumeric {
+                    // The user has entered an invalid username
                     self.present(usernameInvalidController, animated:true)
+                } else if enteredText?.prefix(4) == "user" && Int(enteredText!.dropFirst(4)) != nil {
+                    // The user has entered a reserved username (user[int])
+                    self.present(usernameReservedController, animated:true)
                 } else {
                     self.db.collection("users").whereField("username", isEqualTo: enteredText).getDocuments() {
                         (querySnapshot, err) in

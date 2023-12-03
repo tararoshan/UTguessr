@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         // Add core images and core locations to Core Data if needed
-//        self.populateFirestoreWithDefaultImages()
+        self.populateFirestoreWithDefaultImages()
         return true
     }
 

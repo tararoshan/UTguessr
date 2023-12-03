@@ -289,10 +289,10 @@
                                 <rect key="frame" x="0.0" y="433.66666666666674" width="428" height="433.33333333333326"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-j8-VLT">
-                                        <rect key="frame" x="10" y="78.000000000000014" width="408" height="255.33333333333337"/>
+                                        <rect key="frame" x="10" y="78" width="408" height="327.33333333333331"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-xP-iCJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="408" height="255.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="408" height="327.33333333333331"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -332,7 +332,7 @@
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="top" secondItem="22U-Be-LSX" secondAttribute="top" constant="20" id="8fA-Jx-Kj7"/>
                                     <constraint firstItem="9vx-j8-VLT" firstAttribute="top" secondItem="awI-TL-i9t" secondAttribute="bottom" constant="20" id="UFJ-WK-59x"/>
                                     <constraint firstAttribute="trailing" secondItem="awI-TL-i9t" secondAttribute="trailing" constant="10" id="YK4-Z8-oLd"/>
-                                    <constraint firstAttribute="bottom" secondItem="9vx-j8-VLT" secondAttribute="bottom" constant="100" id="ZzN-ML-JWs"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="9vx-j8-VLT" secondAttribute="bottom" constant="20" id="ZzN-ML-JWs"/>
                                     <constraint firstItem="9vx-j8-VLT" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="mMZ-IY-cXt"/>
                                     <constraint firstItem="awI-TL-i9t" firstAttribute="leading" secondItem="22U-Be-LSX" secondAttribute="leading" constant="10" id="q8f-G9-6VP"/>
                                     <constraint firstAttribute="trailing" secondItem="9vx-j8-VLT" secondAttribute="trailing" constant="10" id="swX-jB-oPg"/>
