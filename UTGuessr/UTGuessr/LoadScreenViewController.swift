@@ -17,10 +17,10 @@ class LoadScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.performSegue(withIdentifier: "LoadingDone", sender: nil)
         Task {
             await loadImagesAndLocationsToCache()
         }
+        self.performSegue(withIdentifier: "LoadingDone", sender: nil)
     }
     
     func loadImagesAndLocationsToCache() async {

@@ -23,18 +23,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     var userCoordinate: CLLocationCoordinate2D?
     var game:Game?
-    var gameFinishedFetching = false {
-        didSet {
-            if gameFinishedFetching == true {
-                print("GAME DONE POPULATING")
-                // Set the image to the image from the current round
-                self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
-                
-                // Enable the Confirm Pin button
-                self.confirmButton.isEnabled = true
-            }
-        }
-    }
     
     let segueToPostRoundIdentifier = "GameToPostRound"
     
@@ -88,18 +76,11 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(self.mapTapPress(_:)))
         gameMap.addGestureRecognizer(tapPress)
         
-        // Disable the Confirm Pin until the image has finished loading
-        self.confirmButton.isEnabled = false
-        
-        if (gameFinishedFetching) {
-            // Set the image to the image from the current round and enable the confirm buttom
-            self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
-            self.confirmButton.isEnabled = true
-        }
+        // Set the image
+        self.image.image = self.game!.roundImagesAndLocations[self.game!.currentRound - 1].image
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {
-        
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "pin-drop.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

@@ -18,9 +18,6 @@ class LeaderboardProfileViewController: UIViewController {
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
-    @IBOutlet weak var competitiveGamesPlayedLabel: UILabel!
-    @IBOutlet weak var gamesWonLabel: UILabel!
-    
     @IBOutlet weak var contributorLabel: UILabel!
     
     var userEmail:String!
@@ -45,10 +42,6 @@ class LeaderboardProfileViewController: UIViewController {
         
         // Set rounded borders (make into a circle)
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
-
-        // TODO: unhide when competitive is implemented
-        competitiveGamesPlayedLabel.text = "Unavailable"
-        gamesWonLabel.isHidden = true
         
         // Hide the contributor label until we load data
         contributorLabel.isHidden = true

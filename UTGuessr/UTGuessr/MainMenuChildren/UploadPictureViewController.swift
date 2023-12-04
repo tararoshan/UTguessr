@@ -12,6 +12,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import AVFAudio
 
+protocol FetchCountDelegate {
+     func didFetchCount(count:Int)
+}
+
 class UploadPictureViewController: UIViewController, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, FetchCountDelegate {
     
     @IBOutlet weak var uploadPhotoButton: UIButton!

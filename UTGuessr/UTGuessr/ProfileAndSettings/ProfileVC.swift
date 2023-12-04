@@ -25,9 +25,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
-    @IBOutlet weak var competitiveGamesPlayedLabel: UILabel!
-    @IBOutlet weak var gamesWonLabel: UILabel!
-    
     @IBOutlet weak var contributorLabel: UILabel!
     
     let userDefaults = UserDefaults.standard
@@ -107,10 +104,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let usernameTap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
         usernameLabel.addGestureRecognizer(usernameTap)
         usernameLabel.isUserInteractionEnabled = true
-        
-        // TODO: unhide when competitive is implemented
-        competitiveGamesPlayedLabel.text = "Unavailable"
-        gamesWonLabel.isHidden = true
         
         // Hide the contributor label until we load data
         contributorLabel.isHidden = true

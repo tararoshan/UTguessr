@@ -58,12 +58,19 @@ class ImageAndLocationDataManager {
         return (cache.object(forKey: imagesAndLocationCacheKey as NSString) as? [ImageAndLocation])!
     }
     
-    func getImagesAndLocationsFromIndex(indexes: [Int]) -> [ImageAndLocation] {
+    func getRandomImagesAndLocations(number: Int) -> [ImageAndLocation] {
         // Get the images and locations in the local cache
         let imagesAndLocations = readFromCache()
         
+        let count = imagesAndLocations.count
+        
+        var imageIDs = Set<Int>()
+        while imageIDs.count < number {
+            imageIDs.insert(Int.random(in: 0..<count))
+        }
+        
         var result:[ImageAndLocation] = []
-        for index in indexes {
+        for index in imageIDs {
             result.append(imagesAndLocations[index])
         }
         return result
