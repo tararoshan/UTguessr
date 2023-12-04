@@ -14,7 +14,6 @@ import AVFAudio
 
 class UploadPictureViewController: UIViewController, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, FetchCountDelegate {
     
-    
     @IBOutlet weak var uploadPhotoButton: UIButton!
     @IBOutlet weak var savePhotoButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -92,7 +91,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             print("Button capture")
 
             imagePicker.delegate = self
-            imagePicker.sourceType = .camera // TODO: CHANGE TO .camera in final. Using album for debug purposes
+            imagePicker.sourceType = .camera
             imagePicker.allowsEditing = false
             present(imagePicker, animated: true, completion: nil)
         }
@@ -182,6 +181,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             imageLongitude = locValue.longitude
             print("CURRENTLY AT \(locValue.latitude) \(locValue.longitude)")
         }
+        
         if imageLatitute! > 30.298050 || imageLatitute! < 30.278497 || imageLongitude! > -97.73005 || imageLongitude! < -97.748388 {
 //            self.db.collection("count").document("count").setData([ "image_and_location_count": count - 1 ], merge: true)
             print("Image out of bounds")
@@ -196,6 +196,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
                     present(alertController, animated: true, completion: nil)
             return
         }
+        
         if imageLatitute != nil && imageLongitude != nil && imageLatitute != 0.0 && imageLongitude != 0.0 {
             db.collection("images_and_locations").document(String(count)).setData([
                 "image": imageData,

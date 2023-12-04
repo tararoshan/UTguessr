@@ -76,6 +76,7 @@
 		98BE8C7B2AD74BB800878939 /* FiraSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */; };
 		98BE8C7C2AD74BB800878939 /* FiraSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */; };
 		98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8C7D2AD74EAD00878939 /* Game.swift */; };
+		98D7FDDD2B1E62E000028D6D /* ImageAndLocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7FDDC2B1E62E000028D6D /* ImageAndLocationDataManager.swift */; };
 		98EA911B2ADF0C32006EA8D8 /* CoreImagesAndLocations in Resources */ = {isa = PBXBuildFile; fileRef = 98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */; };
 		98F7383F2ADDE86500CDBB70 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F7383D2ADDE86500CDBB70 /* DataModel.xcdatamodeld */; };
 		98FC4EC52AF979030091FE67 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC4EC42AF979030091FE67 /* LeaderboardTableViewCell.swift */; };
@@ -129,6 +130,7 @@
 		98BE8C692AD74BB700878939 /* FiraSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Thin.ttf"; sourceTree = "<group>"; };
 		98BE8C6A2AD74BB800878939 /* FiraSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		98BE8C7D2AD74EAD00878939 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		98D7FDDC2B1E62E000028D6D /* ImageAndLocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLocationDataManager.swift; sourceTree = "<group>"; };
 		98EA911A2ADF0C32006EA8D8 /* CoreImagesAndLocations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreImagesAndLocations; sourceTree = "<group>"; };
 		98F7383E2ADDE86500CDBB70 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		98FC4EC42AF979030091FE67 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				FACD567E2ACF6E23004E36E6 /* AppDelegate.swift */,
 				FACD56802ACF6E23004E36E6 /* SceneDelegate.swift */,
 				FA76188F2AF5A69F004A7CF9 /* LoadScreenViewController.swift */,
+				98D7FDDC2B1E62E000028D6D /* ImageAndLocationDataManager.swift */,
 				98FC4EC62AF993CA0091FE67 /* ProfileAndSettings */,
 				98FC4EC12AF9782A0091FE67 /* Leaderboard */,
 				504D8FED2AD863C30060D6C1 /* Authentication */,
@@ -457,6 +460,7 @@
 				573E229F2AED3C8C00CA6768 /* ProfileVC.swift in Sources */,
 				98BE8C7E2AD74EAD00878939 /* Game.swift in Sources */,
 				5026E1DD2AF80D1E00E83769 /* LeaderboardViewController.swift in Sources */,
+				98D7FDDD2B1E62E000028D6D /* ImageAndLocationDataManager.swift in Sources */,
 				504D8FF12AD8640B0060D6C1 /* SignUpViewController.swift in Sources */,
 				FACD56932ACF700C004E36E6 /* CountdownViewController.swift in Sources */,
 				988764562AD8853600025A06 /* ImageAndLocation.swift in Sources */,

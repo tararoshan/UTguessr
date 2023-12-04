@@ -17,8 +17,22 @@ class LoadScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.performSegue(withIdentifier: "LoadingDone", sender: nil)
         Task {
-            await appLoad()
+            await loadImagesAndLocationsToCache()
+        }
+    }
+    
+    func loadImagesAndLocationsToCache() async {
+        ImageAndLocationDataManager.shared.preFetchData { result in
+            switch result {
+            case .success(let items):
+                // Use the pre-fetched items as needed
+                print("Pre-fetched items: \(items)")
+            case .failure(let error):
+                // Handle the error
+                print("Error pre-fetching items: \(error.localizedDescription)")
+            }
         }
     }
     

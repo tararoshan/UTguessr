@@ -66,24 +66,28 @@ class Game: FetchCountDelegate, FetchImageAndLocationDelegate {
         
         print("RANDOM IDS: \(imageIDs)")
         
+        self.roundImagesAndLocations = ImageAndLocationDataManager.shared.getImagesAndLocationsFromIndex(indexes: Array(imageIDs))
+        
+        self.viewController.gameFinishedFetching = true
+        
         // Query for images with our random IDs
-        let ref = self.db.collection("images_and_locations")
-        for imageID in imageIDs {
-            ref.document(String(imageID)).getDocument {
-                (document, error) in
-                if let document = document, document.exists {
-                    let imageData = document.data()!["image"]! as! Data
-                    let latitude = document.data()!["latitude"]! as! Double
-                    let longitude = document.data()!["longitude"]! as! Double
-                    
-                    let imageAndLocation = ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)))
-                    
-                    self.didFetch(data: imageAndLocation)
-                } else {
-                    print("Firebase Firestore: Can't find image \(imageID)")
-                }
-            }
-        }
+//        let ref = self.db.collection("images_and_locations")
+//        for imageID in imageIDs {
+//            ref.document(String(imageID)).getDocument {
+//                (document, error) in
+//                if let document = document, document.exists {
+//                    let imageData = document.data()!["image"]! as! Data
+//                    let latitude = document.data()!["latitude"]! as! Double
+//                    let longitude = document.data()!["longitude"]! as! Double
+//                    
+//                    let imageAndLocation = ImageAndLocation(image: UIImage(data: imageData)!, location: CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)))
+//                    
+//                    self.didFetch(data: imageAndLocation)
+//                } else {
+//                    print("Firebase Firestore: Can't find image \(imageID)")
+//                }
+//            }
+//        }
     }
     
     // We have the ImageAndLocation, now append to roundImagesAndLocations
