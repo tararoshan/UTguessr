@@ -15,13 +15,13 @@ class ImageAndLocationDataManager {
     private let db = Firestore.firestore()
     private let cache = NSCache<NSString, NSArray>()
     
-    private let imagesAndLocationCacheKey = "images_and_locations"
+    private let imagesAndLocationsCacheKey = "images_and_locations"
     
     private init() {}
     
     func preFetchData(completion: @escaping (Result<[ImageAndLocation], Error>) -> Void) {
         // Check if items are already in the cache
-        if let cachedItems = cache.object(forKey: imagesAndLocationCacheKey as NSString) as? [ImageAndLocation] {
+        if let cachedItems = cache.object(forKey: imagesAndLocationsCacheKey as NSString) as? [ImageAndLocation] {
             completion(.success(cachedItems))
             return
         }
@@ -47,7 +47,7 @@ class ImageAndLocationDataManager {
             }
             
             // Cache the items locally
-            self.cache.setObject(items as NSArray, forKey: "images_and_locations" as NSString)
+            self.cache.setObject(items as NSArray, forKey: self.imagesAndLocationsCacheKey as NSString)
             
             completion(.success(items))
         }
@@ -55,7 +55,7 @@ class ImageAndLocationDataManager {
     
     func readFromCache() -> [ImageAndLocation] {
         // Retrieve the item from the cache using the imageUrl as the key
-        return (cache.object(forKey: imagesAndLocationCacheKey as NSString) as? [ImageAndLocation])!
+        return (cache.object(forKey: imagesAndLocationsCacheKey as NSString) as? [ImageAndLocation])!
     }
     
     func getRandomImagesAndLocations(number: Int) -> [ImageAndLocation] {

@@ -358,12 +358,11 @@
                         <outlet property="image" destination="Pox-xP-iCJ" id="Mim-sT-DE6"/>
                         <outlet property="scrollView" destination="9vx-j8-VLT" id="sBX-OZ-jLl"/>
                         <segue destination="zmF-nK-ztr" kind="show" identifier="GameToPostRound" id="Lsw-i6-BXJ"/>
-                        <segue destination="EMP-xS-kCc" kind="show" identifier="TEST" id="yDn-na-bRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxw-sy-CAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4741" y="538"/>
+            <point key="canvasLocation" x="4207" y="752"/>
         </scene>
         <!--Post Game View Controller-->
         <scene sceneID="pt2-Wj-uAS">

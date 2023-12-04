@@ -52,11 +52,15 @@ class CountdownViewController: UIViewController {
         sysTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sysTimer.invalidate()
+    }
+    
     @objc func countDown(){
         timer.text = String(Int(timer.text!)! - 1)
         if Int(timer.text!)! <= 0 {
             performSegue(withIdentifier: segueToGameIdentifier, sender: nil)
-            sysTimer.invalidate()
         }
     }
     
