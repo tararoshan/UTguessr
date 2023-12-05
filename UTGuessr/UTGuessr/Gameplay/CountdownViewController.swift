@@ -14,15 +14,17 @@ class CountdownViewController: UIViewController {
     let segueToGameIdentifier = "CountdownToGame"
     
     @IBOutlet weak var timer: UILabel!
+
+    // Info for display and sound settings
+    let userDefaults = UserDefaults.standard
+    var audioPlayer:AVAudioPlayer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    let userDefaults = UserDefaults.standard
-    var audioPlayer:AVAudioPlayer?
-    
+    // Setting display based on settings
     override func viewWillAppear(_ animated: Bool) {
-        // Handle UI mode
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -34,11 +36,12 @@ class CountdownViewController: UIViewController {
         timer.text = "3"
     }
     
+    // Starting timer
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        // Handle the sound effects
+        // Countdown sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "countdown.wav", ofType: nil)!
             let url = URL(fileURLWithPath: path)

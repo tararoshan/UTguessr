@@ -18,6 +18,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var confirmButton: UIButton!
     
+    // Info for sound and display settings
     let userDefaults = UserDefaults.standard
     var audioPlayer:AVAudioPlayer?
     
@@ -40,6 +41,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Setting display based on settings
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -81,6 +83,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func mapTapPress(_ recognizer: UIGestureRecognizer) {
+        
+        // Pin drop sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "pin-drop.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -109,7 +113,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func confirmPinButtonPressed(_ sender: Any) {
         if (self.userCoordinate != nil) {
-            // Handle the sound effects
+            
+            // Button press sound effect
             if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                 let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                 let url = URL(fileURLWithPath: path)

@@ -11,7 +11,9 @@ import FirebaseAuth
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // Info for display settings
     let userDefaults = UserDefaults.standard
+
     let db = Firestore.firestore()
     
     @IBOutlet weak var leaderboardTableView: UITableView!
@@ -20,6 +22,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     let segueToLeaderboardProfileIdentifier = "LeaderboardToLeaderboardProfile"
     
     override func viewWillAppear(_ animated: Bool) {
+        // Setting display based on settings
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -28,6 +31,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
+
         leaderboardTableView.reloadData()
     }
 

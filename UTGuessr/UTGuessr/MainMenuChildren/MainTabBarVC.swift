@@ -9,8 +9,10 @@ import AVFAudio
 
 class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     
+    // Info for sound settings
     var audioPlayer: AVAudioPlayer?
     let userDefaults = UserDefaults.standard
+
     var showingRoundEndedScreen: Bool = false
     var restartGame: Bool = true
     
@@ -21,7 +23,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        // Handle sound effects
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

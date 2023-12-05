@@ -17,8 +17,8 @@ class PostRoundViewController: UIViewController {
     @IBOutlet weak var nextRoundButton: UIButton!
     @IBOutlet weak var finishGameButton: UIButton!
     
+    // Info for sound and display settings
     let userDefaults = UserDefaults.standard
-    
     var audioPlayer:AVAudioPlayer?
     
     let segueToPostGameIdentifier = "PostRoundToPostGame"
@@ -30,6 +30,7 @@ class PostRoundViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Setting display based on settings
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -55,7 +56,7 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func nextRoundPressed(_ sender: Any) {
-        // Handle the sound effects
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -72,7 +73,7 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func finishGamePressed(_ sender: Any) {
-        // Handle the sound effects
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

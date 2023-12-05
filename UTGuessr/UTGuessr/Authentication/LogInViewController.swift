@@ -18,10 +18,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     let signUpSegueIdentifier = "signUpSegue"
     
+    // Info for display and sound settings
     var audioPlayer: AVAudioPlayer?
-    
     let userDefaults = UserDefaults.standard
     
+    // Setting display based on settings
     override func viewWillAppear(_ animated: Bool) {
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
@@ -35,6 +36,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.overrideUserInterfaceStyle = .light
     }
     
+    // Setting delegates
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,22 +57,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // Handles login button click by logging in or alerting user to an error
     @IBAction func logIn(_ sender: Any) {
-
         Auth.auth().signIn(
             withEmail: emailTextField.text!,
             password: passwordTextField.text!
         ) {
             (authResult,error) in
-           if let error = error as NSError? {
+           if let error = error as NSError? { // Alert user to error
                let loginErrorAlert = UIAlertController(
                    title: "Login Error",
                    message: error.localizedDescription,
                    preferredStyle: .alert)
                loginErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                self.present(loginErrorAlert, animated: true)
-           } else {
+           } else { // Segue to main menu
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
                 
+                // Button click sound effect
                 if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                     let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                     let url = URL(fileURLWithPath: path)
@@ -86,8 +88,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
        }
     }
     
+    // Called when 'sign up' button is clicked
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == signUpSegueIdentifier {
+             
+             // Button click sound effect
              if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                 let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                 let url = URL(fileURLWithPath: path)

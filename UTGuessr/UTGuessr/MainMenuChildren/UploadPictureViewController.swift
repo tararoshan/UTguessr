@@ -24,16 +24,19 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var statusLabel: UILabel!
     
     var imagePicker = UIImagePickerController()
-    let userDefaults = UserDefaults.standard
-    var audioPlayer: AVAudioPlayer?
     let locationManager = CLLocationManager()
     var currentLatitude: CLLocationDegrees = 0.0
     var currentLongitude: CLLocationDegrees = 0.0
     var imageUploaded = false
     let db = Firestore.firestore()
     var queue: DispatchQueue!
+
+    // Info for sound and display settings
+    let userDefaults = UserDefaults.standard
+    var audioPlayer: AVAudioPlayer?
     
     override func viewWillAppear(_ animated: Bool) {
+        // Setting display based on settings
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -71,7 +74,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func uploadPhotoPressed(_ sender: Any) {
-        // Handle sound effects
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -116,7 +119,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func savePhotoPressed(_ sender: Any) {
-        // Handle sound effects
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

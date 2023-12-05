@@ -7,19 +7,24 @@
 
 import UIKit
 
+// Enum for display setting
 enum displayTypeEnum: Int {
     case system = 0
     case light = 1
     case dark = 2
 }
 
+// Settings page
 class SettingsViewController: UIViewController {
 
+    // Two segmented controls
     @IBOutlet weak var displayControl: UISegmentedControl!
     @IBOutlet weak var soundControl: UISegmentedControl!
 
+    // Info for sound and display settings
     let userDefaults = UserDefaults.standard
 
+    // Setting display based on settings and initializing segmented controls
     override func viewWillAppear(_ animated: Bool) {
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkText]
         displayControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -44,6 +49,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    // Handling change in display settings
     @IBAction func displayControlChanged(_ sender: Any) {
         userDefaults.set(displayControl.selectedSegmentIndex, forKey: "UTGuesserDarkMode")
 
@@ -57,6 +63,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    // Handling change in sound settings
     @IBAction func soundControlChanged(_ sender: Any) {
         userDefaults.set(soundControl.selectedSegmentIndex, forKey: "UTGuesserSoundOff")
     }

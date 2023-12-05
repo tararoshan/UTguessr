@@ -25,13 +25,16 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var contributorLabel: UILabel!
     
+    // Info for sound and display settings
     let userDefaults = UserDefaults.standard
     var audioPlayer: AVAudioPlayer?
+
     let db = Firestore.firestore()
     let settingsSegueIdentifier = "settingsSegue"
     let logOutSegueIdentifier = "logOutSegue"
     
     override func viewWillAppear(_ animated: Bool) {
+        // Setting display based on settings
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -251,6 +254,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == settingsSegueIdentifier {
+            
+            // Button press sound effect
             if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                 let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                 let url = URL(fileURLWithPath: path)

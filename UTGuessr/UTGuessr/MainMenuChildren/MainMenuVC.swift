@@ -12,8 +12,10 @@ import Firebase
 
 class MainMenuVC: UIViewController {
     
+    // Info for sound and display settings
     let userDefaults = UserDefaults.standard
     var audioPlayer:AVAudioPlayer?
+    
     var verificationTimer: Timer?
     
     @IBOutlet weak var playButton: UIButton!
@@ -21,6 +23,7 @@ class MainMenuVC: UIViewController {
     @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
     
+    // Setting display based on settings
     override func viewWillAppear(_ animated: Bool) {
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
@@ -65,6 +68,7 @@ class MainMenuVC: UIViewController {
     // Get ready for segues (currently just to the main tab controller)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // Button press sound effect
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

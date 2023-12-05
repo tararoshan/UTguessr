@@ -23,8 +23,10 @@ class LeaderboardProfileViewController: UIViewController {
     
     let db = Firestore.firestore()
     
+    // Info for display settings
     let userDefaults = UserDefaults.standard
     
+    // Setting display based on settings
     override func viewWillAppear(_ animated: Bool) {
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
