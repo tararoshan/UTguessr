@@ -13,7 +13,7 @@ import FirebaseFirestore
 import AVFAudio
 
 protocol FetchCountDelegate {
-     func didFetchCount(count:Int)
+    func didFetchCount(count:Int)
 }
 
 class UploadPictureViewController: UIViewController, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, FetchCountDelegate {
@@ -64,18 +64,18 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
         // Enable location services
         locationManager.requestWhenInUseAuthorization()
         DispatchQueue.global().async {
-              if CLLocationManager.locationServicesEnabled() {
-                  print("LOCATION SERVICES ENABLED")
-                  self.locationManager.delegate = self
-                  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-              }
+            if CLLocationManager.locationServicesEnabled() {
+                print("LOCATION SERVICES ENABLED")
+                self.locationManager.delegate = self
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            }
         }
         
         imagePicker.delegate = self
     }
     
     @IBAction func uploadPhotoPressed(_ sender: Any) {
-        
+        // Handle sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -87,13 +87,13 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
                 print("Couldn't load sound effect.")
             }
         }
-
+        
         // Clear the status label
         statusLabel.text = ""
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             print("Button capture")
-
+            
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
             imagePicker.allowsEditing = false
@@ -120,7 +120,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func savePhotoPressed(_ sender: Any) {
-        
+        // Handle sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -138,6 +138,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
         countDocRef.getDocument {
             (document, error) in
             if let document = document, document.exists {
+                // Get the count to know which image number we are at
                 let imageCount = document.data()!["image_and_location_count"]! as! Int
                 print("COUNT : \(imageCount)")
                 self.db.collection("count").document("count").setData([ "image_and_location_count": imageCount + 1 ], merge: true)
@@ -169,6 +170,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
         var imageLatitute:Double?
         var imageLongitude:Double?
         
+        // Check if the image contains GPS data
         if let gpsData = imageProperties[kCGImagePropertyGPSDictionary as String] as? [String: Any] {
             if let latitude = gpsData[kCGImagePropertyGPSLatitude as String] as? Double,
                let longitude = gpsData[kCGImagePropertyGPSLongitude as String] as? Double {
@@ -178,6 +180,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             }
         }
         
+        // The image does not contain GPS data
         if imageLatitute == nil || imageLongitude == nil {
             print("Coordinates not found in image metadata. Using current location.")
             let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
@@ -186,21 +189,22 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             print("CURRENTLY AT \(locValue.latitude) \(locValue.longitude)")
         }
         
+        // Check if the image was taken on UT campus
         if imageLatitute! > 30.298050 || imageLatitute! < 30.278497 || imageLongitude! > -97.73005 || imageLongitude! < -97.748388 {
-//            self.db.collection("count").document("count").setData([ "image_and_location_count": count - 1 ], merge: true)
             print("Image out of bounds")
             let alertController = UIAlertController(
-                        title: "Image Out of Bounds",
-                        message: "The uploaded image is out of bounds. Please select a new image inside UT or West Campus.",
-                        preferredStyle: .alert
-                    )
-
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(okAction)
-                    present(alertController, animated: true, completion: nil)
+                title: "Image Out of Bounds",
+                message: "The uploaded image is out of bounds. Please select a new image inside UT or West Campus.",
+                preferredStyle: .alert
+            )
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
             return
         }
         
+        // All checks pass, add the image and location to Firestore
         if imageLatitute != nil && imageLongitude != nil && imageLatitute != 0.0 && imageLongitude != 0.0 {
             db.collection("images_and_locations").document(String(count)).setData([
                 "image": imageData,
@@ -219,6 +223,7 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
             
             // Set the image to nil again -- do not want to upload the same photo
             imageView.image = UIImage(named: "logo")
+            
             // Disable the Save Button
             savePhotoButton.isEnabled = false
             imageUploaded = false

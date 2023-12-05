@@ -22,6 +22,7 @@ class CountdownViewController: UIViewController {
     var audioPlayer:AVAudioPlayer?
     
     override func viewWillAppear(_ animated: Bool) {
+        // Handle UI mode
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
             overrideUserInterfaceStyle = .unspecified
@@ -37,6 +38,7 @@ class CountdownViewController: UIViewController {
         super.viewDidAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
         
+        // Handle the sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "countdown.wav", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -54,6 +56,7 @@ class CountdownViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Stop counting down
         sysTimer.invalidate()
     }
     

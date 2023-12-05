@@ -8,26 +8,32 @@
 import UIKit
 import FirebaseStorage
 
+let leaderboardManager = LeaderboardManager()
+
 class LoadScreenViewController: UIViewController {
     let storage = Storage.storage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Preload images and locations into the cache
         Task {
             await loadImagesAndLocationsToCache()
         }
+        // Prepopulate the leadboard
+        leaderboardManager.populateTop25Users()
         self.performSegue(withIdentifier: "LoadingDone", sender: nil)
     }
     
+    // Load the images and locations from Firestore into local cache
     func loadImagesAndLocationsToCache() async {
         ImageAndLocationDataManager.shared.preFetchData { result in
             switch result {
             case .success(let items):
-                // Use the pre-fetched items as needed
                 print("Pre-fetched items: \(items)")
             case .failure(let error):
                 // Handle the error
@@ -39,11 +45,7 @@ class LoadScreenViewController: UIViewController {
     func appLoad() async{
         let storageRef = storage.reference()
         let imageRef = storageRef.child("images")
-        let userRef = storageRef.child("users")
-        print("----------------------")
         var imageFiles:[StorageReference] = []
-        var userFiles:[StorageReference] = []
-        print("************LISTING ALL************")
         
         let dg = DispatchGroup()
         dg.enter()
@@ -59,50 +61,21 @@ class LoadScreenViewController: UIViewController {
                     imageFiles = result.items
                     if result.items.count != self.checkImageFolder(){
                         self.loadImages()
-                    } else {
-                        print("images not loaded SAME IMAGES")
                     }
                 }
-                
                 dg.leave()
             }
-        
-        userRef.listAll() {
-            (result, error) in
-            if let error = error {
-                print(error.localizedDescription.description)
-                return
-            }
-            if let result = result {
-                userFiles = result.items
-            }
-        }
             
         dg.notify(queue: .main) {
             print(imageFiles)
-            print("DONE!@#!@#!@#!@#!@#")
             dg.enter()
             
             dg.leave()
             self.performSegue(withIdentifier: "LoadingDone", sender: nil)
         }
-        
-        
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func checkImageFolder() -> Int {
-        print(NSHomeDirectory())
         do {
             //  get reference to document directory
             let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -126,7 +99,7 @@ class LoadScreenViewController: UIViewController {
     
     func loadImages() {
         let storageRef = storage.reference()
-        let fimageRef = storageRef.child("images") // firebase image folder reference
+        let fimageRef = storageRef.child("images")
         do {
             let dd = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let imageFolderPath = dd.appendingPathComponent("images")
@@ -157,6 +130,8 @@ class LoadScreenViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    // Gets the top 25 users by high score from Firebase Firestore
     func loadCoreLocations() {
         let coreLocationsRef = storage.reference(withPath:"CoreLocations.txt")
         do {
@@ -179,6 +154,5 @@ class LoadScreenViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
 }

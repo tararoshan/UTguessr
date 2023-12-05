@@ -22,6 +22,7 @@ class MainMenuVC: UIViewController {
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
+    
     override func viewWillAppear(_ animated: Bool) {
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
@@ -31,12 +32,11 @@ class MainMenuVC: UIViewController {
         } else if displaySetting == displayTypeEnum.light.rawValue{
             overrideUserInterfaceStyle = .light
         }
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         if !self.verifyEmailCheck() {
             playButton.isEnabled = false
             uploadButton.isEnabled = false

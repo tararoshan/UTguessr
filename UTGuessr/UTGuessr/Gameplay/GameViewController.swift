@@ -109,7 +109,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func confirmPinButtonPressed(_ sender: Any) {
         if (self.userCoordinate != nil) {
-
+            // Handle the sound effects
             if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                 let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                 let url = URL(fileURLWithPath: path)
@@ -122,13 +122,13 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
                 
+            // Finish the round and segue to the post round VC
             self.game!.finishRound(userCoordinate: self.userCoordinate!)
             performSegue(withIdentifier: segueToPostRoundIdentifier, sender: nil)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Segueing to Post Round screen
         if (segue.identifier == segueToPostRoundIdentifier),
            let postRoundVC = segue.destination as? PostRoundViewController {
             postRoundVC.score = String(self.game!.roundScores[self.game!.currentRound - 2])

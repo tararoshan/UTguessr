@@ -28,6 +28,7 @@ class PostGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Handle the sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "fanfare.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -76,6 +77,7 @@ class PostGameViewController: UIViewController {
     }
     
     @IBAction func playAgainPressed(_ sender: Any) {
+        // Handle the sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -88,7 +90,6 @@ class PostGameViewController: UIViewController {
             }
         }
         
-        // TODO: add more logic for new game
         performSegue(withIdentifier: segueToCountdownIdentifier, sender: nil)
     }
     

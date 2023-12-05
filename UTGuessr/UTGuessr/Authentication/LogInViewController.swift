@@ -9,10 +9,10 @@ import UIKit
 import FirebaseAuth
 import AVFAudio
 
-// login screen
+// Login screen
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
-    // email and password fields
+    // Email and password fields
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -53,7 +53,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    // handles login button click by logging in or alerting user to an error
+    // Handles login button click by logging in or alerting user to an error
     @IBAction func logIn(_ sender: Any) {
 
         Auth.auth().signIn(
@@ -102,4 +102,3 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-

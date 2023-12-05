@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    // handles signup button click by signing up or alerting user to an error
+    // Handles signup button click by signing up or alerting user to an error
     @IBAction func signUp(_ sender: Any) {
         if passwordTextField.text! == passwordConfirmationTextField.text! {
             Auth.auth().createUser(
@@ -94,7 +94,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                     self.performSegue(withIdentifier: "signUpSegue", sender: self)
                                     print("segue done")
                                 }
-
                         }
                         alertController.addAction(okAction)
                         self.present(alertController, animated: true, completion: nil)

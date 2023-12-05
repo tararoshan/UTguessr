@@ -55,6 +55,7 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func nextRoundPressed(_ sender: Any) {
+        // Handle the sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -71,7 +72,7 @@ class PostRoundViewController: UIViewController {
     }
     
     @IBAction func finishGamePressed(_ sender: Any) {
-        
+        // Handle the sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)

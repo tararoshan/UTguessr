@@ -23,7 +23,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        
+        // Handle sound effects
         if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
             let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
             let url = URL(fileURLWithPath: path)
@@ -49,7 +49,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                     alertContentView.layer.cornerRadius = 15
                 }
                 
-                // Quit & restart game
+                // Quit and restart game
                 let quitAction = UIAlertAction(title: "Yes", style: .default) {_ in
                     tabBarController.selectedIndex = index
                     self.restartGame = true
@@ -81,7 +81,6 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                let navController = viewController as? UINavigationController {
                 self.restartGame = false
                 navController.popToRootViewController(animated: true)
-//                performSegue(withIdentifier: "TEST", sender: nil)
             }
         }
         // Allow the tab selection to happen otherwise

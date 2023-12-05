@@ -83,6 +83,7 @@ class Game {
         return (averageScore * Float(gamesPlayed) + Float(currentRoundScore)) / (Float(gamesPlayed) + 1)
     }
     
+    // Calculate round score based on distance from actual coordinates to pin
     func calculateRoundScore(userCoordinate:CLLocationCoordinate2D, actualCoordinate:CLLocationCoordinate2D) -> Int {
         let from = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
         let to = CLLocation(latitude: actualCoordinate.latitude, longitude: actualCoordinate.longitude)

@@ -9,12 +9,14 @@ import Foundation
 import FirebaseFirestore
 import CoreLocation
 
+// Allows management of the images and locations between Firebase Firestore and local cache
 class ImageAndLocationDataManager {
     static let shared = ImageAndLocationDataManager()
     
     private let db = Firestore.firestore()
     private let cache = NSCache<NSString, NSArray>()
     
+    // Cache key
     private let imagesAndLocationsCacheKey = "images_and_locations"
     
     private init() {}
@@ -53,17 +55,18 @@ class ImageAndLocationDataManager {
         }
     }
     
+    // Retrieve all images and locations from the cache
     func readFromCache() -> [ImageAndLocation] {
-        // Retrieve the item from the cache using the imageUrl as the key
         return (cache.object(forKey: imagesAndLocationsCacheKey as NSString) as? [ImageAndLocation])!
     }
     
+    // Gets a number of random images and locations from the cache
     func getRandomImagesAndLocations(number: Int) -> [ImageAndLocation] {
         // Get the images and locations in the local cache
         let imagesAndLocations = readFromCache()
         
+        // Generate a number of random numbers
         let count = imagesAndLocations.count
-        
         var imageIDs = Set<Int>()
         while imageIDs.count < number {
             imageIDs.insert(Int.random(in: 0..<count))

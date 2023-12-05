@@ -10,7 +10,6 @@ import FirebaseFirestore
 
 class LeaderboardProfileViewController: UIViewController {
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
 
@@ -59,6 +58,7 @@ class LeaderboardProfileViewController: UIViewController {
                 
                 let numImagesUploaded = document.data()!["images_uploaded"] as! Int
                 
+                // Set the profile image
                 if profileImageData != nil {
                     self.profileImage.image = UIImage(data: profileImageData!)
                     self.profileImage.contentMode = .scaleAspectFill
@@ -66,6 +66,7 @@ class LeaderboardProfileViewController: UIViewController {
                     self.profileImage.image = UIImage(named: "defaultProfileImage")
                 }
                 
+                // Add a contributor badge
                 if numImagesUploaded >= 25 {
                     // Gold Contributor
                     self.contributorLabel.text = "Gold Contributor"
@@ -78,6 +79,7 @@ class LeaderboardProfileViewController: UIViewController {
                     self.contributorLabel.isHidden = false
                 }
                 
+                // Set the username and stats
                 self.usernameLabel.text = username
                 self.individualGamesPlayedLabel.text = "Games Played: \(gamesPlayed)"
                 self.averageScoreLabel.text = "Average Score: \(Int(averageScore))"
