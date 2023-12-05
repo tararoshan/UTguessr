@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    // Handles signup button click by signing up or alerting user to an error
+    // Handles signup button click by signing up or alerting user to an error also adds verify email.
     @IBAction func signUp(_ sender: Any) {
         if passwordTextField.text! == passwordConfirmationTextField.text! {
             Auth.auth().createUser(
@@ -78,6 +78,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         signupErrorAlert.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(signupErrorAlert, animated: true)
                     } else {
+                        // email verification logic
                         authResult?.user.sendEmailVerification() {
                             (error) in
                             if let error = error {
