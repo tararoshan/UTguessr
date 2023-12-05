@@ -13,9 +13,7 @@ import Firebase
 class MainMenuVC: UIViewController {
     
     let userDefaults = UserDefaults.standard
-    
     var audioPlayer:AVAudioPlayer?
-    
     var verificationTimer: Timer?
     
     @IBOutlet weak var playButton: UIButton!
@@ -33,7 +31,7 @@ class MainMenuVC: UIViewController {
             overrideUserInterfaceStyle = .light
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,11 +47,11 @@ class MainMenuVC: UIViewController {
     func startVerificationTimer() {
         // Invalidate any existing timer to avoid duplicates
         verificationTimer?.invalidate()
-
+        
         // Create a new timer that fires every 2 seconds
         verificationTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] timer in
             guard let self = self else { return }
-
+            
             // Check email verification status
             DispatchQueue.main.async {
                 self.verifyEmailCheck()

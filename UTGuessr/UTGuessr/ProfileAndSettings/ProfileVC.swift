@@ -17,23 +17,20 @@ extension String {
 }
 
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-
     @IBOutlet weak var gamesPlayedLabel: UILabel!
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
-
     @IBOutlet weak var contributorLabel: UILabel!
-
+    
     let userDefaults = UserDefaults.standard
     var audioPlayer: AVAudioPlayer?
     let db = Firestore.firestore()
-
     let settingsSegueIdentifier = "settingsSegue"
     let logOutSegueIdentifier = "logOutSegue"
-
+    
     override func viewWillAppear(_ animated: Bool) {
         let displaySetting = userDefaults.integer(forKey: "UTGuesserDarkMode")
         if displaySetting == displayTypeEnum.system.rawValue {
@@ -43,28 +40,28 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         } else if displaySetting == displayTypeEnum.light.rawValue {
             overrideUserInterfaceStyle = .light
         }
-
+        
         // Get user information from database
         let userDocRef = self.db.collection("users").document(Auth.auth().currentUser!.email!)
         userDocRef.getDocument {
             (document, error) in
             if let document = document, document.exists {
+                // Load in stats
                 let averageScore = document.data()!["average_score"]! as! Float
                 let highScore = document.data()!["high_score"]! as! Int
                 let gamesPlayed = document.data()!["games_played"]! as! Int
-
+                // Load in profile picture, username, contribution status
                 let username = document.data()!["username"]! as! String
                 let profileImageData = document.data()!["profile_image"] as? Data
-
                 let numImagesUploaded = document.data()!["images_uploaded"] as! Int
-
+                
                 // Set the profile image
                 if profileImageData != nil {
                     self.profileImage.image = UIImage(data: profileImageData!)
                 } else {
                     self.profileImage.image = UIImage(named: "defaultProfileImage")
                 }
-
+                
                 // Add a contributor label
                 if numImagesUploaded >= 25 {
                     // Gold Contributor
@@ -77,7 +74,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                     self.contributorLabel.textColor = .lightGray
                     self.contributorLabel.isHidden = false
                 }
-
+                
                 // Set the username and the stats
                 self.usernameLabel.text = username
                 self.gamesPlayedLabel.text = "Games Played: \(gamesPlayed)"
@@ -88,32 +85,33 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set up the profile picture, name, and contribution badge
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
         contributorLabel.layer.cornerRadius = 30.0
         self.view.bringSubviewToFront(profileImage)
         self.view.bringSubviewToFront(usernameLabel)
         self.view.bringSubviewToFront(contributorLabel)
         profileImage.contentMode = .scaleAspectFill
-
+        
         // Allow the picture to work like a button as well
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImage.addGestureRecognizer(photoTap)
         profileImage.isUserInteractionEnabled = true
-
+        
         // Allow the username to be changed
         usernameLabel.lineBreakMode = .byCharWrapping
         let usernameTap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
         usernameLabel.addGestureRecognizer(usernameTap)
         usernameLabel.isUserInteractionEnabled = true
-
+        
         // Hide the contributor label until we load data
         contributorLabel.isHidden = true
     }
-
+    
     // Runs when the username is tapped
     @objc func usernameTapped() {
         // Will display if the username is already taken
@@ -121,40 +119,40 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             title: "Username already taken",
             message: "Please enter another username.",
             preferredStyle: .alert)
-
+        
         usernameTakenController.addAction(
             UIAlertAction(
                 title: "OK",
                 style: .default))
-
+        
         // Will display if the username is invalid
         let usernameInvalidController = UIAlertController(
             title: "Invalid username",
             message: "Usernames must be less than 20 characters and only contain alpha numeric characters.",
             preferredStyle: .alert)
-
+        
         usernameInvalidController.addAction(
             UIAlertAction(
                 title: "OK",
                 style: .default))
-
+        
         // Will display if the username is reserved
         let usernameReservedController = UIAlertController(
             title: "Username reserved",
             message: "Please enter another username that is not in the format user#.",
             preferredStyle: .alert)
-
+        
         usernameReservedController.addAction(
             UIAlertAction(
                 title: "OK",
                 style: .default))
-
+        
         // Controller to allow user to change their username
         let controller = UIAlertController(
             title: "Set Username",
             message: nil,
             preferredStyle: .alert)
-
+        
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addTextField(configurationHandler: {
             (textField) in
@@ -167,7 +165,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 handler: {
                     (action) in
                     let enteredText = controller.textFields![0].text
-
+                    
                     if enteredText!.count > 20 || !enteredText!.isAlphanumeric {
                         // The user has entered an invalid username
                         self.present(usernameInvalidController, animated: true)
@@ -196,7 +194,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             ))
         present(controller, animated: true)
     }
-
+    
     // Runs when the profile image is tapped
     @objc func profileImageTapped() {
         // Choose between the camera and the photo library
@@ -204,7 +202,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             title: nil,
             message: nil,
             preferredStyle: .actionSheet)
-
+        
         controller.addAction(
             UIAlertAction(
                 title: "Upload from Camera Roll",
@@ -227,7 +225,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 style: .cancel))
         present(controller, animated: true)
     }
-
+    
     func choosePickerType(source: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -235,28 +233,28 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         imagePickerController.sourceType = source
         present(imagePickerController, animated: true, completion: nil)
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let chosenImage = info[.originalImage] as? UIImage {
             profileImage.image = chosenImage
             profileImage.contentMode = .scaleAspectFill
-
+            
             // Update the database with the new profile picture
             self.db.collection("users").document((Auth.auth().currentUser?.email)!).setData(["profile_image": chosenImage.jpegData(compressionQuality: 0.25)!], merge: true)
         }
         dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == settingsSegueIdentifier {
             if !self.userDefaults.bool(forKey: "UTGuesserSoundOff") {
                 let path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
                 let url = URL(fileURLWithPath: path)
-
+                
                 do {
                     audioPlayer = try AVAudioPlayer(contentsOf: url)
                     audioPlayer!.play()

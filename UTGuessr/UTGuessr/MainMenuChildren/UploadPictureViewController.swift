@@ -21,7 +21,6 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var uploadPhotoButton: UIButton!
     @IBOutlet weak var savePhotoButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var statusLabel: UILabel!
     
     var imagePicker = UIImagePickerController()
@@ -30,11 +29,8 @@ class UploadPictureViewController: UIViewController, UIImagePickerControllerDele
     let locationManager = CLLocationManager()
     var currentLatitude: CLLocationDegrees = 0.0
     var currentLongitude: CLLocationDegrees = 0.0
-    
     var imageUploaded = false
-    
     let db = Firestore.firestore()
-    
     var queue: DispatchQueue!
     
     override func viewWillAppear(_ animated: Bool) {

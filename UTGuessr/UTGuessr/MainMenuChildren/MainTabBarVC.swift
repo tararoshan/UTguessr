@@ -4,10 +4,8 @@
 //
 //  Created by tara on 11/6/23.
 //
-
 import UIKit
 import AVFAudio
-
 
 class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     
@@ -15,7 +13,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     let userDefaults = UserDefaults.standard
     var showingRoundEndedScreen: Bool = false
     var restartGame: Bool = true
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,7 +33,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                 print("Couldn't load sound effect.")
             }
         }
-            
+        
         if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
             // Currently on the game screen, confirm with user before changing screen
             if self.selectedIndex == 0 && !showingRoundEndedScreen {
@@ -64,12 +62,12 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
                 let titleFont = [NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 20.0) ?? UIFont.boldSystemFont(ofSize: 20.0)]
                 let titleAttrString = NSMutableAttributedString(string: "Leave Game", attributes: titleFont)
                 quitGameAlert.setValue(titleAttrString, forKey: "attributedTitle")
-
+                
                 // Customize the appearance of the alert message
                 let messageFont = [NSAttributedString.Key.font: UIFont(name: "AvenirNext-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)]
                 let messageAttrString = NSMutableAttributedString(string: "Are you sure you want to quit?", attributes: messageFont)
                 quitGameAlert.setValue(messageAttrString, forKey: "attributedMessage")
-
+                
                 // And show the alert
                 self.present(quitGameAlert, animated: true)
                 // Stop the tab selection from happening, it'll go through if the user confirms
